@@ -1,0 +1,64 @@
+@import "tailwindcss";
+
+@theme inline {
+  /* Brand palette — exact per color palette doc */
+  --color-floral-white: #fffcf2;
+  --color-dust-grey: #ccc5b9;
+  --color-charcoal-brown: #403d39;
+  --color-carbon-black: #252422;
+  --color-spicy-paprika: #eb5e28;
+  --color-spicy-paprika-dark: #d94f1c;
+
+  /* Aliases used widely in the existing homepage */
+  --color-background: #fffcf2;
+  --color-foreground: #252422;
+
+  /* Font tokens — per design spec image */
+  --font-heading: var(--font-montserrat), "Montserrat", system-ui, sans-serif;
+  --font-sub: var(--font-poppins), "Poppins", system-ui, sans-serif;
+  --font-body: var(--font-dm-sans), "DM Sans", system-ui, sans-serif;
+  --font-sans: var(--font-dm-sans), "DM Sans", system-ui, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+:root {
+  --background: #fffcf2;
+  --foreground: #252422;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #fffcf2;
+    --foreground: #252422;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-body);
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Headings use Montserrat */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+}
+
+/* Eyebrow / sub-heading labels use Poppins */
+.eyebrow,
+.sub-heading {
+  font-family: var(--font-sub);
+}
+
+/* Reusable focus ring */
+*:focus-visible {
+  outline: 2px solid #eb5e28;
+  outline-offset: 2px;
+}
