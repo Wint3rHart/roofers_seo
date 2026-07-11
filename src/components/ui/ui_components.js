@@ -1,25 +1,6 @@
-import { Home } from "lucide-react";
+import { Logo } from "./logo";
 
-function Logo({ dark = false }) {
-  return (
-    <a href="/" className="flex items-center gap-2 group">
-      <Home
-        className="h-7 w-7 transition-transform group-hover:scale-110"
-        style={{ color: "#eb5e28" }}
-        strokeWidth={2.5}
-      />
-      <span
-        className={`font-heading text-lg font-black tracking-tight leading-none ${
-          dark ? "text-[#fffcf2]" : "text-[#252422]"
-        }`}
-      >
-        ROOFER
-        <br />
-        <span style={{ color: "#eb5e28" }}>SEO CO.</span>
-      </span>
-    </a>
-  );
-}
+export { Logo };
 
 function PrimaryButton({ children, className = "", as = "button", href, ...props }) {
   const Comp = as === "a" ? "a" : "button";
@@ -55,4 +36,4 @@ function Eyebrow({ children, className = "" }) {
   );
 }
 
-export { PrimaryButton, SecondaryButton, Eyebrow, Logo };
+export { PrimaryButton, SecondaryButton, Eyebrow };
