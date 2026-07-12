@@ -1,19 +1,22 @@
+"use client";
+
+import { motion } from "framer-motion";
 import { Eyebrow } from "@/components/ui/ui_components";
 import FinalCTA from "@/components/shared/final_cta";
-
-export const metadata = {
-  title: "Privacy Policy — Roofer SEO Co.",
-  description:
-    "How Roofer SEO Co. collects, uses, and protects the personal information you submit through our forms — Free Audit, Contact, and homepage contact form.",
-};
+import {
+  fadeUp,
+  staggerContainer,
+  viewportOnce,
+  useReducedMotion,
+} from "@/components/ui/motion";
 
 const SECTIONS = [
   {
     id: "overview",
     title: "1. Overview",
     body: [
-      "Roofer SEO Co. (\u201cwe,\u201d \u201cus,\u201d or \u201cour\u201d) operates roofersseoco.com (the \u201cSite\u201d). This Privacy Policy explains what personal information we collect through the Site, why we collect it, how we use it, and the choices you have.",
-      "By submitting information through any form on the Site \u2014 the homepage contact form, the Free Audit form, or the Contact form \u2014 you agree to the practices described in this Policy.",
+      "Roofer SEO Co. (“we,” “us,” or “our”) operates roofersseoco.com (the “Site”). This Privacy Policy explains what personal information we collect through the Site, why we collect it, how we use it, and the choices you have.",
+      "By submitting information through any form on the Site — the homepage contact form, the Free Audit form, or the Contact form — you agree to the practices described in this Policy.",
       "This Policy applies only to information collected through the Site. It does not apply to information we may collect through other channels (such as phone calls, emails, or third-party scheduling tools like Calendly), which are governed by their own terms and the agreements we have with you directly.",
     ],
   },
@@ -25,7 +28,7 @@ const SECTIONS = [
       "Homepage contact form: Name, Business Name, Website URL, City, and Email or Phone.",
       "Free Audit form: Name, Business Name, Website URL, City, Email, and (optionally) Phone.",
       "Contact form: Name, Email, Subject (General Question, Partnership, or Other), and Message.",
-      "If you book a call through our embedded Calendly scheduler, Calendly collects its own information (such as name and email) directly from you under Calendly\u2019s privacy policy. We do not control Calendly\u2019s data practices and encourage you to review their policy separately.",
+      "If you book a call through our embedded Calendly scheduler, Calendly collects its own information (such as name and email) directly from you under Calendly’s privacy policy. We do not control Calendly’s data practices and encourage you to review their policy separately.",
       "We do not use advertising trackers, third-party analytics that profile visitors, or hidden fingerprinting. The Site does not collect sensitive personal data such as credit card numbers, Social Security numbers, or health information.",
     ],
   },
@@ -55,7 +58,7 @@ const SECTIONS = [
     body: [
       "We do not sell, rent, or trade your personal information. We share it only in the following limited circumstances:",
       "With service providers we use to operate the Site and deliver our services (such as email delivery, website hosting, or form processing tools), under contracts that require them to protect your information and use it only for the purposes we specify.",
-      "With Calendly, if you book a call through our embedded scheduler \u2014 in which case the information you enter into Calendly is processed under Calendly\u2019s privacy policy, not this one.",
+      "With Calendly, if you book a call through our embedded scheduler — in which case the information you enter into Calendly is processed under Calendly’s privacy policy, not this one.",
       "When required by law, court order, or government regulation; to protect our legal rights; to investigate or prevent fraud; or to protect the safety of any person.",
       "In connection with a sale, merger, or transfer of all or part of our business, subject to the buyer continuing to honor this Policy.",
     ],
@@ -86,7 +89,7 @@ const SECTIONS = [
     body: [
       "Depending on where you live, you may have the right to access the personal information we hold about you, request that we correct or delete it, object to or restrict our processing of it, or request a copy of it in a portable format.",
       "To exercise any of these rights, to ask us to stop contacting you, or to ask questions about this Policy, contact us through the Contact page on this Site or by email at the address listed there.",
-      "We will respond to your request within a reasonable period \u2014 typically within 30 days \u2014 and may ask for additional information to verify your identity before acting on it.",
+      "We will respond to your request within a reasonable period — typically within 30 days — and may ask for additional information to verify your identity before acting on it.",
       "If you are not satisfied with our response, you have the right to lodge a complaint with the data protection authority in your jurisdiction.",
     ],
   },
@@ -94,8 +97,8 @@ const SECTIONS = [
     id: "changes",
     title: "9. Changes to This Policy",
     body: [
-      "We may update this Privacy Policy from time to time. When we do, we will update the \u201clast updated\u201d date at the top of this page.",
-      "If we make material changes \u2014 changes that affect how we collect, use, or share your information \u2014 we will post a prominent notice on the Site before the changes take effect.",
+      "We may update this Privacy Policy from time to time. When we do, we will update the “last updated” date at the top of this page.",
+      "If we make material changes — changes that affect how we collect, use, or share your information — we will post a prominent notice on the Site before the changes take effect.",
       "We encourage you to review this Policy periodically to stay informed about how we handle your information.",
     ],
   },
@@ -110,31 +113,60 @@ const SECTIONS = [
 ];
 
 export default function PrivacyPolicyPage() {
+  const reduce = useReducedMotion();
+
   return (
     <main className="bg-[#fffcf2]">
       {/* Hero */}
       <section className="relative overflow-hidden border-b border-[#ccc5b9]/60">
-        <div
+        <motion.div
+          aria-hidden
           className="absolute -right-24 top-10 hidden h-[320px] w-[320px] rounded-full opacity-50 lg:block"
           style={{ background: "#ccc5b9" }}
+          animate={
+            reduce
+              ? undefined
+              : { x: [0, -24, 0], y: [0, 20, 0], scale: [1, 1.05, 1] }
+          }
+          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
         />
-        <div className="relative mx-auto max-w-4xl px-6 py-16 lg:px-10 lg:py-20">
-          <Eyebrow>LEGAL</Eyebrow>
-          <h1 className="font-heading text-4xl font-black italic leading-[1.1] tracking-tight sm:text-5xl">
-            Privacy Policy
-          </h1>
-          <p className="sub-heading mt-4 text-sm font-light text-[#403d39]/80">
-            Last updated: July 2026
-          </p>
+        <div className="relative mx-auto max-w-4xl px-6 py-16 text-center lg:px-10 lg:py-20">
+          <motion.div
+            variants={staggerContainer(0.14)}
+            initial="hidden"
+            animate="show"
+          >
+            <motion.div variants={fadeUp}>
+              <Eyebrow>LEGAL</Eyebrow>
+            </motion.div>
+            <motion.h1
+              variants={fadeUp}
+              className="font-heading text-4xl font-black italic leading-[1.1] tracking-tight sm:text-5xl"
+            >
+              Privacy Policy
+            </motion.h1>
+            <motion.p
+              variants={fadeUp}
+              className="sub-heading mt-4 text-sm font-light text-[#403d39]/80"
+            >
+              Last updated: July 2026
+            </motion.p>
+          </motion.div>
         </div>
       </section>
 
       {/* Body */}
       <section className="border-b border-[#ccc5b9]/60 bg-[#fffcf7]">
         <div className="mx-auto max-w-3xl px-6 py-16 lg:px-10">
-          <div className="space-y-10">
+          <motion.div
+            className="space-y-10"
+            variants={staggerContainer(0.1)}
+            initial="hidden"
+            whileInView="show"
+            viewport={reduce ? false : viewportOnce}
+          >
             {SECTIONS.map((s) => (
-              <div key={s.id} id={s.id}>
+              <motion.div key={s.id} id={s.id} variants={fadeUp} className="text-center">
                 <h2 className="font-heading text-xl font-bold italic tracking-tight sm:text-2xl">
                   {s.title}
                 </h2>
@@ -148,11 +180,17 @@ export default function PrivacyPolicyPage() {
                     </p>
                   ))}
                 </div>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
 
-          <div className="mt-12 rounded-xl border border-dashed border-[#eb5e28]/60 bg-[#fffcf7] p-5">
+          <motion.div
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="show"
+            viewport={reduce ? false : viewportOnce}
+            className="mt-12 rounded-xl border border-dashed border-[#eb5e28]/60 bg-[#fffcf7] p-5 text-center"
+          >
             <p className="sub-heading text-sm font-light leading-relaxed text-[#403d39]/85">
               <strong className="font-semibold text-[#252422]">
                 Questions about this policy?
@@ -165,9 +203,9 @@ export default function PrivacyPolicyPage() {
               >
                 Contact page
               </a>{" "}
-              and we&apos;ll get back to you within 1–2 business days.
+              and we’ll get back to you within 1–2 business days.
             </p>
-          </div>
+          </motion.div>
         </div>
       </section>
 

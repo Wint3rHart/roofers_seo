@@ -1,6 +1,15 @@
-import React from "react";
+"use client";
+
+import { motion } from "framer-motion";
 import { Star, MapPin, Sparkles } from "lucide-react";
 import { Eyebrow, PrimaryButton } from "../ui/ui_components";
+import {
+  fadeUp,
+  fadeScale,
+  staggerContainer,
+  viewportOnce,
+  useReducedMotion,
+} from "../ui/motion";
 
 const ABOUT_PARAGRAPHS = [
   "Roofing-only strategy means no time wasted explaining storm season or insurance claims — so your plan is right from month one, not month four.",
@@ -15,40 +24,86 @@ const ABOUT_STATS = [
 ];
 
 const AboutUs = () => {
+  const reduce = useReducedMotion();
+
   return (
     <section className="border-b border-[#ccc5b9]/60 bg-[#fffcf7] text-[#252422]">
-      <div className="mx-auto grid max-w-7xl gap-12 px-6 py-20 lg:grid-cols-5 lg:px-10">
-        <div className="lg:col-span-3">
-          <Eyebrow>WHO WE ARE</Eyebrow>
-          <h2 className="font-heading max-w-md text-3xl font-black italic leading-tight tracking-tight sm:text-4xl">
+      <div className="mx-auto max-w-7xl px-6 py-20 lg:px-10">
+        {/* Header — centered */}
+        <motion.div
+          className="mx-auto max-w-3xl text-center"
+          variants={staggerContainer(0.12)}
+          initial="hidden"
+          whileInView="show"
+          viewport={reduce ? false : viewportOnce}
+        >
+          <motion.div variants={fadeUp}>
+            <Eyebrow>WHO WE ARE</Eyebrow>
+          </motion.div>
+          <motion.h2
+            variants={fadeUp}
+            className="font-heading mx-auto text-3xl font-black italic leading-tight tracking-tight sm:text-4xl"
+          >
             SEO and Reputation Management Built for Roofing Businesses
-          </h2>
-          <div className="mt-6 space-y-4">
-            {ABOUT_PARAGRAPHS.map((p) => (
-              <p
-                key={p}
-                className="sub-heading max-w-xl text-sm font-light leading-relaxed text-[#403d39]/90"
-              >
-                {p}
-              </p>
-            ))}
-          </div>
-          <div className="mt-8 flex flex-wrap gap-x-8 gap-y-4">
-            {ABOUT_STATS.map(({ icon: Icon, label }) => (
-              <div key={label} className="flex items-center gap-2">
-                <Icon className="h-5 w-5" style={{ color: "#eb5e28" }} />
-                <span className="text-sm font-bold">{label}</span>
-              </div>
-            ))}
-          </div>
-        </div>
+          </motion.h2>
+        </motion.div>
 
-        <div className="lg:col-span-2">
-          <div className="rounded-2xl bg-[#252422] p-8 text-[#fffcf2] shadow-xl">
+        {/* Body paragraphs — centered */}
+        <motion.div
+          className="mx-auto mt-8 max-w-3xl space-y-4 text-center"
+          variants={staggerContainer(0.1)}
+          initial="hidden"
+          whileInView="show"
+          viewport={reduce ? false : viewportOnce}
+        >
+          {ABOUT_PARAGRAPHS.map((p) => (
+            <motion.p
+              key={p}
+              variants={fadeUp}
+              className="sub-heading mx-auto max-w-2xl text-sm font-light leading-relaxed text-[#403d39]/90"
+            >
+              {p}
+            </motion.p>
+          ))}
+        </motion.div>
+
+        {/* Stats — centered */}
+        <motion.div
+          className="mt-10 flex flex-wrap justify-center gap-x-8 gap-y-4"
+          variants={staggerContainer(0.08)}
+          initial="hidden"
+          whileInView="show"
+          viewport={reduce ? false : viewportOnce}
+        >
+          {ABOUT_STATS.map(({ icon: Icon, label }) => (
+            <motion.div
+              key={label}
+              variants={fadeUp}
+              className="flex items-center gap-2"
+            >
+              <Icon className="h-5 w-5" style={{ color: "#eb5e28" }} />
+              <span className="text-sm font-bold">{label}</span>
+            </motion.div>
+          ))}
+        </motion.div>
+
+        {/* Contact form card — centered */}
+        <motion.div
+          className="mx-auto mt-12 max-w-xl"
+          variants={fadeScale}
+          initial="hidden"
+          whileInView="show"
+          viewport={reduce ? false : viewportOnce}
+        >
+          <div className="rounded-2xl bg-[#252422] p-8 text-center text-[#fffcf2] shadow-xl">
             <h3 className="font-heading text-xl font-bold italic">
               Let&apos;s Talk About Your Rankings
             </h3>
-            <form className="mt-6 space-y-4" action="/thank-you" method="post">
+            <form
+              className="mt-6 space-y-4 text-left"
+              action="/thank-you?type=free-audit"
+              method="post"
+            >
               <div className="grid grid-cols-2 gap-3">
                 <input
                   type="text"
@@ -90,7 +145,7 @@ const AboutUs = () => {
               </PrimaryButton>
             </form>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 import { ArrowRight, ChevronDown, Menu, X } from "lucide-react";
 import { Logo, PrimaryButton } from "../ui/ui_components";
 
@@ -33,7 +34,10 @@ export default function Navbar() {
   }, []);
 
   return (
-    <header
+    <motion.header
+      initial={{ y: -80, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
       className={`sticky top-0 z-50 border-b transition-colors ${
         scrolled
           ? "border-[#ccc5b9]/80 bg-[#fffcf2]/95 backdrop-blur"
@@ -160,6 +164,6 @@ export default function Navbar() {
           </nav>
         </div>
       )}
-    </header>
+    </motion.header>
   );
 }

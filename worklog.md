@@ -41,3 +41,31 @@ Stage Summary:
 - Team/Founder section deliberately omitted from About page per doc decision (company voice only)
 - Blog ships with 0 posts and a branded empty state per doc ("ship the template/index now with 0 posts")
 - Privacy Policy covers form data collection (Name/Email/Phone/Website URL) across Free Audit, Contact, and homepage contact form — doc note about legal review before publishing is included as section 10
+
+---
+Task ID: animations
+Agent: Super Z (main)
+Task: Add framer-motion animations across all remaining components in the project. Use whileInView for headings/texts/images, stagger children, center-align all text. Respect prefers-reduced-motion.
+
+Work Log:
+- Created shared motion variants file at src/components/ui/motion.js with: fadeUp, fadeUpSm, fadeScale, staggerContainer(stagger, delay), viewportOnce, useMotionReady, useReducedMotion
+- Pattern: motion.div with variants={staggerContainer} initial="hidden" whileInView="show" viewport={viewportOnce}, children with variants={fadeUp}
+- Animated + center-aligned all 8 remaining homepage components: about_us, services, why, cta_ribbon, process, pricing, faq, final_cta
+- Animated shared components: page_header, final_cta (shared), service_page_template (all 8 sections now animated), free_audit_form
+- Animated layout components: navbar (entrance slide-down from y:-80), footer (staggered columns)
+- Animated all 7 inner page routes: free-audit, book-a-call, contact, about, blog, not-found, privacy-policy, thank-you
+- FAQ accordion now uses AnimatePresence + height:0 -> height:auto for smooth expand/collapse
+- Hover micro-interactions added: cards lift up on hover (y:-6), CTA buttons scale 1.05 on hover, badge rotates
+- Big background circle on every hero/header has a slow 12-14s drift loop (x, y, scale)
+- Service page hero icon has gentle 8s rotate wobble loop
+- Blog empty-state icon has gentle 3s float loop
+- All animations respect useReducedMotion() — users with prefers-reduced-motion get static layout
+- All text converted to center alignment (text-center) across all components and pages
+
+Stage Summary:
+- All 15 routes still compile + prerender as static (verified via npm run build)
+- All 13 user-facing routes return 200, /nonexistent returns 404
+- 117 JS chunks loaded per page (framer-motion bundled in)
+- Initial hidden state confirmed in SSR HTML: opacity:0 + translateY values visible, hydrating to visible on client
+- text-center applied 22-24 times per page across all components
+- Animation system is DRY via shared motion.js file — single import gets you all variants + helpers

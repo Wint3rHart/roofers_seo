@@ -1,13 +1,17 @@
+"use client";
+
+import { motion } from "framer-motion";
 import { Eyebrow } from "@/components/ui/ui_components";
 import { Check, ShieldCheck } from "lucide-react";
 import FreeAuditForm from "@/components/shared/free_audit_form";
 import FinalCTA from "@/components/shared/final_cta";
-
-export const metadata = {
-  title: "Free Roofing SEO Audit — Roofer SEO Co.",
-  description:
-    "See exactly where your business is losing visibility — and what it would take to fix it. Manually-reviewed, delivered by email within 2 business days.",
-};
+import {
+  fadeUp,
+  fadeScale,
+  staggerContainer,
+  viewportOnce,
+  useReducedMotion,
+} from "@/components/ui/motion";
 
 const WHAT_THEY_GET = [
   "A review of your Google Business Profile, map pack ranking, and review count",
@@ -16,32 +20,66 @@ const WHAT_THEY_GET = [
 ];
 
 export default function FreeAuditPage() {
+  const reduce = useReducedMotion();
+
   return (
     <main className="bg-[#fffcf2]">
       {/* Hero */}
       <section className="relative overflow-hidden border-b border-[#ccc5b9]/60">
-        <div
+        <motion.div
+          aria-hidden
           className="absolute -right-24 top-10 hidden h-[320px] w-[320px] rounded-full opacity-50 lg:block"
           style={{ background: "#ccc5b9" }}
+          animate={
+            reduce
+              ? undefined
+              : { x: [0, -24, 0], y: [0, 20, 0], scale: [1, 1.05, 1] }
+          }
+          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
         />
         <div className="relative mx-auto grid max-w-7xl gap-12 px-6 py-16 lg:grid-cols-2 lg:items-center lg:px-10 lg:py-20">
-          <div>
-            <Eyebrow>FREE AUDIT</Eyebrow>
-            <h1 className="font-heading text-4xl font-black italic leading-[1.1] tracking-tight sm:text-5xl">
+          <motion.div
+            variants={staggerContainer(0.12)}
+            initial="hidden"
+            animate="show"
+          >
+            <motion.div variants={fadeUp}>
+              <Eyebrow>FREE AUDIT</Eyebrow>
+            </motion.div>
+            <motion.h1
+              variants={fadeUp}
+              className="font-heading text-4xl font-black italic leading-[1.1] tracking-tight sm:text-5xl"
+            >
               Get Your Free Roofing SEO Audit
-            </h1>
-            <p className="sub-heading mt-6 max-w-lg text-base font-light leading-relaxed text-[#403d39]/90">
-              See exactly where your business is losing visibility — and what
-              it would take to fix it.
-            </p>
+            </motion.h1>
+            <motion.p
+              variants={fadeUp}
+              className="sub-heading mt-6 max-w-lg text-base font-light leading-relaxed text-[#403d39]/90"
+            >
+              See exactly where your business is losing visibility — and
+              what it would take to fix it.
+            </motion.p>
 
-            <div className="mt-8 space-y-4">
-              <p className="eyebrow text-xs font-bold uppercase tracking-[0.18em] text-[#eb5e28]">
+            <motion.div
+              variants={staggerContainer(0.1)}
+              initial="hidden"
+              whileInView="show"
+              viewport={reduce ? false : viewportOnce}
+              className="mt-8 space-y-4"
+            >
+              <motion.p
+                variants={fadeUp}
+                className="eyebrow text-xs font-bold uppercase tracking-[0.18em] text-[#eb5e28]"
+              >
                 What you get
-              </p>
+              </motion.p>
               <ul className="space-y-3">
                 {WHAT_THEY_GET.map((item, i) => (
-                  <li key={i} className="flex gap-3">
+                  <motion.li
+                    key={i}
+                    variants={fadeUp}
+                    className="flex items-center justify-center gap-3 text-center sm:justify-start sm:text-left"
+                  >
                     <div
                       className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full"
                       style={{ background: "#eb5e28" }}
@@ -51,14 +89,18 @@ export default function FreeAuditPage() {
                     <span className="sub-heading text-sm font-light leading-relaxed text-[#403d39]/90">
                       {item}
                     </span>
-                  </li>
+                  </motion.li>
                 ))}
               </ul>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
 
-          <div>
-            <div className="rounded-2xl bg-[#252422] p-8 text-[#fffcf2] shadow-xl">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.94, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <div className="rounded-2xl bg-[#252422] p-8 text-center text-[#fffcf2] shadow-xl">
               <h2 className="font-heading text-xl font-bold italic">
                 Send Me My Free Audit
               </h2>
@@ -69,23 +111,32 @@ export default function FreeAuditPage() {
                 <FreeAuditForm buttonLabel="Send Me My Free Audit" />
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
 
       {/* Trust signal */}
-      <section className="border-b border-[#ccc5b9]/60 bg-[#fffcf7]">
+      <motion.section
+        className="border-b border-[#ccc5b9]/60 bg-[#fffcf7]"
+        variants={fadeScale}
+        initial="hidden"
+        whileInView="show"
+        viewport={reduce ? false : viewportOnce}
+      >
         <div className="mx-auto max-w-3xl px-6 py-14 text-center lg:px-10">
-          <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full" style={{ background: "#eb5e28" }}>
+          <div
+            className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full"
+            style={{ background: "#eb5e28" }}
+          >
             <ShieldCheck className="h-6 w-6 text-[#fffcf2]" />
           </div>
           <p className="sub-heading text-base font-light leading-relaxed text-[#403d39]/90">
             We personally review every submission — no automated reports.
-            You&apos;ll get your audit by email within 2 business days. No
-            sales pressure, no obligation.
+            You’ll get your audit by email within 2 business days. No sales
+            pressure, no obligation.
           </p>
         </div>
-      </section>
+      </motion.section>
 
       <FinalCTA
         heading="Prefer to talk it through live?"

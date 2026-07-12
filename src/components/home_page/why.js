@@ -1,5 +1,14 @@
-import React from "react";
+"use client";
+
+import { motion } from "framer-motion";
 import { Eyebrow } from "../ui/ui_components";
+import {
+  fadeUp,
+  fadeScale,
+  staggerContainer,
+  viewportOnce,
+  useReducedMotion,
+} from "../ui/motion";
 
 const WHY_ROWS = [
   {
@@ -10,7 +19,7 @@ const WHY_ROWS = [
   {
     label: "SERVICES",
     heading: "Covering Every Place Homeowners Actually Search",
-    copy: "Google, Google Maps, and AI search tools all get asked the same question — \u201cwho\u2019s a good roofer near me\u201d — so optimizing for all three closes the gap most agencies leave open.",
+    copy: "Google, Google Maps, and AI search tools all get asked the same question — “who’s a good roofer near me” — so optimizing for all three closes the gap most agencies leave open.",
   },
   {
     label: "TRANSPARENCY",
@@ -25,28 +34,51 @@ const WHY_ROWS = [
 ];
 
 const Why = () => {
+  const reduce = useReducedMotion();
+
   return (
     <section className="border-b border-[#ccc5b9]/60 bg-[#fffcf7] text-[#252422]">
       <div className="mx-auto max-w-7xl px-6 py-20 lg:px-10">
-        <div className="mx-auto max-w-2xl text-center">
-          <Eyebrow>WHY ROOFER SEO CO.</Eyebrow>
-          <h2 className="font-heading text-3xl font-black italic leading-tight tracking-tight sm:text-4xl">
+        {/* Header — centered */}
+        <motion.div
+          className="mx-auto max-w-2xl text-center"
+          variants={staggerContainer(0.12)}
+          initial="hidden"
+          whileInView="show"
+          viewport={reduce ? false : viewportOnce}
+        >
+          <motion.div variants={fadeUp}>
+            <Eyebrow>WHY ROOFER SEO CO.</Eyebrow>
+          </motion.div>
+          <motion.h2
+            variants={fadeUp}
+            className="font-heading text-3xl font-black italic leading-tight tracking-tight sm:text-4xl"
+          >
             Built Only for Roofing Companies
-          </h2>
-          <p className="sub-heading mt-4 text-sm font-light text-[#403d39]/80">
-            Here&apos;s what that focus actually does for your business.
-          </p>
-        </div>
+          </motion.h2>
+          <motion.p
+            variants={fadeUp}
+            className="sub-heading mt-4 text-sm font-light text-[#403d39]/80"
+          >
+            Here’s what that focus actually does for your business.
+          </motion.p>
+        </motion.div>
 
+        {/* Alternating rows */}
         <div className="mt-14 space-y-14">
           {WHY_ROWS.map((row, i) => (
-            <div
+            <motion.div
               key={row.heading}
-              className={`flex flex-col items-center gap-8 lg:flex-row lg:gap-16 ${
+              className={`flex flex-col items-center gap-8 text-center lg:flex-row lg:gap-16 lg:text-left ${
                 i % 2 === 1 ? "lg:flex-row-reverse" : ""
               }`}
+              variants={staggerContainer(0.15)}
+              initial="hidden"
+              whileInView="show"
+              viewport={reduce ? false : viewportOnce}
             >
-              <div
+              <motion.div
+                variants={fadeScale}
                 className="aspect-video w-full flex-1 rounded-xl"
                 style={{
                   background:
@@ -55,7 +87,7 @@ const Why = () => {
                       : "linear-gradient(135deg, #ccc5b9, #403d39)",
                 }}
               />
-              <div className="flex-1">
+              <motion.div variants={fadeUp} className="flex-1">
                 <p
                   className="eyebrow mb-2 text-xs font-bold tracking-[0.18em]"
                   style={{ color: "#eb5e28" }}
@@ -68,8 +100,8 @@ const Why = () => {
                 <p className="sub-heading mt-3 text-sm font-light leading-relaxed text-[#403d39]/85">
                   {row.copy}
                 </p>
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
           ))}
         </div>
       </div>

@@ -2,14 +2,21 @@
 
 import { useSearchParams } from "next/navigation";
 import { Suspense } from "react";
+import { motion } from "framer-motion";
 import { CheckCircle, ArrowRight, Mail, Clock } from "lucide-react";
 import { Eyebrow, PrimaryButton, SecondaryButton } from "@/components/ui/ui_components";
+import {
+  fadeUp,
+  fadeScale,
+  staggerContainer,
+  useReducedMotion,
+} from "@/components/ui/motion";
 
 const VARIANTS = {
   "free-audit": {
     eyebrow: "AUDIT REQUEST RECEIVED",
     heading: "Your free audit is on the way",
-    body: "Thanks for sending your details. We personally review every submission — no automated reports — so you\u2019ll get your audit by email within 2 business days. No sales pressure, no obligation.",
+    body: "Thanks for sending your details. We personally review every submission — no automated reports — so you’ll get your audit by email within 2 business days. No sales pressure, no obligation.",
     bullet: {
       icon: Mail,
       label: "Delivered by email within 2 business days",
@@ -22,10 +29,10 @@ const VARIANTS = {
   contact: {
     eyebrow: "MESSAGE RECEIVED",
     heading: "Thanks for reaching out",
-    body: "We\u2019ve got your message and will get back to you within 1\u20132 business days. If you mentioned something time-sensitive, we\u2019ll prioritize it.",
+    body: "We’ve got your message and will get back to you within 1–2 business days. If you mentioned something time-sensitive, we’ll prioritize it.",
     bullet: {
       icon: Clock,
-      label: "We typically respond within 1\u20132 business days",
+      label: "We typically respond within 1–2 business days",
     },
     primaryLabel: "Get a Free Audit",
     primaryHref: "/free-audit",
@@ -34,11 +41,11 @@ const VARIANTS = {
   },
   default: {
     eyebrow: "GOT IT",
-    heading: "Thanks \u2014 we\u2019ll be in touch",
-    body: "Your submission has been received. We\u2019ll get back to you shortly.",
+    heading: "Thanks — we’ll be in touch",
+    body: "Your submission has been received. We’ll get back to you shortly.",
     bullet: {
       icon: Mail,
-      label: "We typically respond within 1\u20132 business days",
+      label: "We typically respond within 1–2 business days",
     },
     primaryLabel: "Back to Homepage",
     primaryHref: "/",
@@ -47,84 +54,133 @@ const VARIANTS = {
   },
 };
 
+const SERVICE_LINKS = [
+  { label: "Reputation Management", href: "/services/reputation-management" },
+  { label: "Local SEO", href: "/services/local-seo" },
+  { label: "Web Design", href: "/services/web-design" },
+  { label: "AI Search Visibility", href: "/services/ai-search-visibility" },
+];
+
 function ThankYouContent() {
   const params = useSearchParams();
   const type = params.get("type");
   const variant = VARIANTS[type] || VARIANTS.default;
+  const reduce = useReducedMotion();
 
   return (
     <main className="bg-[#fffcf2]">
       <section className="relative overflow-hidden border-b border-[#ccc5b9]/60">
-        <div
+        <motion.div
+          aria-hidden
           className="absolute -right-24 top-10 hidden h-[320px] w-[320px] rounded-full opacity-50 lg:block"
           style={{ background: "#ccc5b9" }}
+          animate={
+            reduce
+              ? undefined
+              : { x: [0, -24, 0], y: [0, 20, 0], scale: [1, 1.05, 1] }
+          }
+          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
         />
         <div className="relative mx-auto max-w-3xl px-6 py-24 text-center lg:px-10 lg:py-32">
-          <div
-            className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full"
-            style={{ background: "#eb5e28" }}
+          <motion.div
+            variants={staggerContainer(0.14)}
+            initial="hidden"
+            animate="show"
           >
-            <CheckCircle className="h-8 w-8 text-[#fffcf2]" />
-          </div>
-          <Eyebrow>{variant.eyebrow}</Eyebrow>
-          <h1 className="font-heading text-4xl font-black italic leading-[1.1] tracking-tight sm:text-5xl">
-            {variant.heading}
-          </h1>
-          <p className="sub-heading mx-auto mt-5 max-w-xl text-base font-light leading-relaxed text-[#403d39]/90">
-            {variant.body}
-          </p>
+            <motion.div
+              variants={fadeScale}
+              className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full"
+              style={{ background: "#eb5e28" }}
+            >
+              <CheckCircle className="h-8 w-8 text-[#fffcf2]" />
+            </motion.div>
+            <motion.div variants={fadeUp}>
+              <Eyebrow>{variant.eyebrow}</Eyebrow>
+            </motion.div>
+            <motion.h1
+              variants={fadeUp}
+              className="font-heading text-4xl font-black italic leading-[1.1] tracking-tight sm:text-5xl"
+            >
+              {variant.heading}
+            </motion.h1>
+            <motion.p
+              variants={fadeUp}
+              className="sub-heading mx-auto mt-5 max-w-xl text-base font-light leading-relaxed text-[#403d39]/90"
+            >
+              {variant.body}
+            </motion.p>
 
-          <div className="mx-auto mt-8 inline-flex items-center gap-2 rounded-full border border-[#ccc5b9] bg-white/60 px-5 py-2.5">
-            <variant.bullet.icon
-              className="h-4 w-4"
-              style={{ color: "#eb5e28" }}
-            />
-            <span className="sub-heading text-sm font-medium text-[#403d39]">
-              {variant.bullet.label}
-            </span>
-          </div>
+            <motion.div
+              variants={fadeUp}
+              className="mx-auto mt-8 inline-flex items-center gap-2 rounded-full border border-[#ccc5b9] bg-white/60 px-5 py-2.5"
+            >
+              <variant.bullet.icon
+                className="h-4 w-4"
+                style={{ color: "#eb5e28" }}
+              />
+              <span className="sub-heading text-sm font-medium text-[#403d39]">
+                {variant.bullet.label}
+              </span>
+            </motion.div>
 
-          <div className="mt-10 flex flex-wrap justify-center gap-4">
-            <PrimaryButton as="a" href={variant.primaryHref}>
-              {variant.primaryLabel} <ArrowRight className="h-4 w-4" />
-            </PrimaryButton>
-            <SecondaryButton as="a" href={variant.secondaryHref}>
-              {variant.secondaryLabel}
-            </SecondaryButton>
-          </div>
+            <motion.div
+              variants={fadeScale}
+              className="mt-10 flex flex-wrap justify-center gap-4"
+            >
+              <PrimaryButton as="a" href={variant.primaryHref}>
+                {variant.primaryLabel} <ArrowRight className="h-4 w-4" />
+              </PrimaryButton>
+              <SecondaryButton as="a" href={variant.secondaryHref}>
+                {variant.secondaryLabel}
+              </SecondaryButton>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
 
       {/* Cross-links */}
-      <section className="border-b border-[#ccc5b9]/60 bg-[#fffcf7]">
-        <div className="mx-auto max-w-5xl px-6 py-16 lg:px-10">
-          <p className="eyebrow text-center text-xs font-bold uppercase tracking-[0.18em] text-[#eb5e28]">
+      <motion.section
+        className="border-b border-[#ccc5b9]/60 bg-[#fffcf7]"
+        variants={staggerContainer(0.1)}
+        initial="hidden"
+        whileInView="show"
+        viewport={reduce ? false : { once: true, margin: "-80px" }}
+      >
+        <div className="mx-auto max-w-5xl px-6 py-16 text-center lg:px-10">
+          <motion.p
+            variants={fadeUp}
+            className="eyebrow text-xs font-bold uppercase tracking-[0.18em] text-[#eb5e28]"
+          >
             While you’re here
-          </p>
-          <h2 className="mt-3 text-center font-heading text-2xl font-black italic tracking-tight sm:text-3xl">
+          </motion.p>
+          <motion.h2
+            variants={fadeUp}
+            className="mt-3 font-heading text-2xl font-black italic tracking-tight sm:text-3xl"
+          >
             Explore our roofing services
-          </h2>
+          </motion.h2>
           <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {[
-              { label: "Reputation Management", href: "/services/reputation-management" },
-              { label: "Local SEO", href: "/services/local-seo" },
-              { label: "Web Design", href: "/services/web-design" },
-              { label: "AI Search Visibility", href: "/services/ai-search-visibility" },
-            ].map((s) => (
-              <a
+            {SERVICE_LINKS.map((s) => (
+              <motion.a
                 key={s.href}
                 href={s.href}
-                className="group rounded-xl border border-[#ccc5b9]/70 bg-white/50 p-5 transition-all hover:shadow-lg"
+                variants={fadeScale}
+                whileHover={reduce ? undefined : { y: -6 }}
+                transition={{ duration: 0.25 }}
+                className="group rounded-xl border border-[#ccc5b9]/70 bg-white/50 p-5 text-center transition-all hover:shadow-lg"
               >
                 <h3 className="font-heading text-base font-bold">{s.label}</h3>
-                <p className="mt-2 inline-flex items-center gap-1 text-xs font-bold transition-transform group-hover:translate-x-1" style={{ color: "#eb5e28" }}>
+                <p
+                  className="mt-2 inline-flex items-center justify-center gap-1 text-xs font-bold transition-transform group-hover:translate-x-1"
+                  style={{ color: "#eb5e28" }}
+                >
                   Learn More <ArrowRight className="h-3 w-3" />
                 </p>
-              </a>
+              </motion.a>
             ))}
           </div>
         </div>
-      </section>
+      </motion.section>
     </main>
   );
 }

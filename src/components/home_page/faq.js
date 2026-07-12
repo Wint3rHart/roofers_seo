@@ -1,7 +1,14 @@
 "use client";
 
 import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown } from "lucide-react";
+import {
+  fadeUp,
+  staggerContainer,
+  viewportOnce,
+  useReducedMotion,
+} from "../ui/motion";
 
 const FAQS = [
   {
@@ -44,34 +51,64 @@ function FAQItem({ question, answer, isOpen, onToggle }) {
           }`}
         />
       </button>
-      {isOpen && (
-        <p className="sub-heading pb-5 text-sm font-light leading-relaxed text-[#403d39]/80">
-          {answer}
-        </p>
-      )}
+      <AnimatePresence initial={false}>
+        {isOpen && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+            className="overflow-hidden"
+          >
+            <p className="sub-heading pb-5 text-center text-sm font-light leading-relaxed text-[#403d39]/80">
+              {answer}
+            </p>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
 
 export const Faq = () => {
   const [openFaq, setOpenFaq] = useState(null);
+  const reduce = useReducedMotion();
+
   return (
     <section className="border-b border-[#ccc5b9]/60 bg-[#fffcf7] text-[#252422]">
-      <div className="mx-auto max-w-3xl px-6 py-20 lg:px-10">
-        <h2 className="text-center font-heading text-3xl font-black italic leading-tight tracking-tight sm:text-4xl">
-          Frequently Asked Questions
-        </h2>
-        <div className="mt-10">
+      <div className="mx-auto max-w-3xl px-6 py-20 text-center lg:px-10">
+        <motion.div
+          variants={staggerContainer(0.12)}
+          initial="hidden"
+          whileInView="show"
+          viewport={reduce ? false : viewportOnce}
+        >
+          <motion.h2
+            variants={fadeUp}
+            className="font-heading text-3xl font-black italic leading-tight tracking-tight sm:text-4xl"
+          >
+            Frequently Asked Questions
+          </motion.h2>
+        </motion.div>
+
+        <motion.div
+          className="mt-10 text-left"
+          variants={staggerContainer(0.08)}
+          initial="hidden"
+          whileInView="show"
+          viewport={reduce ? false : viewportOnce}
+        >
           {FAQS.map((item, i) => (
-            <FAQItem
-              key={item.q}
-              question={item.q}
-              answer={item.a}
-              isOpen={openFaq === i}
-              onToggle={() => setOpenFaq(openFaq === i ? null : i)}
-            />
+            <motion.div key={i} variants={fadeUp}>
+              <FAQItem
+                question={item.q}
+                answer={item.a}
+                isOpen={openFaq === i}
+                onToggle={() => setOpenFaq(openFaq === i ? null : i)}
+              />
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

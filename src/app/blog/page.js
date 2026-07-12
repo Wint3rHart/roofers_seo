@@ -1,8 +1,16 @@
 "use client";
 
 import { useState } from "react";
+import { motion } from "framer-motion";
 import { Eyebrow, PrimaryButton } from "@/components/ui/ui_components";
 import { ArrowRight, PenLine } from "lucide-react";
+import {
+  fadeUp,
+  fadeScale,
+  staggerContainer,
+  viewportOnce,
+  useReducedMotion,
+} from "@/components/ui/motion";
 
 const CATEGORIES = [
   "All",
@@ -15,34 +23,60 @@ const CATEGORIES = [
 
 export default function BlogPage() {
   const [active, setActive] = useState("All");
+  const reduce = useReducedMotion();
 
   return (
     <main className="bg-[#fffcf2]">
       {/* Hero */}
       <section className="relative overflow-hidden border-b border-[#ccc5b9]/60">
-        <div
+        <motion.div
+          aria-hidden
           className="absolute -right-24 top-10 hidden h-[320px] w-[320px] rounded-full opacity-50 lg:block"
           style={{ background: "#ccc5b9" }}
+          animate={
+            reduce
+              ? undefined
+              : { x: [0, -24, 0], y: [0, 20, 0], scale: [1, 1.05, 1] }
+          }
+          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
         />
-        <div className="relative mx-auto max-w-4xl px-6 py-16 lg:px-10 lg:py-20">
-          <div className="text-center">
-            <Eyebrow>THE BLOG</Eyebrow>
-            <h1 className="font-heading text-4xl font-black italic leading-[1.1] tracking-tight sm:text-5xl">
+        <div className="relative mx-auto max-w-4xl px-6 py-16 text-center lg:px-10 lg:py-20">
+          <motion.div
+            variants={staggerContainer(0.14)}
+            initial="hidden"
+            animate="show"
+          >
+            <motion.div variants={fadeUp}>
+              <Eyebrow>THE BLOG</Eyebrow>
+            </motion.div>
+            <motion.h1
+              variants={fadeUp}
+              className="font-heading text-4xl font-black italic leading-[1.1] tracking-tight sm:text-5xl"
+            >
               Roofing SEO, in plain English
-            </h1>
-            <p className="sub-heading mx-auto mt-5 max-w-2xl text-base font-light leading-relaxed text-[#403d39]/90">
+            </motion.h1>
+            <motion.p
+              variants={fadeUp}
+              className="sub-heading mx-auto mt-5 max-w-2xl text-base font-light leading-relaxed text-[#403d39]/90"
+            >
               Practical writing on reviews, local SEO, web design, and AI
               search visibility — built for roofing contractors, not for
               other marketers.
-            </p>
-          </div>
+            </motion.p>
+          </motion.div>
         </div>
       </section>
 
       {/* Category filters */}
-      <section className="border-b border-[#ccc5b9]/60 bg-[#fffcf7]">
+      <motion.section
+        className="border-b border-[#ccc5b9]/60 bg-[#fffcf7]"
+        variants={fadeUp}
+        initial="hidden"
+        whileInView="show"
+        viewport={reduce ? false : viewportOnce}
+      >
         <div className="mx-auto max-w-6xl px-6 py-6 lg:px-10">
-          <div className="flex flex-wrap gap-2">
+          <div className="flex flex-wrap justify-center gap-2">
             {CATEGORIES.map((cat) => (
               <button
                 key={cat}
@@ -58,22 +92,30 @@ export default function BlogPage() {
             ))}
           </div>
         </div>
-      </section>
+      </motion.section>
 
-      {/* Empty state — per doc, ship with 0 posts */}
-      <section className="border-b border-[#ccc5b9]/60 bg-[#fffcf2]">
+      {/* Empty state */}
+      <motion.section
+        className="border-b border-[#ccc5b9]/60 bg-[#fffcf2]"
+        variants={fadeScale}
+        initial="hidden"
+        whileInView="show"
+        viewport={reduce ? false : viewportOnce}
+      >
         <div className="mx-auto max-w-3xl px-6 py-24 text-center lg:px-10">
-          <div
+          <motion.div
             className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full"
             style={{ background: "#eb5e28" }}
+            animate={reduce ? undefined : { y: [0, -6, 0] }}
+            transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
           >
             <PenLine className="h-7 w-7 text-[#fffcf2]" />
-          </div>
+          </motion.div>
           <h2 className="font-heading text-2xl font-black italic leading-tight tracking-tight sm:text-3xl">
             Posts are coming soon
           </h2>
           <p className="sub-heading mx-auto mt-4 max-w-xl text-sm font-light leading-relaxed text-[#403d39]/85">
-            We&apos;re building out a practical library on roofing-specific
+            We’re building out a practical library on roofing-specific
             reputation, local SEO, web design, and AI search — written for
             contractors, not for other marketers. No filler, no recycled
             listicles.
@@ -95,19 +137,34 @@ export default function BlogPage() {
             </a>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Final CTA */}
-      <section className="bg-[#252422]">
+      <motion.section
+        className="bg-[#252422]"
+        variants={staggerContainer(0.14)}
+        initial="hidden"
+        whileInView="show"
+        viewport={reduce ? false : viewportOnce}
+      >
         <div className="mx-auto max-w-3xl px-6 py-24 text-center lg:px-10">
-          <h2 className="font-heading text-3xl font-black italic leading-tight text-[#fffcf2] sm:text-4xl">
+          <motion.h2
+            variants={fadeUp}
+            className="font-heading text-3xl font-black italic leading-tight text-[#fffcf2] sm:text-4xl"
+          >
             Ready to Boost Your Rankings?
-          </h2>
-          <p className="sub-heading mx-auto mt-4 max-w-lg text-sm font-light text-[#ccc5b9]">
-            Get more 5-star reviews, more visibility, and more roofing jobs
-            — with a system built only for roofers.
-          </p>
-          <div className="mt-8 flex flex-wrap justify-center gap-4">
+          </motion.h2>
+          <motion.p
+            variants={fadeUp}
+            className="sub-heading mx-auto mt-4 max-w-lg text-sm font-light text-[#ccc5b9]"
+          >
+            Get more 5-star reviews, more visibility, and more roofing
+            jobs — with a system built only for roofers.
+          </motion.p>
+          <motion.div
+            variants={fadeScale}
+            className="mt-8 flex flex-wrap justify-center gap-4"
+          >
             <PrimaryButton as="a" href="/book-a-call">
               Book a Call
             </PrimaryButton>
@@ -117,9 +174,9 @@ export default function BlogPage() {
             >
               Get a Free Audit
             </a>
-          </div>
+          </motion.div>
         </div>
-      </section>
+      </motion.section>
     </main>
   );
 }

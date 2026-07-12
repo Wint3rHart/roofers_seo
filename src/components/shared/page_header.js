@@ -1,5 +1,15 @@
+"use client";
+
+import { motion } from "framer-motion";
 import { Eyebrow, PrimaryButton, SecondaryButton } from "../ui/ui_components";
 import { ArrowRight } from "lucide-react";
+import {
+  fadeUp,
+  fadeScale,
+  staggerContainer,
+  viewportOnce,
+  useReducedMotion,
+} from "../ui/motion";
 
 /**
  * Shared inner-page hero header.
@@ -15,33 +25,55 @@ export default function PageHeader({
   secondaryHref,
   align = "center",
 }) {
-  const isLeft = align === "left";
+  const reduce = useReducedMotion();
+
   return (
     <section className="relative overflow-hidden border-b border-[#ccc5b9]/60 bg-[#fffcf2]">
-      <div
+      <motion.div
+        aria-hidden
         className="absolute -right-24 -top-10 hidden h-[320px] w-[320px] rounded-full opacity-50 lg:block"
         style={{ background: "#ccc5b9" }}
+        animate={
+          reduce
+            ? undefined
+            : {
+                x: [0, -24, 0],
+                y: [0, 20, 0],
+                scale: [1, 1.05, 1],
+              }
+        }
+        transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
       />
-      <div className="relative mx-auto max-w-4xl px-6 py-16 lg:px-10 lg:py-20">
-        <div className={isLeft ? "text-left" : "text-center"}>
-          {eyebrow && <Eyebrow>{eyebrow}</Eyebrow>}
-          <h1 className="font-heading text-4xl font-black italic leading-[1.1] tracking-tight sm:text-5xl">
+      <div className="relative mx-auto max-w-4xl px-6 py-16 text-center lg:px-10 lg:py-20">
+        <motion.div
+          className="text-center"
+          variants={staggerContainer(0.14)}
+          initial="hidden"
+          animate="show"
+        >
+          {eyebrow && (
+            <motion.div variants={fadeUp}>
+              <Eyebrow>{eyebrow}</Eyebrow>
+            </motion.div>
+          )}
+          <motion.h1
+            variants={fadeUp}
+            className="font-heading text-4xl font-black italic leading-[1.1] tracking-tight sm:text-5xl"
+          >
             {title}
-          </h1>
+          </motion.h1>
           {subtitle && (
-            <p
-              className={`sub-heading mt-5 max-w-2xl text-base font-light leading-relaxed text-[#403d39]/90 ${
-                isLeft ? "" : "mx-auto"
-              }`}
+            <motion.p
+              variants={fadeUp}
+              className="sub-heading mx-auto mt-5 max-w-2xl text-base font-light leading-relaxed text-[#403d39]/90"
             >
               {subtitle}
-            </p>
+            </motion.p>
           )}
           {(primaryCta || secondaryCta) && (
-            <div
-              className={`mt-8 flex flex-wrap gap-4 ${
-                isLeft ? "" : "justify-center"
-              }`}
+            <motion.div
+              variants={fadeScale}
+              className="mt-8 flex flex-wrap justify-center gap-4"
             >
               {primaryCta && (
                 <PrimaryButton as="a" href={primaryHref}>
@@ -53,9 +85,9 @@ export default function PageHeader({
                   {secondaryCta}
                 </SecondaryButton>
               )}
-            </div>
+            </motion.div>
           )}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

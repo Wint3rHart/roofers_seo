@@ -1,5 +1,14 @@
-import React from "react";
+"use client";
+
+import { motion } from "framer-motion";
 import { Eyebrow } from "../ui/ui_components";
+import {
+  fadeUp,
+  fadeScale,
+  staggerContainer,
+  viewportOnce,
+  useReducedMotion,
+} from "../ui/motion";
 
 const PROCESS_STEPS = [
   { n: "01", title: "Discovery", copy: "We learn about your business, your service area, and your goals." },
@@ -11,17 +20,44 @@ const PROCESS_STEPS = [
 ];
 
 const Process = () => {
+  const reduce = useReducedMotion();
+
   return (
     <section className="border-b border-[#ccc5b9]/60 bg-[#fffcf7] text-[#252422]">
       <div className="mx-auto max-w-7xl px-6 py-20 text-center lg:px-10">
-        <Eyebrow>OUR PROCESS</Eyebrow>
-        <h2 className="mx-auto max-w-xl font-heading text-3xl font-black italic leading-tight tracking-tight sm:text-4xl">
-          A Simple 6-Step Process That Works
-        </h2>
+        {/* Header */}
+        <motion.div
+          variants={staggerContainer(0.12)}
+          initial="hidden"
+          whileInView="show"
+          viewport={reduce ? false : viewportOnce}
+        >
+          <motion.div variants={fadeUp}>
+            <Eyebrow>OUR PROCESS</Eyebrow>
+          </motion.div>
+          <motion.h2
+            variants={fadeUp}
+            className="font-heading mx-auto max-w-xl text-3xl font-black italic leading-tight tracking-tight sm:text-4xl"
+          >
+            A Simple 6-Step Process That Works
+          </motion.h2>
+        </motion.div>
 
-        <div className="mt-14 grid gap-x-8 gap-y-12 text-left sm:grid-cols-2 lg:grid-cols-3">
+        {/* Steps grid */}
+        <motion.div
+          className="mt-14 grid gap-x-8 gap-y-12 text-center sm:grid-cols-2 lg:grid-cols-3"
+          variants={staggerContainer(0.08)}
+          initial="hidden"
+          whileInView="show"
+          viewport={reduce ? false : viewportOnce}
+        >
           {PROCESS_STEPS.map((step) => (
-            <div key={step.n}>
+            <motion.div
+              key={step.n}
+              variants={fadeScale}
+              whileHover={reduce ? undefined : { y: -6 }}
+              transition={{ duration: 0.25 }}
+            >
               <span
                 className="font-heading text-3xl font-black italic"
                 style={{ color: "#eb5e28" }}
@@ -29,12 +65,12 @@ const Process = () => {
                 {step.n}
               </span>
               <h3 className="font-heading mt-2 text-lg font-bold">{step.title}</h3>
-              <p className="sub-heading mt-1 text-sm font-light leading-relaxed text-[#403d39]/85">
+              <p className="sub-heading mx-auto mt-1 max-w-xs text-sm font-light leading-relaxed text-[#403d39]/85">
                 {step.copy}
               </p>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

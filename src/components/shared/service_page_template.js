@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   ArrowRight,
   ChevronDown,
@@ -14,6 +15,13 @@ import {
 } from "lucide-react";
 import { Eyebrow, PrimaryButton, SecondaryButton } from "../ui/ui_components";
 import FinalCTA from "./final_cta";
+import {
+  fadeUp,
+  fadeScale,
+  staggerContainer,
+  viewportOnce,
+  useReducedMotion,
+} from "../ui/motion";
 
 const ICON_MAP = {
   star: Star,
@@ -34,6 +42,9 @@ const ICON_MAP = {
  *   7. FAQ (4-5 service-specific objections)
  *   8. Final CTA (bookend pattern)
  *
+ * All text is center-aligned. Each section animates in with framer-motion
+ * whileInView, staggered children. Reduced-motion respected.
+ *
  * Cross-sell ladder forms a loop:
  *   Reputation Management → Local SEO → Web Design → AI Search Visibility → Reputation Management
  */
@@ -52,57 +63,113 @@ export default function ServicePageTemplate({ data }) {
   } = data;
 
   const Icon = ICON_MAP[iconKey] || Star;
-
   const [openFaq, setOpenFaq] = useState(0);
+  const reduce = useReducedMotion();
 
   return (
     <main className="bg-[#fffcf2]">
       {/* 1. HERO */}
       <section className="relative overflow-hidden border-b border-[#ccc5b9]/60 bg-[#fffcf2]">
-        <div
+        <motion.div
+          aria-hidden
           className="absolute -right-24 top-10 hidden h-[420px] w-[420px] rounded-full opacity-50 lg:block"
           style={{ background: "#ccc5b9" }}
+          animate={
+            reduce
+              ? undefined
+              : { x: [0, -30, 0], y: [0, 24, 0], scale: [1, 1.06, 1] }
+          }
+          transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
         />
         <div className="relative mx-auto grid max-w-7xl gap-10 px-6 py-16 lg:grid-cols-2 lg:items-center lg:px-10 lg:py-24">
-          <div>
-            <Eyebrow>{eyebrow}</Eyebrow>
-            <h1 className="font-heading text-4xl font-black italic leading-[1.08] tracking-tight sm:text-5xl lg:text-[3.4rem]">
+          <motion.div
+            variants={staggerContainer(0.14)}
+            initial="hidden"
+            animate="show"
+          >
+            <motion.div variants={fadeUp}>
+              <Eyebrow>{eyebrow}</Eyebrow>
+            </motion.div>
+            <motion.h1
+              variants={fadeUp}
+              className="font-heading text-4xl font-black italic leading-[1.08] tracking-tight sm:text-5xl lg:text-[3.4rem]"
+            >
               {h1}
-            </h1>
-            <p className="sub-heading mt-6 max-w-lg text-base font-light leading-relaxed text-[#403d39]/90">
+            </motion.h1>
+            <motion.p
+              variants={fadeUp}
+              className="sub-heading mt-6 max-w-lg text-base font-light leading-relaxed text-[#403d39]/90"
+            >
               {subheading}
-            </p>
-            <div className="mt-8">
+            </motion.p>
+            <motion.div variants={fadeScale} className="mt-8">
               <PrimaryButton as="a" href="/book-a-call">
                 Book a Call <ArrowRight className="h-4 w-4" />
               </PrimaryButton>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
 
-          <div className="relative">
-            <div className="flex aspect-[4/3] w-full items-center justify-center rounded-2xl bg-gradient-to-br from-[#403d39] to-[#252422] shadow-xl">
+          <motion.div
+            className="relative"
+            initial={{ opacity: 0, scale: 0.94, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <motion.div
+              className="flex aspect-[4/3] w-full items-center justify-center rounded-2xl bg-gradient-to-br from-[#403d39] to-[#252422] shadow-xl"
+              animate={reduce ? undefined : { y: [0, -8, 0] }}
+              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+            >
               {Icon && (
-                <Icon className="h-24 w-24 text-[#eb5e28]" strokeWidth={1.5} />
+                <motion.div
+                  animate={
+                    reduce ? undefined : { rotate: [0, 5, -5, 0] }
+                  }
+                  transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+                >
+                  <Icon className="h-24 w-24 text-[#eb5e28]" strokeWidth={1.5} />
+                </motion.div>
               )}
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
 
       {/* 2. THE PROBLEM */}
       <section className="border-b border-[#ccc5b9]/60 bg-[#fffcf7]">
         <div className="mx-auto max-w-5xl px-6 py-20 lg:px-10">
-          <div className="max-w-2xl">
-            <Eyebrow>THE PROBLEM</Eyebrow>
-            <h2 className="font-heading text-3xl font-black italic leading-tight tracking-tight sm:text-4xl">
-              What&apos;s quietly costing you roofing leads right now
-            </h2>
-          </div>
-          <ul className="mt-10 space-y-5">
+          <motion.div
+            className="mx-auto max-w-2xl text-center"
+            variants={staggerContainer(0.12)}
+            initial="hidden"
+            whileInView="show"
+            viewport={reduce ? false : viewportOnce}
+          >
+            <motion.div variants={fadeUp}>
+              <Eyebrow>THE PROBLEM</Eyebrow>
+            </motion.div>
+            <motion.h2
+              variants={fadeUp}
+              className="font-heading text-3xl font-black italic leading-tight tracking-tight sm:text-4xl"
+            >
+              What’s quietly costing you roofing leads right now
+            </motion.h2>
+          </motion.div>
+
+          <motion.ul
+            className="mt-10 space-y-5"
+            variants={staggerContainer(0.1)}
+            initial="hidden"
+            whileInView="show"
+            viewport={reduce ? false : viewportOnce}
+          >
             {problems.map((p, i) => (
-              <li
+              <motion.li
                 key={i}
-                className="flex gap-4 rounded-xl border border-[#ccc5b9]/70 bg-white/40 p-5"
+                variants={fadeScale}
+                whileHover={reduce ? undefined : { y: -3 }}
+                transition={{ duration: 0.2 }}
+                className="flex flex-col items-center gap-3 rounded-xl border border-[#ccc5b9]/70 bg-white/40 p-5 text-center sm:flex-row sm:text-left"
               >
                 <AlertTriangle
                   className="h-5 w-5 shrink-0"
@@ -111,26 +178,47 @@ export default function ServicePageTemplate({ data }) {
                 <p className="sub-heading text-sm font-light leading-relaxed text-[#403d39]/90">
                   {p}
                 </p>
-              </li>
+              </motion.li>
             ))}
-          </ul>
+          </motion.ul>
         </div>
       </section>
 
       {/* 3. WHAT'S INCLUDED */}
       <section className="border-b border-[#ccc5b9]/60 bg-[#fffcf2]">
         <div className="mx-auto max-w-5xl px-6 py-20 lg:px-10">
-          <div className="max-w-2xl">
-            <Eyebrow>WHAT&apos;S INCLUDED</Eyebrow>
-            <h2 className="font-heading text-3xl font-black italic leading-tight tracking-tight sm:text-4xl">
+          <motion.div
+            className="mx-auto max-w-2xl text-center"
+            variants={staggerContainer(0.12)}
+            initial="hidden"
+            whileInView="show"
+            viewport={reduce ? false : viewportOnce}
+          >
+            <motion.div variants={fadeUp}>
+              <Eyebrow>WHAT’S INCLUDED</Eyebrow>
+            </motion.div>
+            <motion.h2
+              variants={fadeUp}
+              className="font-heading text-3xl font-black italic leading-tight tracking-tight sm:text-4xl"
+            >
               The actual work, broken down
-            </h2>
-          </div>
-          <ul className="mt-10 grid gap-5 sm:grid-cols-2">
+            </motion.h2>
+          </motion.div>
+
+          <motion.ul
+            className="mt-10 grid gap-5 sm:grid-cols-2"
+            variants={staggerContainer(0.1)}
+            initial="hidden"
+            whileInView="show"
+            viewport={reduce ? false : viewportOnce}
+          >
             {included.map((item, i) => (
-              <li
+              <motion.li
                 key={i}
-                className="flex gap-4 rounded-xl border border-[#ccc5b9]/70 bg-white/50 p-5"
+                variants={fadeScale}
+                whileHover={reduce ? undefined : { y: -4 }}
+                transition={{ duration: 0.2 }}
+                className="flex flex-col items-center gap-3 rounded-xl border border-[#ccc5b9]/70 bg-white/50 p-5 text-center sm:flex-row sm:text-left"
               >
                 <div
                   className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full"
@@ -141,26 +229,47 @@ export default function ServicePageTemplate({ data }) {
                 <p className="sub-heading text-sm font-light leading-relaxed text-[#403d39]/90">
                   {item}
                 </p>
-              </li>
+              </motion.li>
             ))}
-          </ul>
+          </motion.ul>
         </div>
       </section>
 
       {/* 4. HOW IT WORKS */}
       <section className="border-b border-[#ccc5b9]/60 bg-[#fffcf7]">
         <div className="mx-auto max-w-5xl px-6 py-20 lg:px-10">
-          <div className="max-w-2xl">
-            <Eyebrow>HOW IT WORKS</Eyebrow>
-            <h2 className="font-heading text-3xl font-black italic leading-tight tracking-tight sm:text-4xl">
+          <motion.div
+            className="mx-auto max-w-2xl text-center"
+            variants={staggerContainer(0.12)}
+            initial="hidden"
+            whileInView="show"
+            viewport={reduce ? false : viewportOnce}
+          >
+            <motion.div variants={fadeUp}>
+              <Eyebrow>HOW IT WORKS</Eyebrow>
+            </motion.div>
+            <motion.h2
+              variants={fadeUp}
+              className="font-heading text-3xl font-black italic leading-tight tracking-tight sm:text-4xl"
+            >
               A short, service-specific 3-step process
-            </h2>
-          </div>
-          <ol className="mt-10 grid gap-6 sm:grid-cols-3">
+            </motion.h2>
+          </motion.div>
+
+          <motion.ol
+            className="mt-10 grid gap-6 sm:grid-cols-3"
+            variants={staggerContainer(0.12)}
+            initial="hidden"
+            whileInView="show"
+            viewport={reduce ? false : viewportOnce}
+          >
             {howItWorks.map((step, i) => (
-              <li
+              <motion.li
                 key={i}
-                className="rounded-xl border border-[#ccc5b9]/70 bg-white/40 p-6"
+                variants={fadeScale}
+                whileHover={reduce ? undefined : { y: -6 }}
+                transition={{ duration: 0.25 }}
+                className="rounded-xl border border-[#ccc5b9]/70 bg-white/40 p-6 text-center"
               >
                 <span
                   className="font-heading text-3xl font-black italic"
@@ -171,54 +280,94 @@ export default function ServicePageTemplate({ data }) {
                 <p className="sub-heading mt-3 text-sm font-medium leading-relaxed text-[#252422]">
                   {step}
                 </p>
-              </li>
+              </motion.li>
             ))}
-          </ol>
+          </motion.ol>
         </div>
       </section>
 
       {/* 5. WHY IT MATTERS FOR ROOFERS */}
       <section className="border-b border-[#ccc5b9]/60 bg-[#252422]">
-        <div className="mx-auto max-w-4xl px-6 py-20 lg:px-10">
-          <Eyebrow>WHY IT MATTERS FOR ROOFERS</Eyebrow>
-          <h2 className="font-heading text-3xl font-black italic leading-tight tracking-tight text-[#fffcf2] sm:text-4xl">
+        <motion.div
+          className="mx-auto max-w-4xl px-6 py-20 text-center lg:px-10"
+          variants={staggerContainer(0.14)}
+          initial="hidden"
+          whileInView="show"
+          viewport={reduce ? false : viewportOnce}
+        >
+          <motion.div variants={fadeUp}>
+            <Eyebrow>WHY IT MATTERS FOR ROOFERS</Eyebrow>
+          </motion.div>
+          <motion.h2
+            variants={fadeUp}
+            className="font-heading text-3xl font-black italic leading-tight tracking-tight text-[#fffcf2] sm:text-4xl"
+          >
             Roofing-specific context, not generic SEO advice
-          </h2>
-          <p className="sub-heading mt-5 max-w-2xl text-base font-light leading-relaxed text-[#ccc5b9]">
+          </motion.h2>
+          <motion.p
+            variants={fadeUp}
+            className="sub-heading mx-auto mt-5 max-w-2xl text-base font-light leading-relaxed text-[#ccc5b9]"
+          >
             {whyItMatters}
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
       </section>
 
       {/* 6. NEXT STEP / CROSS-SELL */}
       <section className="border-b border-[#ccc5b9]/60 bg-[#eb5e28]">
-        <div className="mx-auto flex max-w-5xl flex-col items-center justify-between gap-6 px-6 py-14 text-center lg:flex-row lg:px-10 lg:text-left">
-          <div className="max-w-xl">
+        <motion.div
+          className="mx-auto flex max-w-5xl flex-col items-center justify-between gap-6 px-6 py-14 text-center lg:flex-row lg:px-10 lg:text-left"
+          variants={staggerContainer(0.14)}
+          initial="hidden"
+          whileInView="show"
+          viewport={reduce ? false : viewportOnce}
+        >
+          <motion.div variants={fadeUp} className="max-w-xl text-center lg:text-left">
             <p className="eyebrow mb-2 text-xs font-bold uppercase tracking-[0.18em] text-[#fffcf2]/80">
               NEXT STEP
             </p>
             <p className="sub-heading text-base font-light leading-relaxed text-[#fffcf2]">
               {nextStep.copy}
             </p>
-          </div>
-          <a
+          </motion.div>
+          <motion.a
             href={nextStep.href}
+            variants={fadeScale}
+            whileHover={reduce ? undefined : { scale: 1.05 }}
+            whileTap={reduce ? undefined : { scale: 0.97 }}
             className="inline-flex shrink-0 items-center gap-2 rounded-md bg-[#252422] px-7 py-3.5 text-sm font-bold text-[#fffcf2] transition-colors hover:bg-[#403d39]"
           >
             {nextStep.label} <ArrowRightCircle className="h-4 w-4" />
-          </a>
-        </div>
+          </motion.a>
+        </motion.div>
       </section>
 
       {/* 7. FAQ */}
       <section className="border-b border-[#ccc5b9]/60 bg-[#fffcf2]">
-        <div className="mx-auto max-w-3xl px-6 py-20 lg:px-10">
-          <h2 className="text-center font-heading text-3xl font-black italic leading-tight tracking-tight sm:text-4xl">
-            Frequently Asked Questions
-          </h2>
-          <div className="mt-10">
+        <div className="mx-auto max-w-3xl px-6 py-20 text-center lg:px-10">
+          <motion.div
+            variants={staggerContainer(0.12)}
+            initial="hidden"
+            whileInView="show"
+            viewport={reduce ? false : viewportOnce}
+          >
+            <motion.h2
+              variants={fadeUp}
+              className="font-heading text-3xl font-black italic leading-tight tracking-tight sm:text-4xl"
+            >
+              Frequently Asked Questions
+            </motion.h2>
+          </motion.div>
+
+          <motion.div
+            className="mt-10 text-left"
+            variants={staggerContainer(0.08)}
+            initial="hidden"
+            whileInView="show"
+            viewport={reduce ? false : viewportOnce}
+          >
             {faqs.map((item, i) => (
-              <div key={i} className="border-b border-[#ccc5b9]">
+              <motion.div key={i} variants={fadeUp} className="border-b border-[#ccc5b9]">
                 <button
                   onClick={() => setOpenFaq(openFaq === i ? null : i)}
                   className="flex w-full items-center justify-between gap-4 py-5 text-left"
@@ -232,19 +381,36 @@ export default function ServicePageTemplate({ data }) {
                     }`}
                   />
                 </button>
-                {openFaq === i && (
-                  <p className="sub-heading pb-5 text-sm font-light leading-relaxed text-[#403d39]/80">
-                    {item.a}
-                  </p>
-                )}
-              </div>
+                <AnimatePresence initial={false}>
+                  {openFaq === i && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+                      className="overflow-hidden"
+                    >
+                      <p className="sub-heading pb-5 text-center text-sm font-light leading-relaxed text-[#403d39]/80">
+                        {item.a}
+                      </p>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </motion.div>
             ))}
-          </div>
-          <div className="mt-10 text-center">
+          </motion.div>
+
+          <motion.div
+            variants={fadeScale}
+            initial="hidden"
+            whileInView="show"
+            viewport={reduce ? false : viewportOnce}
+            className="mt-10 text-center"
+          >
             <SecondaryButton as="a" href="/free-audit">
               Get a Free Audit
             </SecondaryButton>
-          </div>
+          </motion.div>
         </div>
       </section>
 
