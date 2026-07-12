@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Eyebrow, PrimaryButton } from "@/components/ui/ui_components";
+import { Eyebrow, OrangeBar, PrimaryButton, SectionHeading } from "@/components/ui/ui_components";
 import { ArrowRight, Star, MapPin, Globe, Sparkles } from "lucide-react";
 import FinalCTA from "@/components/shared/final_cta";
 import {
@@ -72,9 +72,12 @@ export default function AboutPage() {
             >
               Built Only for Roofing Companies
             </motion.h1>
+            <motion.div variants={fadeUp}>
+              <OrangeBar className="mt-6" />
+            </motion.div>
             <motion.p
               variants={fadeUp}
-              className="sub-heading mx-auto mt-5 max-w-2xl text-base font-light leading-relaxed text-[#403d39]/90"
+              className="sub-heading mx-auto mt-6 max-w-2xl text-base font-light leading-relaxed text-[#403d39]/90"
             >
               Roofer SEO Co. is an SEO and reputation management company
               that works exclusively with roofing contractors — not
@@ -88,25 +91,10 @@ export default function AboutPage() {
       {/* Who We Are */}
       <section className="border-b border-[#ccc5b9]/60 bg-[#fffcf7]">
         <div className="mx-auto max-w-4xl px-6 py-20 text-center lg:px-10">
-          <motion.div
-            variants={staggerContainer(0.12)}
-            initial="hidden"
-            whileInView="show"
-            viewport={reduce ? false : viewportOnce}
-          >
-            <motion.div variants={fadeUp}>
-              <Eyebrow>OUR STORY</Eyebrow>
-            </motion.div>
-            <motion.h2
-              variants={fadeUp}
-              className="font-heading text-3xl font-black italic leading-tight tracking-tight sm:text-4xl"
-            >
-              Why roofing, specifically
-            </motion.h2>
-          </motion.div>
+          <SectionHeading eyebrow="OUR STORY" title="Why roofing, specifically" />
 
           <motion.div
-            className="mt-6 max-w-3xl space-y-5"
+            className="mt-8 max-w-3xl space-y-5"
             variants={staggerContainer(0.12)}
             initial="hidden"
             whileInView="show"
@@ -151,25 +139,13 @@ export default function AboutPage() {
       {/* Who We Work With */}
       <section className="border-b border-[#ccc5b9]/60 bg-[#fffcf2]">
         <div className="mx-auto max-w-4xl px-6 py-20 text-center lg:px-10">
-          <motion.div
-            variants={staggerContainer(0.12)}
-            initial="hidden"
-            whileInView="show"
-            viewport={reduce ? false : viewportOnce}
-          >
-            <motion.div variants={fadeUp}>
-              <Eyebrow>WHO WE WORK WITH</Eyebrow>
-            </motion.div>
-            <motion.h2
-              variants={fadeUp}
-              className="font-heading text-3xl font-black italic leading-tight tracking-tight sm:text-4xl"
-            >
-              Roofing contractors across the United States
-            </motion.h2>
-          </motion.div>
+          <SectionHeading
+            eyebrow="WHO WE WORK WITH"
+            title="Roofing contractors across the United States"
+          />
 
           <motion.div
-            className="mt-6 max-w-3xl space-y-5"
+            className="mt-8 max-w-3xl space-y-5"
             variants={staggerContainer(0.12)}
             initial="hidden"
             whileInView="show"
@@ -202,30 +178,11 @@ export default function AboutPage() {
       {/* Our Approach */}
       <section className="border-b border-[#ccc5b9]/60 bg-[#fffcf7]">
         <div className="mx-auto max-w-6xl px-6 py-20 lg:px-10">
-          <motion.div
-            className="mx-auto max-w-2xl text-center"
-            variants={staggerContainer(0.12)}
-            initial="hidden"
-            whileInView="show"
-            viewport={reduce ? false : viewportOnce}
-          >
-            <motion.div variants={fadeUp}>
-              <Eyebrow>OUR APPROACH</Eyebrow>
-            </motion.div>
-            <motion.h2
-              variants={fadeUp}
-              className="font-heading text-3xl font-black italic leading-tight tracking-tight sm:text-4xl"
-            >
-              A real system, not a grab-bag of services
-            </motion.h2>
-            <motion.p
-              variants={fadeUp}
-              className="sub-heading mt-4 text-sm font-light text-[#403d39]/80"
-            >
-              Four services, in a specific order, because the order is
-              what makes them work.
-            </motion.p>
-          </motion.div>
+          <SectionHeading
+            eyebrow="OUR APPROACH"
+            title="A real system, not a grab-bag of services"
+            subtitle="Four services, in a specific order, because the order is what makes them work."
+          />
 
           <motion.div
             className="mt-12 grid gap-6 sm:grid-cols-2"

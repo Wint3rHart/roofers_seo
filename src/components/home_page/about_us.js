@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Star, MapPin, Sparkles } from "lucide-react";
-import { Eyebrow, PrimaryButton } from "../ui/ui_components";
+import { PrimaryButton, SectionHeading } from "../ui/ui_components";
 import {
   fadeUp,
   fadeScale,
@@ -29,26 +29,12 @@ const AboutUs = () => {
   return (
     <section className="border-b border-[#ccc5b9]/60 bg-[#fffcf7] text-[#252422]">
       <div className="mx-auto max-w-7xl px-6 py-20 lg:px-10">
-        {/* Header — centered */}
-        <motion.div
-          className="mx-auto max-w-3xl text-center"
-          variants={staggerContainer(0.12)}
-          initial="hidden"
-          whileInView="show"
-          viewport={reduce ? false : viewportOnce}
-        >
-          <motion.div variants={fadeUp}>
-            <Eyebrow>WHO WE ARE</Eyebrow>
-          </motion.div>
-          <motion.h2
-            variants={fadeUp}
-            className="font-heading mx-auto text-3xl font-black italic leading-tight tracking-tight sm:text-4xl"
-          >
-            SEO and Reputation Management Built for Roofing Businesses
-          </motion.h2>
-        </motion.div>
+        <SectionHeading
+          eyebrow="WHO WE ARE"
+          title="SEO and Reputation Management Built for Roofing Businesses"
+        />
 
-        {/* Body paragraphs — centered */}
+        {/* Body paragraphs */}
         <motion.div
           className="mx-auto mt-8 max-w-3xl space-y-4 text-center"
           variants={staggerContainer(0.1)}
@@ -67,7 +53,7 @@ const AboutUs = () => {
           ))}
         </motion.div>
 
-        {/* Stats — centered */}
+        {/* Stats */}
         <motion.div
           className="mt-10 flex flex-wrap justify-center gap-x-8 gap-y-4"
           variants={staggerContainer(0.08)}
@@ -87,7 +73,7 @@ const AboutUs = () => {
           ))}
         </motion.div>
 
-        {/* Contact form card — centered */}
+        {/* Contact form card */}
         <motion.div
           className="mx-auto mt-12 max-w-xl"
           variants={fadeScale}

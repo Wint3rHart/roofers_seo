@@ -1,9 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Eyebrow } from "../ui/ui_components";
+import { SectionHeading } from "../ui/ui_components";
 import {
-  fadeUp,
   fadeScale,
   staggerContainer,
   viewportOnce,
@@ -25,25 +24,8 @@ const Process = () => {
   return (
     <section className="border-b border-[#ccc5b9]/60 bg-[#fffcf7] text-[#252422]">
       <div className="mx-auto max-w-7xl px-6 py-20 text-center lg:px-10">
-        {/* Header */}
-        <motion.div
-          variants={staggerContainer(0.12)}
-          initial="hidden"
-          whileInView="show"
-          viewport={reduce ? false : viewportOnce}
-        >
-          <motion.div variants={fadeUp}>
-            <Eyebrow>OUR PROCESS</Eyebrow>
-          </motion.div>
-          <motion.h2
-            variants={fadeUp}
-            className="font-heading mx-auto max-w-xl text-3xl font-black italic leading-tight tracking-tight sm:text-4xl"
-          >
-            A Simple 6-Step Process That Works
-          </motion.h2>
-        </motion.div>
+        <SectionHeading eyebrow="OUR PROCESS" title="A Simple 6-Step Process That Works" />
 
-        {/* Steps grid */}
         <motion.div
           className="mt-14 grid gap-x-8 gap-y-12 text-center sm:grid-cols-2 lg:grid-cols-3"
           variants={staggerContainer(0.08)}

@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Eyebrow, PrimaryButton } from "@/components/ui/ui_components";
+import { Eyebrow, OrangeBar, PrimaryButton, SectionHeading } from "@/components/ui/ui_components";
 import { ArrowRight, Mail, Clock } from "lucide-react";
 import FinalCTA from "@/components/shared/final_cta";
 import {
@@ -45,9 +45,12 @@ export default function ContactPage() {
             >
               Get In Touch
             </motion.h1>
+            <motion.div variants={fadeUp}>
+              <OrangeBar className="mt-6" />
+            </motion.div>
             <motion.p
               variants={fadeUp}
-              className="sub-heading mx-auto mt-5 max-w-2xl text-base font-light leading-relaxed text-[#403d39]/90"
+              className="sub-heading mx-auto mt-6 max-w-2xl text-base font-light leading-relaxed text-[#403d39]/90"
             >
               Questions, partnership inquiries, or anything else — send us
               a message and we’ll get back to you.
@@ -58,22 +61,26 @@ export default function ContactPage() {
 
       {/* Form + sidebar */}
       <section className="border-b border-[#ccc5b9]/60 bg-[#fffcf7]">
-        <div className="mx-auto grid max-w-6xl gap-12 px-6 py-16 lg:grid-cols-3 lg:px-10">
+        <div className="mx-auto max-w-6xl px-6 py-16 lg:px-10">
+          <div className="mx-auto max-w-2xl text-center">
+            <h2 className="font-heading text-3xl font-black italic leading-tight tracking-tight sm:text-4xl lg:text-5xl">
+              Send us a message
+            </h2>
+            <OrangeBar className="mt-5" />
+          </div>
+
           <motion.div
-            className="lg:col-span-2"
+            className="mx-auto mt-10 max-w-2xl"
             variants={fadeScale}
             initial="hidden"
             whileInView="show"
             viewport={reduce ? false : viewportOnce}
           >
             <div className="rounded-2xl border border-[#ccc5b9]/70 bg-white/60 p-8 text-center shadow-sm">
-              <h2 className="font-heading text-2xl font-black italic tracking-tight">
-                Send us a message
-              </h2>
               <form
                 action="/thank-you?type=contact"
                 method="post"
-                className="mt-6 space-y-4 text-left"
+                className="space-y-4 text-left"
               >
                 <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
                   <input
@@ -143,7 +150,7 @@ export default function ContactPage() {
 
           {/* Sidebar */}
           <motion.div
-            className="space-y-6"
+            className="mx-auto mt-12 grid max-w-4xl gap-6 sm:grid-cols-2"
             variants={staggerContainer(0.12)}
             initial="hidden"
             whileInView="show"

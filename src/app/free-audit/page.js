@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Eyebrow } from "@/components/ui/ui_components";
+import { Eyebrow, OrangeBar } from "@/components/ui/ui_components";
 import { Check, ShieldCheck } from "lucide-react";
 import FreeAuditForm from "@/components/shared/free_audit_form";
 import FinalCTA from "@/components/shared/final_cta";
@@ -37,9 +37,9 @@ export default function FreeAuditPage() {
           }
           transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
         />
-        <div className="relative mx-auto grid max-w-7xl gap-12 px-6 py-16 lg:grid-cols-2 lg:items-center lg:px-10 lg:py-20">
+        <div className="relative mx-auto max-w-4xl px-6 py-16 text-center lg:px-10 lg:py-20">
           <motion.div
-            variants={staggerContainer(0.12)}
+            variants={staggerContainer(0.14)}
             initial="hidden"
             animate="show"
           >
@@ -52,9 +52,12 @@ export default function FreeAuditPage() {
             >
               Get Your Free Roofing SEO Audit
             </motion.h1>
+            <motion.div variants={fadeUp}>
+              <OrangeBar className="mt-6" />
+            </motion.div>
             <motion.p
               variants={fadeUp}
-              className="sub-heading mt-6 max-w-lg text-base font-light leading-relaxed text-[#403d39]/90"
+              className="sub-heading mx-auto mt-6 max-w-2xl text-base font-light leading-relaxed text-[#403d39]/90"
             >
               See exactly where your business is losing visibility — and
               what it would take to fix it.
@@ -65,7 +68,7 @@ export default function FreeAuditPage() {
               initial="hidden"
               whileInView="show"
               viewport={reduce ? false : viewportOnce}
-              className="mt-8 space-y-4"
+              className="mx-auto mt-10 max-w-2xl space-y-4 text-left"
             >
               <motion.p
                 variants={fadeUp}
@@ -78,7 +81,7 @@ export default function FreeAuditPage() {
                   <motion.li
                     key={i}
                     variants={fadeUp}
-                    className="flex items-center justify-center gap-3 text-center sm:justify-start sm:text-left"
+                    className="flex items-center gap-3"
                   >
                     <div
                       className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full"
@@ -96,9 +99,11 @@ export default function FreeAuditPage() {
           </motion.div>
 
           <motion.div
+            className="mx-auto mt-12 max-w-xl"
             initial={{ opacity: 0, scale: 0.94, y: 20 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
+            whileInView={{ opacity: 1, scale: 1, y: 0 }}
+            viewport={reduce ? false : viewportOnce}
+            transition={{ duration: 0.6, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
           >
             <div className="rounded-2xl bg-[#252422] p-8 text-center text-[#fffcf2] shadow-xl">
               <h2 className="font-heading text-xl font-bold italic">

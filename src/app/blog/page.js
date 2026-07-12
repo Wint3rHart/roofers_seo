@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Eyebrow, PrimaryButton } from "@/components/ui/ui_components";
+import { Eyebrow, OrangeBar, PrimaryButton } from "@/components/ui/ui_components";
 import { ArrowRight, PenLine } from "lucide-react";
 import {
   fadeUp,
@@ -55,9 +55,12 @@ export default function BlogPage() {
             >
               Roofing SEO, in plain English
             </motion.h1>
+            <motion.div variants={fadeUp}>
+              <OrangeBar className="mt-6" />
+            </motion.div>
             <motion.p
               variants={fadeUp}
-              className="sub-heading mx-auto mt-5 max-w-2xl text-base font-light leading-relaxed text-[#403d39]/90"
+              className="sub-heading mx-auto mt-6 max-w-2xl text-base font-light leading-relaxed text-[#403d39]/90"
             >
               Practical writing on reviews, local SEO, web design, and AI
               search visibility — built for roofing contractors, not for
@@ -111,19 +114,20 @@ export default function BlogPage() {
           >
             <PenLine className="h-7 w-7 text-[#fffcf2]" />
           </motion.div>
-          <h2 className="font-heading text-2xl font-black italic leading-tight tracking-tight sm:text-3xl">
+          <h2 className="font-heading text-2xl font-black italic leading-tight tracking-tight sm:text-3xl lg:text-4xl">
             Posts are coming soon
           </h2>
-          <p className="sub-heading mx-auto mt-4 max-w-xl text-sm font-light leading-relaxed text-[#403d39]/85">
+          <OrangeBar className="mt-5" />
+          <p className="sub-heading mx-auto mt-5 max-w-xl text-sm font-light leading-relaxed text-[#403d39]/85">
             We’re building out a practical library on roofing-specific
-            reputation, local SEO, web design, and AI search — written for
-            contractors, not for other marketers. No filler, no recycled
-            listicles.
+            reputation, local SEO, web design, and AI search — written
+            for contractors, not for other marketers. No filler, no
+            recycled listicles.
           </p>
           <p className="sub-heading mx-auto mt-3 max-w-xl text-sm font-light leading-relaxed text-[#403d39]/70">
             In the meantime, the fastest way to get roofing-specific
-            answers for your business is a free audit or a quick strategy
-            call.
+            answers for your business is a free audit or a quick
+            strategy call.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-4">
             <PrimaryButton as="a" href="/free-audit">
@@ -150,13 +154,16 @@ export default function BlogPage() {
         <div className="mx-auto max-w-3xl px-6 py-24 text-center lg:px-10">
           <motion.h2
             variants={fadeUp}
-            className="font-heading text-3xl font-black italic leading-tight text-[#fffcf2] sm:text-4xl"
+            className="font-heading text-3xl font-black italic leading-tight text-[#fffcf2] sm:text-4xl lg:text-5xl"
           >
             Ready to Boost Your Rankings?
           </motion.h2>
+          <motion.div variants={fadeUp}>
+            <OrangeBar className="mt-5" />
+          </motion.div>
           <motion.p
             variants={fadeUp}
-            className="sub-heading mx-auto mt-4 max-w-lg text-sm font-light text-[#ccc5b9]"
+            className="sub-heading mx-auto mt-5 max-w-lg text-sm font-light text-[#ccc5b9]"
           >
             Get more 5-star reviews, more visibility, and more roofing
             jobs — with a system built only for roofers.

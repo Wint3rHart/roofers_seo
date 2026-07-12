@@ -2,9 +2,8 @@
 
 import { motion } from "framer-motion";
 import { ArrowRight, Star, MapPin, Globe, Sparkles } from "lucide-react";
-import { Eyebrow } from "../ui/ui_components";
+import { SectionHeading } from "../ui/ui_components";
 import {
-  fadeUp,
   fadeScale,
   staggerContainer,
   viewportOnce,
@@ -48,32 +47,13 @@ export const Services = () => {
   return (
     <section className="border-b border-[#ccc5b9]/60 bg-[#fffcf7] text-[#252422]">
       <div className="mx-auto max-w-7xl px-6 py-20 text-center lg:px-10">
-        {/* Heading block */}
-        <motion.div
-          variants={staggerContainer(0.12)}
-          initial="hidden"
-          whileInView="show"
-          viewport={reduce ? false : viewportOnce}
-        >
-          <motion.div variants={fadeUp}>
-            <Eyebrow>OUR SERVICES</Eyebrow>
-          </motion.div>
-          <motion.h2
-            variants={fadeUp}
-            className="font-heading mx-auto max-w-2xl text-3xl font-black italic leading-tight tracking-tight sm:text-4xl"
-          >
-            Built to Get Roofers Found, Trusted, and Hired
-          </motion.h2>
-          <motion.p
-            variants={fadeUp}
-            className="sub-heading mx-auto mt-4 max-w-xl text-sm font-light text-[#403d39]/80"
-          >
-            Four services, one goal — more homeowners choosing your roofing
-            company over the competition.
-          </motion.p>
-        </motion.div>
+        <SectionHeading
+          eyebrow="OUR SERVICES"
+          title="Built to Get Roofers Found, Trusted, and Hired"
+          subtitle="Four services, one goal — more homeowners choosing your roofing company over the competition."
+        />
 
-        {/* Cards grid — staggered */}
+        {/* Cards grid */}
         <motion.div
           className="mt-12 grid gap-6 text-center sm:grid-cols-2"
           variants={staggerContainer(0.1)}

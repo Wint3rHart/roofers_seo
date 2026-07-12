@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { PrimaryButton } from "../ui/ui_components";
+import { PrimaryButton, OrangeBar } from "../ui/ui_components";
 import {
   fadeUp,
   fadeScale,
@@ -24,13 +24,16 @@ export const CTA = () => {
       >
         <motion.h2
           variants={fadeUp}
-          className="font-heading text-3xl font-black italic leading-tight text-[#fffcf2] sm:text-4xl"
+          className="font-heading text-3xl font-black italic leading-tight text-[#fffcf2] sm:text-4xl lg:text-5xl"
         >
           Ready to Boost Your Rankings?
         </motion.h2>
+        <motion.div variants={fadeUp}>
+          <OrangeBar className="mt-5" />
+        </motion.div>
         <motion.p
           variants={fadeUp}
-          className="sub-heading mx-auto mt-4 max-w-lg text-sm font-light text-[#ccc5b9]"
+          className="sub-heading mx-auto mt-5 max-w-lg text-sm font-light text-[#ccc5b9]"
         >
           Get more 5-star reviews, more visibility, and more roofing jobs —
           with a system built only for roofers.

@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Eyebrow } from "@/components/ui/ui_components";
+import { Eyebrow, OrangeBar } from "@/components/ui/ui_components";
 import { Check, Clock, PhoneCall } from "lucide-react";
 import FinalCTA from "@/components/shared/final_cta";
 import {
@@ -52,9 +52,12 @@ export default function BookACallPage() {
             >
               Book a Free Strategy Call
             </motion.h1>
+            <motion.div variants={fadeUp}>
+              <OrangeBar className="mt-6" />
+            </motion.div>
             <motion.p
               variants={fadeUp}
-              className="sub-heading mx-auto mt-5 max-w-2xl text-base font-light leading-relaxed text-[#403d39]/90"
+              className="sub-heading mx-auto mt-6 max-w-2xl text-base font-light leading-relaxed text-[#403d39]/90"
             >
               A quick call to understand your business and figure out
               what’s actually worth fixing first — no pitch, just a real
@@ -109,10 +112,11 @@ export default function BookACallPage() {
         <div className="mx-auto max-w-4xl px-6 py-16 lg:px-10">
           <div className="mb-6 flex items-center justify-center gap-3 text-center">
             <PhoneCall className="h-5 w-5" style={{ color: "#eb5e28" }} />
-            <h2 className="font-heading text-2xl font-black italic tracking-tight">
+            <h2 className="font-heading text-2xl font-black italic tracking-tight sm:text-3xl lg:text-4xl">
               Pick a time that works for you
             </h2>
           </div>
+          <div className="mx-auto mb-6 h-[3px] w-[72px] rounded-full" style={{ background: "#eb5e28" }} />
           <div className="overflow-hidden rounded-xl border border-[#ccc5b9]/70 bg-white shadow-sm">
             <iframe
               src={CALENDLY_URL}

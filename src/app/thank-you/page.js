@@ -4,7 +4,7 @@ import { useSearchParams } from "next/navigation";
 import { Suspense } from "react";
 import { motion } from "framer-motion";
 import { CheckCircle, ArrowRight, Mail, Clock } from "lucide-react";
-import { Eyebrow, PrimaryButton, SecondaryButton } from "@/components/ui/ui_components";
+import { Eyebrow, OrangeBar, PrimaryButton, SecondaryButton } from "@/components/ui/ui_components";
 import {
   fadeUp,
   fadeScale,
@@ -103,9 +103,12 @@ function ThankYouContent() {
             >
               {variant.heading}
             </motion.h1>
+            <motion.div variants={fadeUp}>
+              <OrangeBar className="mt-6" />
+            </motion.div>
             <motion.p
               variants={fadeUp}
-              className="sub-heading mx-auto mt-5 max-w-xl text-base font-light leading-relaxed text-[#403d39]/90"
+              className="sub-heading mx-auto mt-6 max-w-xl text-base font-light leading-relaxed text-[#403d39]/90"
             >
               {variant.body}
             </motion.p>
@@ -155,10 +158,13 @@ function ThankYouContent() {
           </motion.p>
           <motion.h2
             variants={fadeUp}
-            className="mt-3 font-heading text-2xl font-black italic tracking-tight sm:text-3xl"
+            className="mt-3 font-heading text-2xl font-black italic tracking-tight sm:text-3xl lg:text-4xl"
           >
             Explore our roofing services
           </motion.h2>
+          <motion.div variants={fadeUp}>
+            <OrangeBar className="mt-5" />
+          </motion.div>
           <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {SERVICE_LINKS.map((s) => (
               <motion.a

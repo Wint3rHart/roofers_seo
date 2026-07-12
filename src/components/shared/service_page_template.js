@@ -13,7 +13,13 @@ import {
   Globe,
   Sparkles,
 } from "lucide-react";
-import { Eyebrow, PrimaryButton, SecondaryButton } from "../ui/ui_components";
+import {
+  Eyebrow,
+  PrimaryButton,
+  SecondaryButton,
+  SectionHeading,
+  OrangeBar,
+} from "../ui/ui_components";
 import FinalCTA from "./final_cta";
 import {
   fadeUp,
@@ -32,20 +38,11 @@ const ICON_MAP = {
 
 /**
  * Shared template for all 4 service pages.
- * Follows the exact 8-section structure from the documentation:
- *   1. Hero (H1 + value prop + single CTA)
- *   2. The Problem (3-4 pain points)
- *   3. What's Included (work breakdown)
- *   4. How It Works (3-step process)
- *   5. Why It Matters for Roofers (roofing-specific context)
- *   6. Next Step / Cross-Sell (links to next service in ladder)
- *   7. FAQ (4-5 service-specific objections)
- *   8. Final CTA (bookend pattern)
+ * 8-section structure per the documentation. Center-aligned throughout.
+ * Section headings use the shared SectionHeading component (eyebrow + title
+ * at text-5xl max + orange expanding bar underneath).
  *
- * All text is center-aligned. Each section animates in with framer-motion
- * whileInView, staggered children. Reduced-motion respected.
- *
- * Cross-sell ladder forms a loop:
+ * Cross-sell ladder (loop):
  *   Reputation Management → Local SEO → Web Design → AI Search Visibility → Reputation Management
  */
 export default function ServicePageTemplate({ data }) {
@@ -81,7 +78,7 @@ export default function ServicePageTemplate({ data }) {
           }
           transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
         />
-        <div className="relative mx-auto grid max-w-7xl gap-10 px-6 py-16 lg:grid-cols-2 lg:items-center lg:px-10 lg:py-24">
+        <div className="relative mx-auto max-w-4xl px-6 py-16 text-center lg:px-10 lg:py-24">
           <motion.div
             variants={staggerContainer(0.14)}
             initial="hidden"
@@ -92,13 +89,16 @@ export default function ServicePageTemplate({ data }) {
             </motion.div>
             <motion.h1
               variants={fadeUp}
-              className="font-heading text-4xl font-black italic leading-[1.08] tracking-tight sm:text-5xl lg:text-[3.4rem]"
+              className="font-heading text-4xl font-black italic leading-[1.08] tracking-tight sm:text-5xl"
             >
               {h1}
             </motion.h1>
+            <motion.div variants={fadeUp}>
+              <OrangeBar className="mt-6" />
+            </motion.div>
             <motion.p
               variants={fadeUp}
-              className="sub-heading mt-6 max-w-lg text-base font-light leading-relaxed text-[#403d39]/90"
+              className="sub-heading mx-auto mt-6 max-w-2xl text-base font-light leading-relaxed text-[#403d39]/90"
             >
               {subheading}
             </motion.p>
@@ -108,53 +108,16 @@ export default function ServicePageTemplate({ data }) {
               </PrimaryButton>
             </motion.div>
           </motion.div>
-
-          <motion.div
-            className="relative"
-            initial={{ opacity: 0, scale: 0.94, y: 20 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
-          >
-            <motion.div
-              className="flex aspect-[4/3] w-full items-center justify-center rounded-2xl bg-gradient-to-br from-[#403d39] to-[#252422] shadow-xl"
-              animate={reduce ? undefined : { y: [0, -8, 0] }}
-              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-            >
-              {Icon && (
-                <motion.div
-                  animate={
-                    reduce ? undefined : { rotate: [0, 5, -5, 0] }
-                  }
-                  transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-                >
-                  <Icon className="h-24 w-24 text-[#eb5e28]" strokeWidth={1.5} />
-                </motion.div>
-              )}
-            </motion.div>
-          </motion.div>
         </div>
       </section>
 
       {/* 2. THE PROBLEM */}
       <section className="border-b border-[#ccc5b9]/60 bg-[#fffcf7]">
         <div className="mx-auto max-w-5xl px-6 py-20 lg:px-10">
-          <motion.div
-            className="mx-auto max-w-2xl text-center"
-            variants={staggerContainer(0.12)}
-            initial="hidden"
-            whileInView="show"
-            viewport={reduce ? false : viewportOnce}
-          >
-            <motion.div variants={fadeUp}>
-              <Eyebrow>THE PROBLEM</Eyebrow>
-            </motion.div>
-            <motion.h2
-              variants={fadeUp}
-              className="font-heading text-3xl font-black italic leading-tight tracking-tight sm:text-4xl"
-            >
-              What’s quietly costing you roofing leads right now
-            </motion.h2>
-          </motion.div>
+          <SectionHeading
+            eyebrow="THE PROBLEM"
+            title="What’s quietly costing you roofing leads right now"
+          />
 
           <motion.ul
             className="mt-10 space-y-5"
@@ -187,23 +150,10 @@ export default function ServicePageTemplate({ data }) {
       {/* 3. WHAT'S INCLUDED */}
       <section className="border-b border-[#ccc5b9]/60 bg-[#fffcf2]">
         <div className="mx-auto max-w-5xl px-6 py-20 lg:px-10">
-          <motion.div
-            className="mx-auto max-w-2xl text-center"
-            variants={staggerContainer(0.12)}
-            initial="hidden"
-            whileInView="show"
-            viewport={reduce ? false : viewportOnce}
-          >
-            <motion.div variants={fadeUp}>
-              <Eyebrow>WHAT’S INCLUDED</Eyebrow>
-            </motion.div>
-            <motion.h2
-              variants={fadeUp}
-              className="font-heading text-3xl font-black italic leading-tight tracking-tight sm:text-4xl"
-            >
-              The actual work, broken down
-            </motion.h2>
-          </motion.div>
+          <SectionHeading
+            eyebrow="WHAT’S INCLUDED"
+            title="The actual work, broken down"
+          />
 
           <motion.ul
             className="mt-10 grid gap-5 sm:grid-cols-2"
@@ -238,23 +188,10 @@ export default function ServicePageTemplate({ data }) {
       {/* 4. HOW IT WORKS */}
       <section className="border-b border-[#ccc5b9]/60 bg-[#fffcf7]">
         <div className="mx-auto max-w-5xl px-6 py-20 lg:px-10">
-          <motion.div
-            className="mx-auto max-w-2xl text-center"
-            variants={staggerContainer(0.12)}
-            initial="hidden"
-            whileInView="show"
-            viewport={reduce ? false : viewportOnce}
-          >
-            <motion.div variants={fadeUp}>
-              <Eyebrow>HOW IT WORKS</Eyebrow>
-            </motion.div>
-            <motion.h2
-              variants={fadeUp}
-              className="font-heading text-3xl font-black italic leading-tight tracking-tight sm:text-4xl"
-            >
-              A short, service-specific 3-step process
-            </motion.h2>
-          </motion.div>
+          <SectionHeading
+            eyebrow="HOW IT WORKS"
+            title="A short, service-specific 3-step process"
+          />
 
           <motion.ol
             className="mt-10 grid gap-6 sm:grid-cols-3"
@@ -286,7 +223,7 @@ export default function ServicePageTemplate({ data }) {
         </div>
       </section>
 
-      {/* 5. WHY IT MATTERS FOR ROOFERS */}
+      {/* 5. WHY IT MATTERS FOR ROOFERS — dark section, uses SectionHeading dark variant */}
       <section className="border-b border-[#ccc5b9]/60 bg-[#252422]">
         <motion.div
           className="mx-auto max-w-4xl px-6 py-20 text-center lg:px-10"
@@ -300,10 +237,13 @@ export default function ServicePageTemplate({ data }) {
           </motion.div>
           <motion.h2
             variants={fadeUp}
-            className="font-heading text-3xl font-black italic leading-tight tracking-tight text-[#fffcf2] sm:text-4xl"
+            className="font-heading text-3xl font-black italic leading-tight tracking-tight text-[#fffcf2] sm:text-4xl lg:text-5xl"
           >
             Roofing-specific context, not generic SEO advice
           </motion.h2>
+          <motion.div variants={fadeUp}>
+            <OrangeBar className="mt-5" />
+          </motion.div>
           <motion.p
             variants={fadeUp}
             className="sub-heading mx-auto mt-5 max-w-2xl text-base font-light leading-relaxed text-[#ccc5b9]"
@@ -345,19 +285,7 @@ export default function ServicePageTemplate({ data }) {
       {/* 7. FAQ */}
       <section className="border-b border-[#ccc5b9]/60 bg-[#fffcf2]">
         <div className="mx-auto max-w-3xl px-6 py-20 text-center lg:px-10">
-          <motion.div
-            variants={staggerContainer(0.12)}
-            initial="hidden"
-            whileInView="show"
-            viewport={reduce ? false : viewportOnce}
-          >
-            <motion.h2
-              variants={fadeUp}
-              className="font-heading text-3xl font-black italic leading-tight tracking-tight sm:text-4xl"
-            >
-              Frequently Asked Questions
-            </motion.h2>
-          </motion.div>
+          <SectionHeading title="Frequently Asked Questions" />
 
           <motion.div
             className="mt-10 text-left"

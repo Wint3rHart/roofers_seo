@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Eyebrow, PrimaryButton, SecondaryButton } from "@/components/ui/ui_components";
+import { Eyebrow, OrangeBar, PrimaryButton, SecondaryButton } from "@/components/ui/ui_components";
 import { ArrowRight, Home } from "lucide-react";
 import {
   fadeUp,
@@ -51,9 +51,12 @@ export default function NotFound() {
             >
               <span style={{ color: "#eb5e28" }}>404</span>
             </motion.h1>
+            <motion.div variants={fadeUp}>
+              <OrangeBar className="mt-6" />
+            </motion.div>
             <motion.h2
               variants={fadeUp}
-              className="mt-6 font-heading text-3xl font-black italic leading-tight tracking-tight sm:text-4xl"
+              className="mt-6 font-heading text-3xl font-black italic leading-tight tracking-tight sm:text-4xl lg:text-5xl"
             >
               This page took a wrong turn on the way to the roof
             </motion.h2>

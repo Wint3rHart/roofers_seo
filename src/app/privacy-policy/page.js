@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Eyebrow } from "@/components/ui/ui_components";
+import { Eyebrow, OrangeBar } from "@/components/ui/ui_components";
 import FinalCTA from "@/components/shared/final_cta";
 import {
   fadeUp,
@@ -145,6 +145,9 @@ export default function PrivacyPolicyPage() {
             >
               Privacy Policy
             </motion.h1>
+            <motion.div variants={fadeUp}>
+              <OrangeBar className="mt-6" />
+            </motion.div>
             <motion.p
               variants={fadeUp}
               className="sub-heading mt-4 text-sm font-light text-[#403d39]/80"
@@ -159,7 +162,7 @@ export default function PrivacyPolicyPage() {
       <section className="border-b border-[#ccc5b9]/60 bg-[#fffcf7]">
         <div className="mx-auto max-w-3xl px-6 py-16 lg:px-10">
           <motion.div
-            className="space-y-10"
+            className="space-y-12"
             variants={staggerContainer(0.1)}
             initial="hidden"
             whileInView="show"
@@ -167,10 +170,11 @@ export default function PrivacyPolicyPage() {
           >
             {SECTIONS.map((s) => (
               <motion.div key={s.id} id={s.id} variants={fadeUp} className="text-center">
-                <h2 className="font-heading text-xl font-bold italic tracking-tight sm:text-2xl">
+                <h2 className="font-heading text-xl font-bold italic tracking-tight sm:text-2xl lg:text-3xl">
                   {s.title}
                 </h2>
-                <div className="mt-4 space-y-4">
+                <OrangeBar className="mt-4" />
+                <div className="mt-5 space-y-4">
                   {s.body.map((para, i) => (
                     <p
                       key={i}

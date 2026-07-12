@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown } from "lucide-react";
+import { SectionHeading } from "../ui/ui_components";
 import {
   fadeUp,
   staggerContainer,
@@ -77,19 +78,7 @@ export const Faq = () => {
   return (
     <section className="border-b border-[#ccc5b9]/60 bg-[#fffcf7] text-[#252422]">
       <div className="mx-auto max-w-3xl px-6 py-20 text-center lg:px-10">
-        <motion.div
-          variants={staggerContainer(0.12)}
-          initial="hidden"
-          whileInView="show"
-          viewport={reduce ? false : viewportOnce}
-        >
-          <motion.h2
-            variants={fadeUp}
-            className="font-heading text-3xl font-black italic leading-tight tracking-tight sm:text-4xl"
-          >
-            Frequently Asked Questions
-          </motion.h2>
-        </motion.div>
+        <SectionHeading title="Frequently Asked Questions" />
 
         <motion.div
           className="mt-10 text-left"

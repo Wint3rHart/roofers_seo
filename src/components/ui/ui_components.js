@@ -1,6 +1,7 @@
 import { Logo } from "./logo";
+import SectionHeading, { OrangeBar } from "./section_heading";
 
-export { Logo };
+export { Logo, SectionHeading, OrangeBar };
 
 function PrimaryButton({ children, className = "", as = "button", href, ...props }) {
   const Comp = as === "a" ? "a" : "button";

@@ -69,3 +69,27 @@ Stage Summary:
 - Initial hidden state confirmed in SSR HTML: opacity:0 + translateY values visible, hydrating to visible on client
 - text-center applied 22-24 times per page across all components
 - Animation system is DRY via shared motion.js file — single import gets you all variants + helpers
+
+---
+Task ID: orange-bars
+Agent: Super Z (main)
+Task: Restore user's original styling — center-aligned hero text, text-5xl (not 6xl), orange expanding bars under headings — and apply this same pattern consistently across the entire site.
+
+Work Log:
+- Created shared SectionHeading component at src/components/ui/section_heading.js that bundles: Eyebrow + title at text-5xl max + animated OrangeBar
+- Created OrangeBar component: 72px wide, 3px tall, #eb5e28, scales from 0 → 1 on X axis via framer-motion whileInView (respects prefers-reduced-motion)
+- Updated Hero: removed lg:text-6xl (now sm:text-5xl max), converted from 2-column grid (left-aligned) to single column max-w-4xl text-center, added OrangeBar under H1
+- Replaced all hardcoded section headings across the site with SectionHeading component for consistency
+- Applied orange bar pattern to ALL section H2s on: homepage (8 bars), 4 service pages (7 bars each), about (5 bars), blog, contact, free-audit, book-a-call, privacy-policy, thank-you, 404
+- All inner page H1s (free-audit, book-a-call, contact, about, blog, privacy-policy, thank-you, 404) now have OrangeBar underneath
+- Service page template: hero H1 has orange bar, all 5 internal section headings use SectionHeading (Problem, What's Included, How It Works, Why It Matters, FAQ)
+- Privacy policy: each of 10 numbered sections now has its own orange bar under the title
+- Dark sections (Why It Matters, Final CTAs) use the same OrangeBar — orange on dark background works fine
+
+Stage Summary:
+- Build green: all 15 routes prerender as static
+- All 13 user-facing routes return 200, /nonexistent returns 404
+- Orange bar element count: 8 homepage, 7 service pages, 5 about page — pattern applied consistently
+- Hero confirmed: max-w-4xl text-center, sm:text-5xl (NOT text-6xl), orange bar under H1
+- All animations from previous task preserved (staggered children, whileInView, hover lifts, background circle drift, FAQ accordion, reduced-motion respect)
+- Single shared SectionHeading component means future heading style changes can be made in one place

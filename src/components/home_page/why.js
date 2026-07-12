@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Eyebrow } from "../ui/ui_components";
+import { SectionHeading } from "../ui/ui_components";
 import {
   fadeUp,
   fadeScale,
@@ -39,30 +39,11 @@ const Why = () => {
   return (
     <section className="border-b border-[#ccc5b9]/60 bg-[#fffcf7] text-[#252422]">
       <div className="mx-auto max-w-7xl px-6 py-20 lg:px-10">
-        {/* Header — centered */}
-        <motion.div
-          className="mx-auto max-w-2xl text-center"
-          variants={staggerContainer(0.12)}
-          initial="hidden"
-          whileInView="show"
-          viewport={reduce ? false : viewportOnce}
-        >
-          <motion.div variants={fadeUp}>
-            <Eyebrow>WHY ROOFER SEO CO.</Eyebrow>
-          </motion.div>
-          <motion.h2
-            variants={fadeUp}
-            className="font-heading text-3xl font-black italic leading-tight tracking-tight sm:text-4xl"
-          >
-            Built Only for Roofing Companies
-          </motion.h2>
-          <motion.p
-            variants={fadeUp}
-            className="sub-heading mt-4 text-sm font-light text-[#403d39]/80"
-          >
-            Here’s what that focus actually does for your business.
-          </motion.p>
-        </motion.div>
+        <SectionHeading
+          eyebrow="WHY ROOFER SEO CO."
+          title="Built Only for Roofing Companies"
+          subtitle="Here’s what that focus actually does for your business."
+        />
 
         {/* Alternating rows */}
         <div className="mt-14 space-y-14">

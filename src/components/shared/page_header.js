@@ -1,13 +1,12 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Eyebrow, PrimaryButton, SecondaryButton } from "../ui/ui_components";
+import { Eyebrow, PrimaryButton, SecondaryButton, OrangeBar } from "../ui/ui_components";
 import { ArrowRight } from "lucide-react";
 import {
   fadeUp,
   fadeScale,
   staggerContainer,
-  viewportOnce,
   useReducedMotion,
 } from "../ui/motion";
 
@@ -36,11 +35,7 @@ export default function PageHeader({
         animate={
           reduce
             ? undefined
-            : {
-                x: [0, -24, 0],
-                y: [0, 20, 0],
-                scale: [1, 1.05, 1],
-              }
+            : { x: [0, -24, 0], y: [0, 20, 0], scale: [1, 1.05, 1] }
         }
         transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
       />
@@ -62,10 +57,13 @@ export default function PageHeader({
           >
             {title}
           </motion.h1>
+          <motion.div variants={fadeUp}>
+            <OrangeBar className="mt-6" />
+          </motion.div>
           {subtitle && (
             <motion.p
               variants={fadeUp}
-              className="sub-heading mx-auto mt-5 max-w-2xl text-base font-light leading-relaxed text-[#403d39]/90"
+              className="sub-heading mx-auto mt-6 max-w-2xl text-base font-light leading-relaxed text-[#403d39]/90"
             >
               {subtitle}
             </motion.p>
