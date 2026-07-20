@@ -13,10 +13,10 @@ export default function LocalSeoPage() {
     <main className="bg-[#fffcf2]">
       <LocalSeoHero />
       <LocalSeoContentLayout />
-      <FinalCTA
+      {/* <FinalCTA
         heading="Ready to Rank in the Map Pack?"
         subheading="Get more calls from homeowners searching for a roofer in your service area — with month-to-month terms and no long-term contracts."
-      />
+      /> */}
     </main>
   );
 }

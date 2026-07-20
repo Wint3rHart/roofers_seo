@@ -46,9 +46,11 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Headings use Montserrat */
-h1, h2, h3, h4, h5, h6 {
+/* Headings use Montserrat Italic; body copy stays DM Sans (set on body above) */
+h1, h2, h3, h4, h5, h6,
+.font-heading {
   font-family: var(--font-heading);
+  font-style: italic;
 }
 
 /* Eyebrow / sub-heading labels use Poppins */

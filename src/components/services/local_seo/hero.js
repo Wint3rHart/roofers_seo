@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { Eyebrow, PrimaryButton, SecondaryButton } from "../../ui/ui_components";
+import HeroBackground from "../../shared/hero_background";
 
 /**
  * Hero — Local SEO service page.
@@ -65,6 +66,7 @@ const imageFloat = {
 export default function LocalSeoHero() {
   return (
     <section className="relative overflow-hidden border-b border-[#ccc5b9]/60 bg-[#fffcf2]">
+      {/* <HeroBackground /> */}
       <div className="relative mx-auto max-w-7xl px-6 pt-16 pb-12 lg:px-10 lg:pt-20">
         <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-12">
           {/* LEFT — copy */}

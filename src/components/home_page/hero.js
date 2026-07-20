@@ -4,6 +4,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { Eyebrow, PrimaryButton, SecondaryButton } from "../ui/ui_components";
+import HeroBackground from "../shared/hero_background";
 
 const container = {
   hidden: {},
@@ -49,6 +50,7 @@ const imageFloat = {
 export default function Hero() {
   return (
     <section className="relative  overflow-hidden  border-[#ccc5b9]/60 bg-[#fffcf2]">
+      {/* <HeroBackground /> */}
       <motion.div
         className="absolute right-0 top-0 h-[100%] w-[100%] lg:w-[100%]"
         variants={imageEntrance}

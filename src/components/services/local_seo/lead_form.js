@@ -22,12 +22,12 @@ export default function LeadForm() {
       initial="hidden"
       whileInView="show"
       viewport={reduce ? false : viewportOnce}
-      className="rounded-2xl border border-[#ccc5b9]/70 bg-white/60 p-6"
+      className="rounded-2xl border border-[#ccc5b9]/70 bg-[#252422] p-6"
     >
-      <h3 className="font-heading text-lg font-black italic leading-tight text-[#252422]">
+      <h3 className="font-heading text-lg font-black italic leading-tight text-[#ccc5b9]   ">
         Get Your Free Local SEO Audit
       </h3>
-      <p className="sub-heading mt-2 text-xs font-light leading-relaxed text-[#403d39]/80">
+      <p className="sub-heading mt-2 text-xs font-light leading-relaxed text-[#eb5e28]">
         Find out where your Google Business Profile and map pack rankings
         stand today.
       </p>
