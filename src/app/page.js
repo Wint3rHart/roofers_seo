@@ -7,12 +7,13 @@ import Process from "@/components/home_page/process";
 import { Pricing } from "@/components/home_page/pricing";
 import { Services } from "@/components/home_page/services";
 import Why from "@/components/home_page/why";
+import Trust from "@/components/home_page/trust";
 
 export default function Home() {
   return (
     <main className="bg-[#fffcf2]">
       <Hero />
-
+<Trust/>
       {/* ABOUT + CONTACT FORM */}
       <AboutUs />
 
@@ -35,7 +36,7 @@ export default function Home() {
       <Faq />
 
       {/* FINAL CTA */}
-      <CTA />
+      {/* <CTA /> */}
     </main>
   );
 }

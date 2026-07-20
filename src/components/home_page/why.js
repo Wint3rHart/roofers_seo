@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { Home, BarChart3, MapPin, Target } from "lucide-react";
 import { SectionHeading } from "../ui/ui_components";
 import {
   fadeUp,
@@ -12,24 +13,20 @@ import {
 
 const WHY_ROWS = [
   {
-    label: "EXPERIENCE",
-    heading: "No Learning Curve, No Wasted Months",
-    copy: "Roofing-only focus means storm season spikes and insurance claim cycles are already understood — so your strategy is right the first month, not the fourth.",
+    icon: Home,
+    heading: "Roofing SEO Experts",
   },
   {
-    label: "SERVICES",
-    heading: "Covering Every Place Homeowners Actually Search",
-    copy: "Google, Google Maps, and AI search tools all get asked the same question — “who’s a good roofer near me” — so optimizing for all three closes the gap most agencies leave open.",
+    icon: BarChart3,
+    heading: "Proven Strategies That Rank",
   },
   {
-    label: "TRANSPARENCY",
-    heading: "Month-to-Month, So Results Have to Speak for Themselves",
-    copy: "No contract means nothing locks you in — so the work has to keep earning its place every single month, on results alone.",
+    icon: MapPin,
+    heading: "Local SEO That Dominates",
   },
   {
-    label: "COMMUNICATION",
-    heading: "Fast, Plain-English Updates, So You Always Know Where You Stand",
-    copy: "Running a roofing business leaves no time for marketing jargon or slow replies — so updates come fast and in plain English, built for decisions, not delays.",
+    icon: Target,
+    heading: "Results That Drive Roofing Jobs",
   },
 ];
 
@@ -38,52 +35,151 @@ const Why = () => {
 
   return (
     <section className="border-b border-[#ccc5b9]/60 bg-[#fffcf7] text-[#252422]">
-      <div className="mx-auto max-w-7xl px-6 py-20 lg:px-10">
+      <div className="mx-auto max-w-7xl px-6 py-16 lg:px-10">
         <SectionHeading
-          eyebrow="WHY ROOFER SEO CO."
-          title="Built Only for Roofing Companies"
-          subtitle="Here’s what that focus actually does for your business."
+          eyebrow="WHY ROOFERS CHOOSE US"
+          title="SEO That Drives Real Roofing Business Growth"
+          subtitle="We help roofing companies show up where it matters, attract more qualified leads, and turn searches into high-value roofing jobs."
         />
 
-        {/* Alternating rows */}
-        <div className="mt-14 space-y-14">
-          {WHY_ROWS.map((row, i) => (
-            <motion.div
-              key={row.heading}
-              className={`flex flex-col items-center gap-8 text-center lg:flex-row lg:gap-16 lg:text-left ${
-                i % 2 === 1 ? "lg:flex-row-reverse" : ""
-              }`}
-              variants={staggerContainer(0.15)}
-              initial="hidden"
-              whileInView="show"
-              viewport={reduce ? false : viewportOnce}
-            >
+        <div className="mt-10 grid grid-cols-1 gap-6 lg:grid-cols-2 lg:items-start">
+          {/* Left column — feature rows + goal box */}
+          <motion.div
+            className="space-y-3"
+            variants={staggerContainer(0.1)}
+            initial="hidden"
+            whileInView="show"
+            viewport={reduce ? false : viewportOnce}
+          >
+            {WHY_ROWS.map(({ icon: Icon, heading }) => (
               <motion.div
-                variants={fadeScale}
-                className="aspect-video w-full flex-1 rounded-xl"
-                style={{
-                  background:
-                    i % 2 === 0
-                      ? "linear-gradient(135deg, #403d39, #252422)"
-                      : "linear-gradient(135deg, #ccc5b9, #403d39)",
-                }}
-              />
-              <motion.div variants={fadeUp} className="flex-1">
-                <p
-                  className="eyebrow mb-2 text-xs font-bold tracking-[0.18em]"
-                  style={{ color: "#eb5e28" }}
-                >
-                  {row.label}
-                </p>
-                <h3 className="font-heading text-2xl font-black italic leading-snug">
-                  {row.heading}
-                </h3>
-                <p className="sub-heading mt-3 text-sm font-light leading-relaxed text-[#403d39]/85">
-                  {row.copy}
-                </p>
+                key={heading}
+                variants={fadeUp}
+                className="flex items-center gap-4 rounded-lg border border-[#ccc5b9]/70 bg-white/40 p-4"
+              >
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center">
+                  <Icon
+                    className="h-6 w-6"
+                    style={{ color: "#eb5e28" }}
+                    strokeWidth={1.75}
+                  />
+                </div>
+                <h3 className="font-heading text-base font-bold">{heading}</h3>
               </motion.div>
+            ))}
+
+            <motion.div
+              variants={fadeScale}
+              className="rounded-lg bg-[#252422] p-6 text-center"
+            >
+              <p className="text-xs text-[#ccc5b9]">Our goal is simple:</p>
+              <p
+                className="mt-1 font-heading text-lg font-black italic"
+                style={{ color: "#eb5e28" }}
+              >
+                More visibility. More leads. More jobs.
+              </p>
+              <p className="mt-1 text-xs text-[#ccc5b9]">
+                Sustainable growth for your roofing business.
+              </p>
             </motion.div>
-          ))}
+          </motion.div>
+
+          {/* Right column — form card */}
+          <motion.div
+            variants={fadeScale}
+            initial="hidden"
+            whileInView="show"
+            viewport={reduce ? false : viewportOnce}
+            className="overflow-hidden rounded-lg bg-white shadow-xl"
+          >
+            <div className="bg-[#252422] px-6 py-4">
+              <h3 className="font-heading text-lg font-bold text-[#fffcf2]">
+                Get Your Free Roofing SEO Strategy
+              </h3>
+            </div>
+
+            <form
+              className="space-y-3 p-6"
+              action="/thank-you?type=free-strategy"
+              method="post"
+            >
+              <div className="grid grid-cols-2 gap-3">
+                <div>
+                  <label className="mb-1 block text-xs font-semibold text-[#252422]">
+                    First Name *
+                  </label>
+                  <input
+                    type="text"
+                    name="first_name"
+                    required
+                    placeholder="First name"
+                    className="w-full rounded-md border border-[#ccc5b9] px-3 py-2 text-sm placeholder:text-[#a8a29a] focus:border-[#eb5e28] focus:outline-none"
+                  />
+                </div>
+                <div>
+                  <label className="mb-1 block text-xs font-semibold text-[#252422]">
+                    Last Name *
+                  </label>
+                  <input
+                    type="text"
+                    name="last_name"
+                    required
+                    placeholder="Last name"
+                    className="w-full rounded-md border border-[#ccc5b9] px-3 py-2 text-sm placeholder:text-[#a8a29a] focus:border-[#eb5e28] focus:outline-none"
+                  />
+                </div>
+              </div>
+
+              <div>
+                <label className="mb-1 block text-xs font-semibold text-[#252422]">
+                  Email Address *
+                </label>
+                <input
+                  type="email"
+                  name="email"
+                  required
+                  placeholder="you@company.com"
+                  className="w-full rounded-md border border-[#ccc5b9] px-3 py-2 text-sm placeholder:text-[#a8a29a] focus:border-[#eb5e28] focus:outline-none"
+                />
+              </div>
+
+              <div className="grid grid-cols-2 gap-3">
+                <div>
+                  <label className="mb-1 block text-xs font-semibold text-[#252422]">
+                    Phone Number *
+                  </label>
+                  <input
+                    type="tel"
+                    name="phone"
+                    required
+                    placeholder="(555) 123-4567"
+                    className="w-full rounded-md border border-[#ccc5b9] px-3 py-2 text-sm placeholder:text-[#a8a29a] focus:border-[#eb5e28] focus:outline-none"
+                  />
+                </div>
+                <div>
+                  <label className="mb-1 block text-xs font-semibold text-[#252422]">
+                    Company Name *
+                  </label>
+                  <input
+                    type="text"
+                    name="company_name"
+                    required
+                    placeholder="Your company name"
+                    className="w-full rounded-md border border-[#ccc5b9] px-3 py-2 text-sm placeholder:text-[#a8a29a] focus:border-[#eb5e28] focus:outline-none"
+                  />
+                </div>
+              </div>
+
+              <button
+                type="submit"
+                className="w-full rounded-md py-3 text-sm font-bold text-[#fffcf2] transition-opacity hover:opacity-90"
+                style={{ background: "#eb5e28" }}
+              >
+                Get My Free Strategy
+              </button>
+            </form>
+          </motion.div>
         </div>
       </div>
     </section>

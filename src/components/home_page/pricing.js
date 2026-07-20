@@ -15,7 +15,8 @@ export const Pricing = () => {
   return (
     <section className="border-b border-[#ccc5b9]/60 bg-white/40 text-[#252422]">
       <div className="mx-auto max-w-3xl px-6 py-20 text-center lg:px-10">
-        <SectionHeading eyebrow="PRICING" title="Custom Plans for Your Roofing Business" />
+        {/* Main heading left exactly as it was */}
+        <SectionHeading eyebrow="PRICING" title="Ready To Get Started ?" />
 
         <motion.div
           className="mt-8"
@@ -24,30 +25,46 @@ export const Pricing = () => {
           whileInView="show"
           viewport={reduce ? false : viewportOnce}
         >
+          {/* Bold sub-heading under the title */}
           <motion.p
             variants={fadeUp}
-            className="sub-heading mx-auto max-w-2xl text-sm font-light leading-relaxed text-[#403d39]/85"
+            className="mx-auto max-w-2xl text-lg font-bold text-[#252422]"
           >
-            Every roofing company starts in a different place — some need
-            reviews fixed first, some are invisible in the map pack, some
-            have a website actively losing them leads. Pricing follows
-            whichever combination of services actually moves your business
-            forward, not a one-size-fits-all package.
+            Pricing built around where your business actually stands
           </motion.p>
+
+          <motion.p
+            variants={fadeUp}
+            className="sub-heading mx-auto mt-6 max-w-2xl text-sm font-light leading-relaxed text-[#403d39]/85"
+          >
+            Every roofing company is starting from a different spot. Some
+            are invisible in the map pack. Some rank fine in one
+            neighborhood but nowhere else. Some have reviews holding them
+            back, or a website that's actively costing them leads. Your
+            price depends on where your business stands in search today,
+            not a package built for someone else's problem.
+          </motion.p>
+
           <motion.p
             variants={fadeUp}
             className="sub-heading mx-auto mt-4 max-w-2xl text-sm font-light leading-relaxed text-[#403d39]/85"
           >
-            A plan built around reputation management alone costs less than
-            one that combines reviews, local SEO, web design, and AI
-            search visibility — so the price reflects what your business
-            actually needs, not what’s easiest to sell.
+            A plan focused on reputation management alone costs less than
+            one that combines local SEO, web design, ads, and AI search
+            visibility. You only pay for what your business actually
+            needs to move forward.
           </motion.p>
-          <motion.p variants={fadeUp} className="mt-6 text-base font-bold">
-            Most projects range between{" "}
-            <span style={{ color: "#eb5e28" }}>$250</span> and{" "}
-            <span style={{ color: "#eb5e28" }}>$3,000</span> per month.
-          </motion.p>
+
+          {/* Price pill */}
+          <motion.div variants={fadeUp} className="mt-8 flex justify-center">
+            <div className="rounded-2xl bg-[#f8dccb] px-10 py-5">
+              <p className="text-base font-bold text-[#252422]">
+                Plans start at{" "}
+                <span style={{ color: "#eb5e28" }}>$297</span> per month
+              </p>
+            </div>
+          </motion.div>
+
           <motion.div variants={fadeUp} className="mt-8">
             <PrimaryButton as="a" href="/book-a-call">
               Book a Call for a Custom Plan

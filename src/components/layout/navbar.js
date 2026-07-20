@@ -6,7 +6,6 @@ import { ArrowRight, ChevronDown, Menu, X } from "lucide-react";
 import { Logo, PrimaryButton } from "../ui/ui_components";
 
 const NAV_LINKS = [
-  { label: "Home", href: "/" },
   {
     label: "SEO Services",
     children: [
@@ -38,17 +37,15 @@ export default function Navbar() {
       initial={{ y: -80, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-      className={`sticky top-0 z-50 border-b transition-colors ${
-        scrolled
-          ? "border-[#ccc5b9]/80 bg-[#fffcf2]/95 backdrop-blur"
-          : "border-transparent bg-[#fffcf2]"
+      className={`sticky top-0 z-50 bg-transparent shadow-md transition-colors ${
+        scrolled ? "backdrop-blur" : ""
       }`}
     >
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-10">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-1.5 lg:px-10">
         <Logo />
 
         {/* Desktop nav */}
-        <nav className="hidden items-center gap-8 lg:flex">
+        <nav className="ml-auto hidden items-center gap-7 pr-8 lg:flex">
           {NAV_LINKS.map((link) =>
             link.children ? (
               <div

@@ -45,7 +45,7 @@ const ICON_MAP = {
  * Cross-sell ladder (loop):
  *   Reputation Management → Local SEO → Web Design → AI Search Visibility → Reputation Management
  */
-export default function ServicePageTemplate({ data }) {
+export default function ServicePageTemplate({ data, customHero }) {
   const {
     eyebrow,
     h1,
@@ -65,51 +65,55 @@ export default function ServicePageTemplate({ data }) {
 
   return (
     <main className="bg-[#fffcf2]">
-      {/* 1. HERO */}
-      <section className="relative overflow-hidden border-b border-[#ccc5b9]/60 bg-[#fffcf2]">
-        <motion.div
-          aria-hidden
-          className="absolute -right-24 top-10 hidden h-[420px] w-[420px] rounded-full opacity-50 lg:block"
-          style={{ background: "#ccc5b9" }}
-          animate={
-            reduce
-              ? undefined
-              : { x: [0, -30, 0], y: [0, 24, 0], scale: [1, 1.06, 1] }
-          }
-          transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
-        />
-        <div className="relative mx-auto max-w-4xl px-6 py-16 text-center lg:px-10 lg:py-24">
+      {/* 1. HERO — page-specific override if provided, otherwise the default */}
+      {customHero ? (
+        customHero
+      ) : (
+        <section className="relative overflow-hidden border-b border-[#ccc5b9]/60 bg-[#fffcf2]">
           <motion.div
-            variants={staggerContainer(0.14)}
-            initial="hidden"
-            animate="show"
-          >
-            <motion.div variants={fadeUp}>
-              <Eyebrow>{eyebrow}</Eyebrow>
-            </motion.div>
-            <motion.h1
-              variants={fadeUp}
-              className="font-heading text-4xl font-black italic leading-[1.08] tracking-tight sm:text-5xl"
+            aria-hidden
+            className="absolute -right-24 top-10 hidden h-[420px] w-[420px] rounded-full opacity-50 lg:block"
+            style={{ background: "#ccc5b9" }}
+            animate={
+              reduce
+                ? undefined
+                : { x: [0, -30, 0], y: [0, 24, 0], scale: [1, 1.06, 1] }
+            }
+            transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
+          />
+          <div className="relative mx-auto max-w-4xl px-6 py-16 text-center lg:px-10 lg:py-24">
+            <motion.div
+              variants={staggerContainer(0.14)}
+              initial="hidden"
+              animate="show"
             >
-              {h1}
-            </motion.h1>
-            <motion.div variants={fadeUp}>
-              <OrangeBar className="mt-6" />
+              <motion.div variants={fadeUp}>
+                <Eyebrow>{eyebrow}</Eyebrow>
+              </motion.div>
+              <motion.h1
+                variants={fadeUp}
+                className="font-heading text-4xl font-black italic leading-[1.08] tracking-tight sm:text-5xl"
+              >
+                {h1}
+              </motion.h1>
+              <motion.div variants={fadeUp}>
+                <OrangeBar className="mt-6" />
+              </motion.div>
+              <motion.p
+                variants={fadeUp}
+                className="sub-heading mx-auto mt-6 max-w-2xl text-base font-light leading-relaxed text-[#403d39]/90"
+              >
+                {subheading}
+              </motion.p>
+              <motion.div variants={fadeScale} className="mt-8">
+                <PrimaryButton as="a" href="/book-a-call">
+                  Book a Call <ArrowRight className="h-4 w-4" />
+                </PrimaryButton>
+              </motion.div>
             </motion.div>
-            <motion.p
-              variants={fadeUp}
-              className="sub-heading mx-auto mt-6 max-w-2xl text-base font-light leading-relaxed text-[#403d39]/90"
-            >
-              {subheading}
-            </motion.p>
-            <motion.div variants={fadeScale} className="mt-8">
-              <PrimaryButton as="a" href="/book-a-call">
-                Book a Call <ArrowRight className="h-4 w-4" />
-              </PrimaryButton>
-            </motion.div>
-          </motion.div>
-        </div>
-      </section>
+          </div>
+        </section>
+      )}
 
       {/* 2. THE PROBLEM */}
       <section className="border-b border-[#ccc5b9]/60 bg-[#fffcf7]">
