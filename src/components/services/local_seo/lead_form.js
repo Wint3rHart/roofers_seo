@@ -24,7 +24,7 @@ export default function LeadForm() {
       viewport={reduce ? false : viewportOnce}
       className="rounded-2xl border border-[#ccc5b9]/70 bg-[#252422] p-6"
     >
-      <h3 className="font-heading text-lg font-black italic leading-tight text-[#ccc5b9]   ">
+      <h3 className="font-heading text-lg font-black italic leading-tight text-[#fffcf2]   ">
         Get Your Free Local SEO Audit
       </h3>
       <p className="sub-heading mt-2 text-xs font-light leading-relaxed text-[#eb5e28]">

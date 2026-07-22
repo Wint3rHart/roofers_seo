@@ -269,7 +269,7 @@ export default function ContentBody() {
 
   return (
     <div>
-      <Hero reduce={reduce} />
+      {/* <Hero reduce={reduce} /> */}
 
       <Section id="why-seo-matters" title="Why SEO for Roofers Matters Right Now" reduce={reduce}>
         <P>
@@ -525,14 +525,10 @@ export default function ContentBody() {
             },
           ]}
         />
-        <motion.div variants={fadeUp} className="mt-8">
-          <PrimaryButton as="a" href="/book-a-call">
-            Book a Call <ArrowRight className="h-4 w-4" />
-          </PrimaryButton>
-        </motion.div>
+      
       </Section>
 
-      <motion.section
+      {/* <motion.section
         id="ready-to-rank"
         className="pt-10"
         variants={staggerContainer(0.08)}
@@ -556,7 +552,7 @@ export default function ContentBody() {
             Book Your Free Consultation <ArrowRight className="h-4 w-4" />
           </PrimaryButton>
         </motion.div>
-      </motion.section>
+      </motion.section> */}
     </div>
   );
 }

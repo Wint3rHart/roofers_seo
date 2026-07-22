@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { Eyebrow, PrimaryButton, SecondaryButton } from "../../ui/ui_components";
 import HeroBackground from "../../shared/hero_background";
@@ -12,8 +13,7 @@ import HeroBackground from "../../shared/hero_background";
  * orange bar → two paragraphs → dual CTAs), placed in a left-text /
  * right-image split like the reference design. Animation timings/variants
  * are copied 1:1 from components/home_page/hero.js so both heroes feel
- * identical. Image slot is left empty for now — drop a <Image> in the
- * marked spot once the asset is ready.
+ * identical.
  */
 
 // Same stagger timing as the homepage hero
@@ -65,9 +65,9 @@ const imageFloat = {
 
 export default function LocalSeoHero() {
   return (
-    <section className="relative overflow-hidden border-b border-[#ccc5b9]/60 bg-[#fffcf2]">
+    <section className="relative overflow-hidden border-b border-[#ccc5b9]/60">
       {/* <HeroBackground /> */}
-      <div className="relative mx-auto max-w-7xl px-6 pt-16 pb-12 lg:px-10 lg:pt-20">
+      <div className="relative z-[1] mx-auto max-w-7xl px-6 pt-16 pb-12 lg:px-10 lg:pt-20">
         <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-12">
           {/* LEFT — copy */}
           <motion.div
@@ -124,19 +124,24 @@ export default function LocalSeoHero() {
             </motion.div>
           </motion.div>
 
-          {/* RIGHT — image slot (empty for now) */}
+          {/* RIGHT — hero image */}
           <motion.div
             variants={imageEntrance}
             initial="hidden"
             animate="show"
-            className="relative mx-auto flex h-[320px] w-full max-w-md items-center justify-center rounded-2xl border border-dashed border-[#ccc5b9] bg-[#fffcf7] text-sm text-[#403d39]/50 lg:h-[420px]"
+            className="relative mx-auto flex h-[320px] w-full max-w-md items-center justify-center overflow-hidden rounded-2xl lg:h-[520px]"
           >
             <motion.div
               animate={imageFloat}
-              className="flex h-full w-full items-center justify-center"
+              className="relative h-full w-full"
             >
-              {/* TODO: replace with <Image src="..." alt="..." fill className="object-contain" /> */}
-              Hero image goes here
+              <Image
+                src="/local-seo/icon.jpeg"
+                alt="Local SEO for roofers"
+                fill
+                priority
+                className="object-cover"
+              />
             </motion.div>
           </motion.div>
         </div>
