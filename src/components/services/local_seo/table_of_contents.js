@@ -69,7 +69,7 @@ export default function TableOfContents({ items = TOC_ITEMS }) {
           lg+ always shows full, uncollapsed list. */}
       <div
         className={`overflow-hidden transition-[max-height] duration-300 ease-in-out lg:!max-h-none ${
-          expanded ? "max-h-[999px]" : "max-h-24"
+          expanded ? "max-h-[999px]" : "max-h-0"
         }`}
       >
         <motion.ul
