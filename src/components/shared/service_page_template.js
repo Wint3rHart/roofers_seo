@@ -81,7 +81,7 @@ export default function ServicePageTemplate({ data, customHero }) {
             }
             transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
           />
-          <div className="relative mx-auto max-w-4xl px-6 py-16 text-center lg:px-10 lg:py-24">
+          <div className="relative mx-auto max-w-4xl px-6 py-16 text-center lg:px-6 lg:py-24">
             <motion.div
               variants={staggerContainer(0.14)}
               initial="hidden"
@@ -117,7 +117,7 @@ export default function ServicePageTemplate({ data, customHero }) {
 
       {/* 2. THE PROBLEM */}
       <section className="border-b border-[#ccc5b9]/60 bg-[#fffcf7]">
-        <div className="mx-auto max-w-5xl px-6 py-20 lg:px-10">
+        <div className="mx-auto max-w-5xl px-6 py-20 lg:px-6">
           <SectionHeading
             eyebrow="THE PROBLEM"
             title="What’s quietly costing you roofing leads right now"
@@ -153,7 +153,7 @@ export default function ServicePageTemplate({ data, customHero }) {
 
       {/* 3. WHAT'S INCLUDED */}
       <section className="border-b border-[#ccc5b9]/60 bg-[#fffcf2]">
-        <div className="mx-auto max-w-5xl px-6 py-20 lg:px-10">
+        <div className="mx-auto max-w-5xl px-6 py-20 lg:px-6">
           <SectionHeading
             eyebrow="WHAT’S INCLUDED"
             title="The actual work, broken down"
@@ -191,7 +191,7 @@ export default function ServicePageTemplate({ data, customHero }) {
 
       {/* 4. HOW IT WORKS */}
       <section className="border-b border-[#ccc5b9]/60 bg-[#fffcf7]">
-        <div className="mx-auto max-w-5xl px-6 py-20 lg:px-10">
+        <div className="mx-auto max-w-5xl px-6 py-20 lg:px-6">
           <SectionHeading
             eyebrow="HOW IT WORKS"
             title="A short, service-specific 3-step process"
@@ -230,7 +230,7 @@ export default function ServicePageTemplate({ data, customHero }) {
       {/* 5. WHY IT MATTERS FOR ROOFERS — dark section, uses SectionHeading dark variant */}
       <section className="border-b border-[#ccc5b9]/60 bg-[#252422]">
         <motion.div
-          className="mx-auto max-w-4xl px-6 py-20 text-center lg:px-10"
+          className="mx-auto max-w-4xl px-6 py-20 text-center lg:px-6"
           variants={staggerContainer(0.14)}
           initial="hidden"
           whileInView="show"
@@ -260,7 +260,7 @@ export default function ServicePageTemplate({ data, customHero }) {
       {/* 6. NEXT STEP / CROSS-SELL */}
       <section className="border-b border-[#ccc5b9]/60 bg-[#eb5e28]">
         <motion.div
-          className="mx-auto flex max-w-5xl flex-col items-center justify-between gap-6 px-6 py-14 text-center lg:flex-row lg:px-10 lg:text-left"
+          className="mx-auto flex max-w-5xl flex-col items-center justify-between gap-6 px-6 py-14 text-center lg:flex-row lg:px-6 lg:text-left"
           variants={staggerContainer(0.14)}
           initial="hidden"
           whileInView="show"
@@ -288,7 +288,7 @@ export default function ServicePageTemplate({ data, customHero }) {
 
       {/* 7. FAQ */}
       <section className="border-b border-[#ccc5b9]/60 bg-[#fffcf2]">
-        <div className="mx-auto max-w-3xl px-6 py-20 text-center lg:px-10">
+        <div className="mx-auto max-w-3xl px-6 py-20 text-center lg:px-6">
           <SectionHeading title="Frequently Asked Questions" />
 
           <motion.div

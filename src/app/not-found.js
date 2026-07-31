@@ -36,7 +36,7 @@ export default function NotFound() {
           }
           transition={{ duration: 14, repeat: Infinity, ease: "easeInOut" }}
         />
-        <div className="relative mx-auto max-w-3xl px-6 py-24 text-center lg:px-10 lg:py-32">
+        <div className="relative mx-auto max-w-3xl px-6 py-24 text-center lg:px-6 lg:py-32">
           <motion.div
             variants={staggerContainer(0.12)}
             initial="hidden"

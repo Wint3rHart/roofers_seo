@@ -35,23 +35,23 @@ export default function Footer() {
       <div className="mx-auto h-px w-full max-w-7xl bg-gradient-to-r from-transparent via-[#ccc5b9]/25 to-transparent" />
 
       <motion.div
-        className="mx-auto max-w-7xl px-6 py-14 lg:px-10"
+        className="mx-auto max-w-7xl px-6 py-14 lg:px-6"
         variants={staggerContainer(0.1)}
         initial="hidden"
         whileInView="show"
         viewport={reduce ? false : viewportOnce}
       >
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
-          <motion.div variants={fadeUp}>
+          <motion.div  variants={fadeUp}>
             <Image
-              src="/WhatsApp_Image_2026-07-16_at_8.36.34_PM-removebg-preview.png"
+              src="/Logo_Footer.svg"
               alt="Roofer SEO Co."
               width={140}
               height={44}
              
-              className="h-10 w-auto object-contain"
+              className="h-10 w-auto object-contain "
             />
-            <p className="sub-heading mt-4 max-w-xs text-sm font-light leading-relaxed text-[#ccc5b9]">
+            <p className="sub-heading mt-4 max-w-xs sm:ml-6 text-sm font-light leading-relaxed text-[#ccc5b9]">
               SEO services exclusively for roofing contractors. More leads,
               higher rankings, stronger businesses — month to month, no
               contracts.

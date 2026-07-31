@@ -28,7 +28,7 @@ const AboutUs = () => {
 
   return (
     <section className="border-b flex justify-evenly border-[#ccc5b9]/60 bg-[#fffcf7] text-[#252422]">
-      <div className="mx-auto max-w-7xl px-6 py-20 lg:px-10">
+      <div className="mx-auto max-w-7xl px-6 py-20 lg:px-6">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:items-center">
           {/* Left column — text + stats */}
           <div>

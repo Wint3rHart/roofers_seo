@@ -1,4 +1,4 @@
-import ServiceHero from "@/components/services/shared/service_hero";
+import ReputationManagementHero from "@/components/services/reputation_management/hero";
 import ServiceContentLayout from "@/components/services/shared/service_content_layout";
 import ContentBody, {
   TOC_ITEMS,
@@ -18,7 +18,7 @@ export default function ReputationManagementPage() {
 
   return (
     <main className="bg-[#fffcf2]">
-      <ServiceHero eyebrow={data.eyebrow} h1={data.h1} subheading={data.subheading} />
+      <ReputationManagementHero />
       <ServiceContentLayout
         tocItems={TOC_ITEMS}
         formTitle="Get Your Free Reputation Audit"

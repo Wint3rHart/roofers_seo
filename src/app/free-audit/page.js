@@ -37,7 +37,7 @@ export default function FreeAuditPage() {
           }
           transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
         />
-        <div className="relative mx-auto max-w-4xl px-6 py-16 text-center lg:px-10 lg:py-20">
+        <div className="relative mx-auto max-w-4xl px-6 py-16 text-center lg:px-6 lg:py-20">
           <motion.div
             variants={staggerContainer(0.14)}
             initial="hidden"
@@ -128,7 +128,7 @@ export default function FreeAuditPage() {
         whileInView="show"
         viewport={reduce ? false : viewportOnce}
       >
-        <div className="mx-auto max-w-3xl px-6 py-14 text-center lg:px-10">
+        <div className="mx-auto max-w-3xl px-6 py-14 text-center lg:px-6">
           <div
             className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full"
             style={{ background: "#eb5e28" }}

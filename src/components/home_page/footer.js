@@ -25,7 +25,7 @@ export const Footer = () => {
   return (
     <footer id="site-footer" className="bg-[#252422] text-[#fffcf2]">
       {/* Top row: intro + form */}
-      <div className="mx-auto max-w-7xl px-6 py-20 lg:px-10">
+      <div className="mx-auto max-w-7xl px-6 py-20 lg:px-6">
         <div className="grid gap-14 lg:grid-cols-2 lg:gap-20">
           {/* Left: heading + copy + CTAs */}
           <div className="flex flex-col justify-center">
@@ -124,9 +124,9 @@ export const Footer = () => {
       <div className="h-px w-full bg-gradient-to-r from-transparent via-[#ccc5b9]/25 to-transparent" />
 
       {/* Bottom row: logo + centered legal */}
-      <div className="mx-auto flex max-w-7xl flex-col items-center gap-6 px-6 py-10 lg:px-10">
+      <div className="mx-auto flex max-w-7xl flex-col items-center gap-6 px-6 py-10 lg:px-6">
         <Image
-          src="/WhatsApp%20Image%202026-07-16%20at%208.36.34%20PM.jpeg"
+          src="/Logo_Footer.svg"
           alt="Roofer SEO Co."
           width={140}
           height={44}

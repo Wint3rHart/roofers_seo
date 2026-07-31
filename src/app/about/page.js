@@ -57,7 +57,7 @@ export default function AboutPage() {
           }
           transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
         />
-        <div className="relative mx-auto max-w-4xl px-6 py-16 text-center lg:px-10 lg:py-20">
+        <div className="relative mx-auto max-w-4xl px-6 py-16 text-center lg:px-6 lg:py-20">
           <motion.div
             variants={staggerContainer(0.14)}
             initial="hidden"
@@ -90,7 +90,7 @@ export default function AboutPage() {
 
       {/* Who We Are */}
       <section className="border-b border-[#ccc5b9]/60 bg-[#fffcf7]">
-        <div className="mx-auto max-w-4xl px-6 py-20 text-center lg:px-10">
+        <div className="mx-auto max-w-4xl px-6 py-20 text-center lg:px-6">
           <SectionHeading eyebrow="OUR STORY" title="Why roofing, specifically" />
 
           <motion.div
@@ -138,7 +138,7 @@ export default function AboutPage() {
 
       {/* Who We Work With */}
       <section className="border-b border-[#ccc5b9]/60 bg-[#fffcf2]">
-        <div className="mx-auto max-w-4xl px-6 py-20 text-center lg:px-10">
+        <div className="mx-auto max-w-4xl px-6 py-20 text-center lg:px-6">
           <SectionHeading
             eyebrow="WHO WE WORK WITH"
             title="Roofing contractors across the United States"
@@ -177,7 +177,7 @@ export default function AboutPage() {
 
       {/* Our Approach */}
       <section className="border-b border-[#ccc5b9]/60 bg-[#fffcf7]">
-        <div className="mx-auto max-w-6xl px-6 py-20 lg:px-10">
+        <div className="mx-auto max-w-6xl px-6 py-20 lg:px-6">
           <SectionHeading
             eyebrow="OUR APPROACH"
             title="A real system, not a grab-bag of services"

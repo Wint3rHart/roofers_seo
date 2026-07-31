@@ -35,7 +35,7 @@ export const CTA = () => {
   return (
     <section className="bg-[#252422]">
       <motion.div
-        className="mx-auto grid max-w-6xl gap-14 px-6 py-24 lg:grid-cols-2 lg:items-center lg:gap-16 lg:px-10"
+        className="mx-auto grid max-w-6xl gap-14 px-6 py-24 lg:grid-cols-2 lg:items-center lg:gap-16 lg:px-6"
         variants={staggerContainer(0.14)}
         initial="hidden"
         whileInView="show"

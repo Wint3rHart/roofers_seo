@@ -59,6 +59,29 @@ h1, h2, h3, h4, h5, h6,
   font-family: var(--font-sub);
 }
 
+/* -------------------------------------------------------------------- */
+/* Global type scale — applies site-wide, overriding any Tailwind        */
+/* text-size utility class on these elements (utility classes normally   */
+/* win on specificity, so !important is required here to make this the   */
+/* single source of truth for these four sizes across every page).       */
+/*   H2 -> 42px | H3 -> 38px | H4 -> 18px | body text (p) -> 18px         */
+/* -------------------------------------------------------------------- */
+/* h2 {
+  font-size: 42px !important;
+}
+
+h3 {
+  font-size: 38px !important;
+}
+
+h4 {
+  font-size: 18px !important;
+}
+
+p {
+  font-size: 18px !important;
+} */
+
 /* Reusable focus ring */
 *:focus-visible {
   outline: 2px solid #eb5e28;

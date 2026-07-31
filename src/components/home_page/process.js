@@ -114,7 +114,7 @@ const Process = () => {
 
   return (
     <section className="border-b border-[#ccc5b9]/60 bg-[#fffcf7] text-[#252422]">
-      <div className="mx-auto max-w-7xl px-6 py-20 lg:px-10">
+      <div className="mx-auto max-w-7xl px-6 py-20 lg:px-6">
         <SectionHeading eyebrow="OUR PROCESS" title="A Simple 6-Step Process That Works" />
 
         <motion.div

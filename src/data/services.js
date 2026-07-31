@@ -15,9 +15,9 @@ export const SERVICE_DATA = {
     slug: "reputation-management",
     eyebrow: "REPUTATION MANAGEMENT",
     icon: "star",
-    h1: "Get More 5-Star Reviews, Without Chasing Customers for Them",
+    h1: "Reputation Management for Roofers - Turns Every Job Into a 5-Star Review",
     subheading:
-      "Automated review requests, faster responses, and a reputation that does the selling before you ever pick up the phone.",
+      "Every completed job creates a moment that either builds trust or costs the next one.",
     problems: [
       "A handful of old reviews makes a 20-year-old roofing company look brand new to anyone searching online.",
       "One bad review with no response sits at the top of the profile for months, unanswered.",

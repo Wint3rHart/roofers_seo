@@ -1,22 +1,25 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { Eyebrow, PrimaryButton, SecondaryButton } from "../../ui/ui_components";
-import HeroBackground from "../../shared/hero_background";
+import Image from "next/image";
 
 /**
- * Hero — Local SEO service page.
+ * Hero — Reputation Management service page.
  *
- * Layout mirrors the homepage hero (eyebrow → two-tone italic heading →
- * orange bar → two paragraphs → dual CTAs), placed in a left-text /
- * right-image split like the reference design. Animation timings/variants
- * are copied 1:1 from components/home_page/hero.js so both heroes feel
- * identical.
+ * Layout mirrors the homepage hero and the Local SEO hero (eyebrow →
+ * two-tone bold heading → two paragraphs split by an orange divider →
+ * dual CTAs), placed in a left-text / right-image split. Copy is the
+ * doc's exact H1 ("Reputation Management for Roofers") and its "Body
+ * Text" paragraph, split into two paragraphs around the divider exactly
+ * as shown in the reference design image — nothing paraphrased.
+ *
+ * Right-side image is left as an empty placeholder for now — swap the
+ * placeholder div below for an <Image> once the asset is provided.
  */
 
-// Same stagger timing as the homepage hero
+// Same stagger timing as the homepage / local_seo hero
 const container = {
   hidden: {},
   show: {
@@ -36,7 +39,7 @@ const item = {
   },
 };
 
-// Entrance for the hero image — fades in, scales down slightly (same as homepage)
+// Entrance for the hero image — fades in, scales down slightly (same as homepage/local_seo)
 const imageEntrance = {
   hidden: { opacity: 0, scale: 1.04 },
   show: {
@@ -52,7 +55,9 @@ const TRUST_STRIP = [
   "Roofing-specific strategy",
 ];
 
-// Gentle continuous float once the entrance finishes (same as homepage)
+export default function ReputationManagementHero() {
+
+  // Gentle continuous float once the entrance finishes (same as homepage)
 const imageFloat = {
   y: [0, -10, 0],
   transition: {
@@ -63,10 +68,8 @@ const imageFloat = {
   },
 };
 
-export default function LocalSeoHero() {
   return (
     <section className="relative overflow-hidden bg-[#fbf4ea] border-b border-[#ccc5b9]/60">
-      {/* <HeroBackground /> */}
       <div className="relative z-[1] mx-auto max-w-7xl px-6 pt-16 pb-12 lg:px-6 lg:pt-20">
         <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-12">
           {/* LEFT — copy */}
@@ -77,27 +80,28 @@ export default function LocalSeoHero() {
             className="flex flex-col items-start text-left"
           >
             <motion.div variants={item}>
-              <Eyebrow className="text-[11px]">LOCAL SEO FOR ROOFERS</Eyebrow>
+              <Eyebrow className="text-[11px]">
+                Turns Every Job Into a 5-Star Review
+              </Eyebrow>
             </motion.div>
 
             <motion.h1
               variants={item}
-              className="font-heading text-4xl font-black  leading-[1.08] tracking-tight sm:text-5xl"
+              className="font-heading text-5xl font-black leading-[1.08] tracking-tight sm:text-6xl"
             >
-              <motion.span variants={item} style={{ color: "#eb5e28" }}>
-                SEO for Roofers
-              </motion.span>
-              <br />
               <motion.span variants={item} className="text-[#252422]">
-                That Gets Your Phone Ringing
+                Reputation Management
+              </motion.span>{" "}
+              <motion.span variants={item} style={{ color: "#eb5e28" }}>
+                for Roofers
               </motion.span>
             </motion.h1>
 
             <motion.div variants={item}>
               <motion.p className="sub-heading mt-6 max-w-sm text-sm font-light font-semibold leading-tight text-[#403d39]">
-                Homeowners search Google before they call anyone. The
-                roofing company that ranks gets the job — the one that
-                doesn&rsquo;t gets skipped.
+                A roofing company&rsquo;s online reputation shapes who
+                calls and who scrolls past, often before a single
+                conversation happens.
               </motion.p>
 
               <motion.span
@@ -108,53 +112,56 @@ export default function LocalSeoHero() {
               />
 
               <motion.p className="mt-6 max-w-sm text-sm font-light leading-relaxed text-[#403d39]">
-                Roofer SEO Co. builds SEO for roofers that turns local
-                search into booked jobs, not just traffic, with
-                month-to-month terms and no long-term contracts.
+                Reputation management for roofing companies means
+                building a system around that moment: getting good
+                experiences turned into visible reviews, and catching
+                bad ones before they go public. No long-term contract,
+                roofing-specific setup, live within 24 hours, working
+                nationwide.
               </motion.p>
             </motion.div>
 
             <motion.div variants={item} className="mt-8 flex flex-wrap gap-4">
-              <PrimaryButton as="a" href="/book-a-call">
-                Book a Call <ArrowRight className="h-4 w-4" />
+              <PrimaryButton as="a" href="/contact">
+                Get your 7 days free trail <ArrowRight className="h-4 w-4" />
               </PrimaryButton>
-              <SecondaryButton as="a" href="/free-audit">
+              {/* <SecondaryButton as="a" href="/free-audit">
                 Get a Free Audit
-              </SecondaryButton>
+              </SecondaryButton> */}
             </motion.div>
           </motion.div>
 
-          {/* RIGHT — hero image */}
+          {/* RIGHT — hero image placeholder (image to be added later) */}
           <motion.div
-            variants={imageEntrance}
-            initial="hidden"
-            animate="show"
-            className="relative mx-auto flex h-[380px] w-full max-w-md items-center justify-center overflow-hidden rounded-2xl lg:h-[520px]"
-          >
-            <motion.div
-              animate={imageFloat}
-              className="relative h-full w-full"
-            >
-              <Image
-                src="/WhatsApp_Image_2026-07-19_at_9.12.53_PM-removebg-preview.png"
-                alt="Local SEO for roofers"
-                fill
-                priority
-                className="object-cover"
-              />
-            </motion.div>
-          </motion.div>
+                    variants={imageEntrance}
+                    initial="hidden"
+                    animate="show"
+                    className="relative mx-auto flex h-[380px] w-full max-w-md items-center justify-center overflow-hidden rounded-2xl lg:h-[520px]"
+                  >
+                    <motion.div
+                      animate={imageFloat}
+                      className="relative h-full w-full"
+                    >
+                      <Image
+                        src="/bob-Photoroom.png"
+                        alt="Local SEO for roofers"
+                        fill
+                        priority
+                        className="object-cover"
+                      />
+                    </motion.div>
+                  </motion.div>
         </div>
       </div>
 
-      {/* trust strip — same fade-in + infinite marquee as the homepage trust strip */}
+      {/* trust strip — same fade-in + infinite marquee as the homepage/local_seo trust strip */}
       <motion.div
         className="relative overflow-hidden border-y border-[#252422] bg-[#fffcf2]"
         initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 1.2, ease: [0.22, 1, 0.36, 1] }}
       >
-        <div className="mx-auto flex max-w-7xl px-6 py-4 text-sm font-bold  text-[#252422] lg:px-6">
+        <div className="mx-auto flex max-w-7xl px-6 py-4 text-sm font-bold text-[#252422] lg:px-6">
           <motion.div
             className="flex min-w-full shrink-0 items-center justify-around gap-6 pr-6"
             animate={{ x: ["0%", "-100%"] }}

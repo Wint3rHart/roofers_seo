@@ -32,7 +32,7 @@ function Section({ id, title, children, reduce }) {
     >
       <motion.h2
         variants={fadeUp}
-        className="font-heading text-3xl font-black leading-tight tracking-tight text-[#252422] sm:text-4xl lg:text-5xl"
+        className="font-heading text-[42px] font-black leading-tight tracking-tight text-[#252422]"
       >
         {title}
       </motion.h2>
@@ -45,7 +45,7 @@ function P({ children }) {
   return (
     <motion.p
       variants={fadeUp}
-      className="sub-heading mt-4 text-base font-light leading-relaxed text-[#403d39]/90 first:mt-0"
+      className="sub-heading mt-4 text-[18px] font-light leading-relaxed text-[#403d39]/90 first:mt-0"
     >
       {children}
     </motion.p>
@@ -56,7 +56,7 @@ function H3({ children }) {
   return (
     <motion.h3
       variants={fadeUp}
-      className="font-heading mt-8 text-xl font-bold leading-tight text-[#252422]"
+      className="font-heading mt-8 text-[38px] font-bold leading-tight text-[#252422]"
     >
       {children}
     </motion.h3>
@@ -538,7 +538,7 @@ export default function ContentBody() {
       >
         <motion.h2
           variants={fadeUp}
-          className="font-heading text-3xl font-black leading-tight tracking-tight text-[#252422] sm:text-4xl lg:text-5xl"
+          className="font-heading text-[42px] font-black leading-tight tracking-tight text-[#252422]"
         >
           Ready to Rank for the Roofing Jobs You Want?
         </motion.h2>

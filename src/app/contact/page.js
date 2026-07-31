@@ -30,7 +30,7 @@ export default function ContactPage() {
           }
           transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
         />
-        <div className="relative mx-auto max-w-4xl px-6 py-16 text-center lg:px-10 lg:py-20">
+        <div className="relative mx-auto max-w-4xl px-6 py-16 text-center lg:px-6 lg:py-20">
           <motion.div
             variants={staggerContainer(0.14)}
             initial="hidden"
@@ -61,7 +61,7 @@ export default function ContactPage() {
 
       {/* Form + sidebar */}
       <section className="border-b border-[#ccc5b9]/60 bg-[#fffcf7]">
-        <div className="mx-auto max-w-6xl px-6 py-16 lg:px-10">
+        <div className="mx-auto max-w-6xl px-6 py-16 lg:px-6">
           <div className="mx-auto max-w-2xl text-center">
             <h2 className="font-heading text-3xl font-black italic leading-tight tracking-tight sm:text-4xl lg:text-5xl">
               Send us a message

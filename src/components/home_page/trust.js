@@ -17,7 +17,7 @@ const Trust = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 1.2, ease: [0.22, 1, 0.36, 1] }}
       >
-        <div className="mx-auto flex max-w-7xl px-6 py-6 text-sm font-semibold text-[#403d39] lg:px-10">
+        <div className="mx-auto flex max-w-7xl px-6 py-6 text-sm font-semibold text-[#403d39] lg:px-6">
           <motion.div
             className="flex shrink-0 items-center justify-around gap-6 pr-6 min-w-full"
             animate={{ x: ["0%", "-100%"] }}

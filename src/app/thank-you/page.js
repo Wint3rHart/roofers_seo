@@ -81,7 +81,7 @@ function ThankYouContent() {
           }
           transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
         />
-        <div className="relative mx-auto max-w-3xl px-6 py-24 text-center lg:px-10 lg:py-32">
+        <div className="relative mx-auto max-w-3xl px-6 py-24 text-center lg:px-6 lg:py-32">
           <motion.div
             variants={staggerContainer(0.14)}
             initial="hidden"
@@ -149,7 +149,7 @@ function ThankYouContent() {
         whileInView="show"
         viewport={reduce ? false : { once: true, margin: "-80px" }}
       >
-        <div className="mx-auto max-w-5xl px-6 py-16 text-center lg:px-10">
+        <div className="mx-auto max-w-5xl px-6 py-16 text-center lg:px-6">
           <motion.p
             variants={fadeUp}
             className="eyebrow text-xs font-bold uppercase tracking-[0.18em] text-[#eb5e28]"

@@ -190,7 +190,7 @@ export const Faq = () => {
 
   return (
     <section className="border-b border-[#ccc5b9]/60 bg-[#fffcf7] text-[#252422]">
-      <div className="mx-auto max-w-3xl px-6 py-20 text-center lg:px-10">
+      <div className="mx-auto max-w-3xl px-6 py-20 text-center lg:px-6">
         <SectionHeading title="Frequently Asked Questions" />
 
         <motion.div

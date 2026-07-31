@@ -37,7 +37,7 @@ export default function BookACallPage() {
           }
           transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
         />
-        <div className="relative mx-auto max-w-4xl px-6 py-16 text-center lg:px-10 lg:py-20">
+        <div className="relative mx-auto max-w-4xl px-6 py-16 text-center lg:px-6 lg:py-20">
           <motion.div
             variants={staggerContainer(0.14)}
             initial="hidden"
@@ -109,7 +109,7 @@ export default function BookACallPage() {
         whileInView="show"
         viewport={reduce ? false : viewportOnce}
       >
-        <div className="mx-auto max-w-4xl px-6 py-16 lg:px-10">
+        <div className="mx-auto max-w-4xl px-6 py-16 lg:px-6">
           <div className="mb-6 flex items-center justify-center gap-3 text-center">
             <PhoneCall className="h-5 w-5" style={{ color: "#eb5e28" }} />
             <h2 className="font-heading text-2xl font-black italic tracking-tight sm:text-3xl lg:text-4xl">

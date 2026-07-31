@@ -40,7 +40,7 @@ export default function BlogPage() {
           }
           transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
         />
-        <div className="relative mx-auto max-w-4xl px-6 py-16 text-center lg:px-10 lg:py-20">
+        <div className="relative mx-auto max-w-4xl px-6 py-16 text-center lg:px-6 lg:py-20">
           <motion.div
             variants={staggerContainer(0.14)}
             initial="hidden"
@@ -78,7 +78,7 @@ export default function BlogPage() {
         whileInView="show"
         viewport={reduce ? false : viewportOnce}
       >
-        <div className="mx-auto max-w-6xl px-6 py-6 lg:px-10">
+        <div className="mx-auto max-w-6xl px-6 py-6 lg:px-6">
           <div className="flex flex-wrap justify-center gap-2">
             {CATEGORIES.map((cat) => (
               <button
@@ -105,7 +105,7 @@ export default function BlogPage() {
         whileInView="show"
         viewport={reduce ? false : viewportOnce}
       >
-        <div className="mx-auto max-w-3xl px-6 py-24 text-center lg:px-10">
+        <div className="mx-auto max-w-3xl px-6 py-24 text-center lg:px-6">
           <motion.div
             className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full"
             style={{ background: "#eb5e28" }}
@@ -151,7 +151,7 @@ export default function BlogPage() {
         whileInView="show"
         viewport={reduce ? false : viewportOnce}
       >
-        <div className="mx-auto max-w-3xl px-6 py-24 text-center lg:px-10">
+        <div className="mx-auto max-w-3xl px-6 py-24 text-center lg:px-6">
           <motion.h2
             variants={fadeUp}
             className="font-heading text-3xl font-black italic leading-tight text-[#fffcf2] sm:text-4xl lg:text-5xl"

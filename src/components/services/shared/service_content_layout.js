@@ -13,9 +13,10 @@ import LeadForm from "./lead_form";
  * per page; local_seo keeps using its own local_seo/content_layout.js
  * untouched.
  *
- * Mobile-only behavior mirrors local_seo: TOC is pulled out and rendered
- * right after the hero, collapsible there; desktop keeps it in the left
- * sidebar, always expanded.
+ * Mobile-only behavior mirrors local_seo: Author Card + Table of Contents
+ * are pulled out and rendered together right after the hero, above the
+ * body content; desktop keeps them in the left sidebar (TOC sticky,
+ * always expanded).
  */
 export default function ServiceContentLayout({
   tocItems,
@@ -29,21 +30,22 @@ export default function ServiceContentLayout({
 }) {
   return (
     <section className="bg-[#fffcf2]">
-      <div className="mx-auto max-w-7xl px-6 py-16 lg:px-10">
-        {/* MOBILE-ONLY: Table of Contents, right after hero */}
-        <div className="mb-6 lg:hidden">
+      <div className="mx-auto max-w-7xl px-6 py-16 lg:px-6">
+        {/* MOBILE-ONLY: Author Card + Table of Contents, right after hero */}
+        <div className="mb-6 space-y-6 lg:hidden">
+          <AuthorCard />
           <TableOfContents items={tocItems} />
         </div>
 
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-8">
-          {/* LEFT SIDEBAR */}
+          {/* LEFT SIDEBAR (desktop only — mobile version rendered above) */}
           <div className="order-2 space-y-6 lg:order-1 lg:col-span-3">
-            <div className="lg:sticky lg:top-24 lg:space-y-6">
+            <div className="hidden lg:block">
               <AuthorCard />
-              {/* Desktop-only TOC (hidden on mobile, shown above instead) */}
-              <div className="mt-6 hidden lg:mt-6 lg:block">
-                <TableOfContents items={tocItems} />
-              </div>
+            </div>
+            {/* Desktop-only TOC (hidden on mobile, shown above instead) — this is the only sticky element on the left */}
+            <div className="mt-6 hidden lg:mt-6 lg:block lg:sticky lg:top-24">
+              <TableOfContents items={tocItems} />
             </div>
           </div>
 
@@ -52,16 +54,15 @@ export default function ServiceContentLayout({
 
           {/* RIGHT SIDEBAR */}
           <div className="order-3 space-y-6 lg:col-span-3">
-            <div className="lg:sticky lg:top-24 lg:space-y-6">
-              <CtaCard headingLine1={ctaHeadingLine1} headingLine2={ctaHeadingLine2} />
-              <div className="mt-6 lg:mt-6">
-                <LeadForm
-                  title={formTitle}
-                  subtitle={formSubtitle}
-                  action={formAction}
-                  submitLabel={submitLabel}
-                />
-              </div>
+            <CtaCard headingLine1={ctaHeadingLine1} headingLine2={ctaHeadingLine2} />
+            {/* Only the form is sticky on the right */}
+            <div className="mt-6 lg:mt-6 lg:sticky lg:top-24">
+              <LeadForm
+                title={formTitle}
+                subtitle={formSubtitle}
+                action={formAction}
+                submitLabel={submitLabel}
+              />
             </div>
           </div>
         </div>

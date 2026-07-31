@@ -27,12 +27,12 @@ function Logo({ dark = false }) {
     >
       {/* Icon — stacked above the text */}
       <Image
-        src="/WhatsApp_Image_2026-07-16_at_8.36.34_PM-removebg-preview.png"
+        src="/Logo Header.svg"
         alt=""
         width={48}
         height={28}
         priority
-        className="h-7 w-24 shrink-0 object-contain transition-transform group-hover:scale-110"
+        className="h-7  w-full  object-cover transition-transform group-hover:scale-110"
       />
 
       {/* Text — below the icon, stacked */}

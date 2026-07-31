@@ -130,7 +130,7 @@ export default function PrivacyPolicyPage() {
           }
           transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
         />
-        <div className="relative mx-auto max-w-4xl px-6 py-16 text-center lg:px-10 lg:py-20">
+        <div className="relative mx-auto max-w-4xl px-6 py-16 text-center lg:px-6 lg:py-20">
           <motion.div
             variants={staggerContainer(0.14)}
             initial="hidden"
@@ -160,7 +160,7 @@ export default function PrivacyPolicyPage() {
 
       {/* Body */}
       <section className="border-b border-[#ccc5b9]/60 bg-[#fffcf7]">
-        <div className="mx-auto max-w-3xl px-6 py-16 lg:px-10">
+        <div className="mx-auto max-w-3xl px-6 py-16 lg:px-6">
           <motion.div
             className="space-y-12"
             variants={staggerContainer(0.1)}

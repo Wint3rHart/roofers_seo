@@ -14,7 +14,7 @@ export const Pricing = () => {
 
   return (
     <section className="border-b border-[#ccc5b9]/60 bg-white/40 text-[#252422]">
-      <div className="mx-auto max-w-3xl px-6 py-20 text-center lg:px-10">
+      <div className="mx-auto max-w-3xl px-6 py-20 text-center lg:px-6">
         {/* Main heading left exactly as it was */}
         <SectionHeading eyebrow="PRICING" title="Ready To Get Started ?" />
 

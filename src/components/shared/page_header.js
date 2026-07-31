@@ -39,7 +39,7 @@ export default function PageHeader({
         }
         transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
       />
-      <div className="relative mx-auto max-w-4xl px-6 py-16 text-center lg:px-10 lg:py-20">
+      <div className="relative mx-auto max-w-4xl px-6 py-16 text-center lg:px-6 lg:py-20">
         <motion.div
           className="text-center"
           variants={staggerContainer(0.14)}

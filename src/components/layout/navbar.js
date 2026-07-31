@@ -43,7 +43,7 @@ export default function Navbar() {
         scrolled ? "backdrop-blur" : ""
       }`}
     >
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-1.5 lg:px-10">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-1.5 lg:px-6">
         <Logo />
 
         {/* Desktop nav */}

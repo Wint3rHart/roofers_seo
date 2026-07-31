@@ -20,7 +20,7 @@ import ContentBody from "./content_body";
 export default function LocalSeoContentLayout() {
   return (
     <section className="bg-[#fffcf2]">
-      <div className="mx-auto max-w-7xl px-6 py-16 lg:px-10">
+      <div className="mx-auto max-w-7xl px-6 py-16 lg:px-6">
         {/* MOBILE-ONLY: Author card, then Table of Contents, right after hero */}
         <div className="mb-6 space-y-6 lg:hidden">
           <AuthorCard />
@@ -30,14 +30,12 @@ export default function LocalSeoContentLayout() {
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-8">
           {/* LEFT SIDEBAR (desktop only — mobile version rendered above) */}
           <div className="order-2 space-y-6 lg:order-1 lg:col-span-3">
-            <div className="lg:sticky lg:top-24 lg:space-y-6">
-              <div className="hidden lg:block">
-                <AuthorCard />
-              </div>
-              {/* Desktop-only TOC (hidden on mobile, shown above instead) */}
-              <div className="mt-6 hidden lg:mt-6 lg:block">
-                <TableOfContents />
-              </div>
+            <div className="hidden lg:block">
+              <AuthorCard />
+            </div>
+            {/* Desktop-only TOC (hidden on mobile, shown above instead) — only sticky element on the left */}
+            <div className="mt-6 hidden lg:mt-6 lg:block lg:sticky lg:top-24">
+              <TableOfContents />
             </div>
           </div>
 
@@ -48,11 +46,10 @@ export default function LocalSeoContentLayout() {
 
           {/* RIGHT SIDEBAR */}
           <div className="order-3 space-y-6 lg:col-span-3">
-            <div className="lg:sticky lg:top-24 lg:space-y-6">
-              <CtaCard />
-              <div className="mt-6 lg:mt-6">
-                <LeadForm />
-              </div>
+            <CtaCard />
+            {/* Only the form is sticky on the right */}
+            <div className="mt-6 lg:mt-6 lg:sticky lg:top-24">
+              <LeadForm />
             </div>
           </div>
         </div>

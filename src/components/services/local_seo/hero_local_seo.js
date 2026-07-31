@@ -67,7 +67,7 @@ export default function LocalSeoHero() {
   return (
     <section className="relative overflow-hidden border-b border-[#ccc5b9]/60">
       {/* <HeroBackground /> */}
-      <div className="relative z-[1] mx-auto max-w-7xl px-6 pt-16 pb-12 lg:px-10 lg:pt-20">
+      <div className="relative z-[1] mx-auto max-w-7xl px-6 pt-16 pb-12 lg:px-6 lg:pt-20">
         <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-12">
           {/* LEFT — copy */}
           <motion.div
@@ -136,7 +136,7 @@ export default function LocalSeoHero() {
               className="relative h-full w-full"
             >
               <Image
-                src="/local-seo/icon.jpeg"
+                src="/WhatsApp_Image_2026-07-19_at_9.12.53_PM-removebg-preview.png"
                 alt="Local SEO for roofers"
                 fill
                 priority
@@ -154,7 +154,7 @@ export default function LocalSeoHero() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 1.2, ease: [0.22, 1, 0.36, 1] }}
       >
-        <div className="mx-auto flex max-w-7xl px-6 py-4 text-sm font-bold  text-[#252422] lg:px-10">
+        <div className="mx-auto flex max-w-7xl px-6 py-4 text-sm font-bold  text-[#252422] lg:px-6">
           <motion.div
             className="flex min-w-full shrink-0 items-center justify-around gap-6 pr-6"
             animate={{ x: ["0%", "-100%"] }}

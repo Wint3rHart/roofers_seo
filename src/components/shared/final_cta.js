@@ -27,7 +27,7 @@ export default function FinalCTA({
   return (
     <section className="bg-[#252422]">
       <motion.div
-        className="mx-auto max-w-3xl px-6 py-24 text-center lg:px-10"
+        className="mx-auto max-w-3xl px-6 py-24 text-center lg:px-6"
         variants={staggerContainer(0.14)}
         initial="hidden"
         whileInView="show"

@@ -19,7 +19,7 @@ const CtaRibbon = () => {
       <div className="h-2 w-full bg-[#eb5e28]" />
 
       <motion.div
-        className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-8 px-6 py-14 lg:flex-row lg:px-10"
+        className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-8 px-6 py-14 lg:flex-row lg:px-6"
         variants={staggerContainer(0.15)}
         initial="hidden"
         whileInView="show"

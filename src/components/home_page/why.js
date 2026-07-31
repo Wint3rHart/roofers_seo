@@ -35,7 +35,7 @@ const Why = () => {
 
   return (
     <section className="border-b border-[#ccc5b9]/60 bg-[#fffcf7] text-[#252422]">
-      <div className="mx-auto max-w-7xl px-6 py-16 lg:px-10">
+      <div className="mx-auto max-w-7xl px-6 py-16 lg:px-6">
         <SectionHeading
           eyebrow="WHY ROOFERS CHOOSE US"
           title="SEO That Drives Real Roofing Business Growth"

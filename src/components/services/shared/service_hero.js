@@ -40,7 +40,7 @@ const TRUST_STRIP = [
 export default function ServiceHero({ eyebrow, h1, subheading }) {
   return (
     <section className="relative overflow-hidden border-b border-[#ccc5b9]/60 bg-[#fffcf2]">
-      <div className="relative z-[1] mx-auto max-w-4xl px-6 pt-16 pb-12 text-center lg:px-10 lg:pt-20">
+      <div className="relative z-[1] mx-auto max-w-4xl px-6 pt-16 pb-12 text-center lg:px-6 lg:pt-20">
         <motion.div variants={container} initial="hidden" animate="show">
           <motion.div variants={item}>
             <Eyebrow className="text-[11px]">{eyebrow}</Eyebrow>
@@ -81,7 +81,7 @@ export default function ServiceHero({ eyebrow, h1, subheading }) {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 1.2, ease: [0.22, 1, 0.36, 1] }}
       >
-        <div className="mx-auto flex max-w-7xl px-6 py-4 text-sm font-bold text-[#252422] lg:px-10">
+        <div className="mx-auto flex max-w-7xl px-6 py-4 text-sm font-bold text-[#252422] lg:px-6">
           <motion.div
             className="flex min-w-full shrink-0 items-center justify-around gap-6 pr-6"
             animate={{ x: ["0%", "-100%"] }}

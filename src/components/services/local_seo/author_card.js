@@ -38,12 +38,12 @@ export default function AuthorCard({
         </div>
       </div>
 
-      <div className="mt-5 border-t border-[#403d39] pt-4">
+      <div className="mt-5 border-t text-[16px] border-[#403d39] pt-4">
         <div className="flex items-center gap-3">
           <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-[#eb5e28]">
             <Calendar className="h-4 w-4 text-[#fffcf2]" />
           </span>
-          <p className="sub-heading text-sm font-bold text-[#fffcf2]">
+          <p className="sub-heading text-[16px] font-bold text-[#fffcf2]">
             Date Edited: {dateEdited}
           </p>
         </div>
@@ -54,7 +54,7 @@ export default function AuthorCard({
           <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-md bg-[#eb5e28]">
             <Clock className="h-4 w-4 text-[#fffcf2]" />
           </span>
-          <p className="sub-heading text-sm font-bold text-[#fffcf2]">
+          <p className="sub-heading text-[16px] font-bold text-[#fffcf2]">
             Read Time: {readTime}
           </p>
         </div>

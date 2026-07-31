@@ -26,7 +26,7 @@ export function Section({ id, title, children, reduce }) {
     >
       <motion.h2
         variants={fadeUp}
-        className="font-heading text-3xl font-black leading-tight tracking-tight text-[#252422] sm:text-4xl lg:text-5xl"
+        className="font-heading text-[42px] font-black leading-tight tracking-tight text-[#252422]"
       >
         {title}
       </motion.h2>
@@ -39,7 +39,7 @@ export function P({ children }) {
   return (
     <motion.p
       variants={fadeUp}
-      className="sub-heading mt-4 text-base font-light leading-relaxed text-[#403d39]/90 first:mt-0"
+      className="sub-heading mt-4 text-[18px] font-light leading-relaxed text-[#403d39]/90 first:mt-0"
     >
       {children}
     </motion.p>
@@ -50,10 +50,43 @@ export function H3({ children }) {
   return (
     <motion.h3
       variants={fadeUp}
-      className="font-heading mt-8 text-xl font-bold leading-tight text-[#252422]"
+      className="font-heading mt-8 text-[38px] font-bold leading-tight text-[#252422]"
     >
       {children}
     </motion.h3>
+  );
+}
+
+export function H4({ children }) {
+  return (
+    <motion.h4
+      variants={fadeUp}
+      className="font-heading mt-6 text-[18px] font-bold leading-snug text-[#252422]"
+    >
+      {children}
+    </motion.h4>
+  );
+}
+
+// Title + description card grid (e.g. "Everything Included" feature lists)
+export function FeatureGrid({ items }) {
+  return (
+    <motion.div
+      variants={staggerContainer(0.06)}
+      className="mt-6 grid gap-x-10 gap-y-8 sm:grid-cols-2"
+    >
+      {items.map((it, i) => (
+  <motion.div key={i} variants={fadeUp} >
+    <h4 className="font-heading text-[18px] font-bold leading-snug text-[#252422] flex items-center gap-2">
+      <span className="h-2 w-2 rounded-full bg-[#eb5e28] shrink-0"></span>
+      {it.title}
+    </h4> 
+    <p className="sub-heading mt-2 text-[18px] font-light leading-relaxed text-[#403d39]/90">
+      {it.description}
+    </p>
+  </motion.div>
+))}
+    </motion.div>
   );
 }
 
