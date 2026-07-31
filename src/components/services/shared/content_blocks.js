@@ -76,7 +76,7 @@ export function FeatureGrid({ items }) {
       className="mt-6 grid gap-x-10 gap-y-8 sm:grid-cols-2"
     >
       {items.map((it, i) => (
-  <motion.div key={i} variants={fadeUp} >
+  <motion.div key={i} variants={fadeUp}  >
     <h4 className="font-heading text-[18px] font-bold leading-snug text-[#252422] flex items-center gap-2">
       <span className="h-2 w-2 rounded-full bg-[#eb5e28] shrink-0"></span>
       {it.title}
