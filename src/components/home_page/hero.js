@@ -69,7 +69,7 @@ export default function Hero() {
         <div className="absolute inset-0 bg-gradient-to-r from-[#fffcf2] via-[#fffcf2]/0 to-transparent " />
       </motion.div>
 
-      <div className="relative mx-auto max-w-7xl px-6  pt-16 pb-0  ">
+      <div className="relative mx-auto max-w-7xl px-6  lg:pt-10 pb-0  ">
         <motion.div
           variants={container}
           initial="hidden"
@@ -82,7 +82,7 @@ export default function Hero() {
 
           <motion.h1
             variants={item}
-            className="font-heading text-5xl font-black leading-[1.08] tracking-tight"
+            className="font-heading text-4xl lg:text-5xl font-black leading-[1.08] tracking-soft"
           >
             <motion.span variants={item}>Roofing SEO</motion.span>
             <br />
@@ -99,10 +99,10 @@ export default function Hero() {
           <motion.div variants={item}>
             <motion.p
               // variants={item}
-              className="sub-heading mt-6 max-w-sm text-sm font-light font-semibold leading-tight text-[#403d39]"
+              className="sub-heading mt-6 max-w-lg text-sm font-light font-semibold leading-tight text-[#403d39]"
             >
               Get found in Google Search, Google Maps, and AI Search before
-              your competitors—and turn more local searches into qualified
+              your competitors and turn more local searches into qualified
               roofing leads.
             </motion.p>
 
@@ -113,7 +113,7 @@ export default function Hero() {
               className="mt-6 block h-[3px] w-20 origin-center bg-[#eb5e28]"
             />
 
-            <motion.p className="mt-6 max-w-sm text-sm font-light leading-relaxed text-[#403d39]`">
+            <motion.p className="mt-6 max-w-lg text-sm font-light leading-relaxed text-[#403d39]`">
               Our roofing SEO services combine technical SEO, Google Business
               Profile optimization, reputation management, and
               conversion-focused websites to help roofing companies generate

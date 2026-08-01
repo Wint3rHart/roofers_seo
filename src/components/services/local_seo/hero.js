@@ -67,7 +67,7 @@ export default function LocalSeoHero() {
   return (
     <section className="relative overflow-hidden bg-[#fbf4ea] border-b border-[#ccc5b9]/60">
       {/* <HeroBackground /> */}
-      <div className="relative z-[1] mx-auto max-w-7xl px-6 pt-16 pb-12 lg:px-6 lg:pt-20">
+      <div className="relative z-[1] mx-auto max-w-7xl px-6 pt-16 pb-12 lg:px-12 lg:pt-12">
         <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-12">
           {/* LEFT — copy */}
           <motion.div
@@ -77,7 +77,7 @@ export default function LocalSeoHero() {
             className="flex flex-col items-start text-left"
           >
             <motion.div variants={item}>
-              <Eyebrow className="text-[11px]">LOCAL SEO FOR ROOFERS</Eyebrow>
+              <Eyebrow className="text-[8px] lg:text-[11px]">LOCAL SEO FOR ROOFERS</Eyebrow>
             </motion.div>
 
             <motion.h1
@@ -94,7 +94,7 @@ export default function LocalSeoHero() {
             </motion.h1>
 
             <motion.div variants={item}>
-              <motion.p className="sub-heading mt-6 max-w-sm text-sm font-light font-semibold leading-tight text-[#403d39]">
+              <motion.p className="sub-heading mt-6 text-sm font-light font-semibold leading-tight text-[#403d39]">
                 Homeowners search Google before they call anyone. The
                 roofing company that ranks gets the job — the one that
                 doesn&rsquo;t gets skipped.
@@ -107,7 +107,7 @@ export default function LocalSeoHero() {
                 className="mt-6 block h-[3px] w-20 origin-center bg-[#eb5e28]"
               />
 
-              <motion.p className="mt-6 max-w-sm text-sm font-light leading-relaxed text-[#403d39]">
+              <motion.p className="mt-6 text-sm font-light leading-relaxed text-[#403d39]">
                 Roofer SEO Co. builds SEO for roofers that turns local
                 search into booked jobs, not just traffic, with
                 month-to-month terms and no long-term contracts.
@@ -125,25 +125,24 @@ export default function LocalSeoHero() {
           </motion.div>
 
           {/* RIGHT — hero image */}
-          <motion.div
-            variants={imageEntrance}
-            initial="hidden"
-            animate="show"
-            className="relative mx-auto flex h-[380px] w-full max-w-md items-center justify-center overflow-hidden rounded-2xl lg:h-[520px]"
-          >
-            <motion.div
-              animate={imageFloat}
-              className="relative h-full w-full"
-            >
-              <Image
-                src="/WhatsApp_Image_2026-07-19_at_9.12.53_PM-removebg-preview.png"
-                alt="Local SEO for roofers"
-                fill
-                priority
-                className="object-cover"
-              />
-            </motion.div>
-          </motion.div>
+     <motion.div
+  variants={imageEntrance}
+  initial="hidden"
+  animate="show"
+  /* Bumped desktop width from max-w-md (448px) to lg:max-w-xl (576px) */
+  className="relative mx-auto flex w-full max-w-md lg:max-w-lg items-center justify-center rounded-2xl lg:translate-y-12"
+>
+  <motion.div animate={imageFloat} className="relative w-full">
+    <Image
+      src="/Bob with nail gun@1x.png"
+      alt="Local SEO for roofers"
+      width={1200}
+      height={1600}
+      priority
+      className="w-full h-auto object-contain drop-shadow-xl"
+    />
+  </motion.div>
+</motion.div>
         </div>
       </div>
 

@@ -69,88 +69,88 @@ const imageFloat = {
 };
 
   return (
-    <section className="relative overflow-hidden bg-[#fbf4ea] border-b border-[#ccc5b9]/60">
-      <div className="relative z-[1] mx-auto max-w-7xl px-6 pt-16 pb-12 lg:px-6 lg:pt-20">
+    <section className="relative  bg-[#fbf4ea] border-b border-[#ccc5b9]/60">
+      <div className="relative z-[1] mx-auto max-w-7xl px-6 pt-16 pb-12 lg:px-14 lg:pt-10">
         <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-12">
           {/* LEFT — copy */}
           <motion.div
-            variants={container}
-            initial="hidden"
-            animate="show"
-            className="flex flex-col items-start text-left"
-          >
-            <motion.div variants={item}>
-              <Eyebrow className="text-[11px]">
-                Turns Every Job Into a 5-Star Review
-              </Eyebrow>
-            </motion.div>
+  variants={container}
+  initial="hidden"
+  animate="show"
+  className="flex w-full max-w-full min-w-0 flex-col items-start text-left"
+>
+  <motion.div variants={item} className="w-full">
+    <Eyebrow className="text-[8px] lg:text-[11px]">
+      Turns Every Job Into a 5-Star Review
+    </Eyebrow>
+  </motion.div>
 
-            <motion.h1
-              variants={item}
-              className="font-heading text-5xl font-black leading-[1.08] tracking-tight sm:text-6xl"
-            >
-              <motion.span variants={item} className="text-[#252422]">
-                Reputation Management
-              </motion.span>{" "}
-              <motion.span variants={item} style={{ color: "#eb5e28" }}>
-                for Roofers
-              </motion.span>
-            </motion.h1>
+  <motion.h1
+    variants={item}
+    className="w-full break-words font-heading text-4xl font-black leading-[1.08] tracking-tight sm:text-5xl lg:text-6xl"
+  >
+    <motion.span variants={item} className="text-[#252422]">
+      Reputation Management
+    </motion.span>{" "}
+    <motion.span variants={item} style={{ color: "#eb5e28" }}>
+      for Roofers
+    </motion.span>
+  </motion.h1>
 
-            <motion.div variants={item}>
-              <motion.p className="sub-heading mt-6 max-w-sm text-sm font-light font-semibold leading-tight text-[#403d39]">
-                A roofing company&rsquo;s online reputation shapes who
-                calls and who scrolls past, often before a single
-                conversation happens.
-              </motion.p>
+  <motion.div variants={item} className="w-full">
+  <motion.p className="sub-heading mt-6 text-sm font-semibold leading-tight text-[#403d39] max-w-[85%] sm:max-w-full">
+    A roofing company&rsquo;s online reputation shapes who
+    calls and who scrolls past, often before a single
+    conversation happens.
+  </motion.p>
 
-              <motion.span
-                initial={{ scaleX: 0 }}
-                animate={{ scaleX: 1 }}
-                transition={{ duration: 0.5, delay: 1.5, ease: [0.22, 0.55, 0.5, 1] }}
-                className="mt-6 block h-[3px] w-20 origin-center bg-[#eb5e28]"
-              />
+  <motion.span
+    initial={{ scaleX: 0 }}
+    animate={{ scaleX: 1 }}
+    transition={{ duration: 0.5, delay: 1.5, ease: [0.22, 0.55, 0.5, 1] }}
+    className="mt-6 block h-[3px] w-20 origin-left bg-[#eb5e28]"
+  />
 
-              <motion.p className="mt-6 max-w-sm text-sm font-light leading-relaxed text-[#403d39]">
-                Reputation management for roofing companies means
-                building a system around that moment: getting good
-                experiences turned into visible reviews, and catching
-                bad ones before they go public. No long-term contract,
-                roofing-specific setup, live within 24 hours, working
-                nationwide.
-              </motion.p>
-            </motion.div>
+  <motion.p className="mt-6 text-sm font-light leading-relaxed text-[#403d39] max-w-[85%] sm:max-w-full">
+    Reputation management for roofing companies means
+    building a system around that moment: getting good
+    experiences turned into visible reviews, and catching
+    bad ones before they go public. No long-term contract,
+    roofing-specific setup, live within 24 hours, working
+    nationwide.
+  </motion.p>
+</motion.div>
 
-            <motion.div variants={item} className="mt-8 flex flex-wrap gap-4">
-              <PrimaryButton as="a" href="/contact">
-                Get your 7 days free trail <ArrowRight className="h-4 w-4" />
-              </PrimaryButton>
-              {/* <SecondaryButton as="a" href="/free-audit">
-                Get a Free Audit
-              </SecondaryButton> */}
-            </motion.div>
-          </motion.div>
+  <motion.div variants={item} className="mt-8 flex w-full flex-wrap gap-4">
+    <PrimaryButton as="a" href="/contact">
+      Get your 7 days free trial <ArrowRight className="h-4 w-4" />
+    </PrimaryButton>
+    {/* <SecondaryButton as="a" href="/free-audit">
+      Get a Free Audit
+    </SecondaryButton> */}
+  </motion.div>
+</motion.div>
+        
+{/* RIGHT — hero image */}
 
-          {/* RIGHT — hero image placeholder (image to be added later) */}
-          <motion.div
-                    variants={imageEntrance}
-                    initial="hidden"
-                    animate="show"
-                    className="relative mx-auto flex h-[380px] w-full max-w-md items-center justify-center overflow-hidden rounded-2xl lg:h-[520px]"
-                  >
-                    <motion.div
-                      animate={imageFloat}
-                      className="relative h-full w-full"
-                    >
-                      <Image
-                        src="/bob-Photoroom.png"
-                        alt="Local SEO for roofers"
-                        fill
-                        priority
-                        className="object-cover"
-                      />
-                    </motion.div>
-                  </motion.div>
+                   {/* RIGHT — hero image */}
+<motion.div
+  variants={imageEntrance}
+  initial="hidden"
+  animate="show"
+  className="relative mx-auto w-full max-w-2xl lg:max-w-none lg:w-[125%] lg:-ml-16 xl:-ml-32 lg:translate-y-12"
+>
+  <motion.div animate={imageFloat} className="relative w-[100vw] -translate-x-20 sm:-translate-x-0 lg:w-full  flex justify-center">
+    <Image
+      src="/WhatsApp Image 2026-08-01 at 7.53.06 AM-Photoroom.png"
+      alt="Reputation Management for roofers"
+      width={1200}
+      height={900}
+      priority
+      className="w-full h-auto object-contain drop-shadow-xl"
+    />
+  </motion.div>
+</motion.div>
         </div>
       </div>
 

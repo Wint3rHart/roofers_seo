@@ -56,7 +56,7 @@ function Eyebrow({ children, className = "" }) {
       className={`inline-flex mb-2 items-center gap-1.5 rounded-full border border-[#eb5e28]/20 bg-[#eb5e28]/10 px-3 py-1 ${className}`}
     >
       <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-[#eb5e28]" />
-      <span className="text-xs font-bold uppercase tracking-[0.18em] text-[#eb5e28]">
+      <span className={`${className} font-bold uppercase tracking-[0.18em] text-[#eb5e28]`}>
         {children}
       </span>
     </div>
