@@ -3,16 +3,16 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, ChevronDown, Menu, X } from "lucide-react";
-import { Logo, PrimaryButton } from "../ui/ui_components";
+import { Logo, PrimaryButton, SecondaryButton } from "../ui/ui_components";
 import Link from "next/link";
 
 const NAV_LINKS = [
   {
-    label: "SEO Services",
+    label: " Services",
     children: [
       { label: "Reputation Management", href: "/services/reputation-management" },
       { label: "AI Search Visibility", href: "/services/ai-search-visibility" },
-      { label: "SEO For Roofers", href: "/services/local-seo" },
+      { label: "SEO For Roofers", href: "/services/seo-for-roofers" },
       { label: "Web Design", href: "/services/web-design" },
       
     ],
@@ -26,12 +26,24 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [nearFooter, setNearFooter] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
     onScroll();
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    const footer = document.querySelector("footer");
+    if (!footer) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => setNearFooter(entry.isIntersecting),
+      { threshold: .5 }
+    );
+    observer.observe(footer);
+    return () => observer.disconnect();
   }, []);
 
   return (
@@ -56,7 +68,9 @@ export default function Navbar() {
                 onMouseEnter={() => setServicesOpen(true)}
                 onMouseLeave={() => setServicesOpen(false)}
               >
-                <button className="flex items-center gap-1 text-sm font-semibold text-[#403d39] transition-colors hover:text-[#eb5e28]">
+                <button className={`flex items-center gap-1 text-sm font-semibold transition-colors ${
+                    nearFooter ? "text-white hover:text-[#eb5e28]" : "text-[#403d39] hover:text-[#eb5e28]"
+                  }`}>
                   {link.label}
                   <ChevronDown
                     className={`h-3.5 w-3.5 transition-transform ${
@@ -84,7 +98,9 @@ export default function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-sm font-semibold text-[#403d39] transition-colors hover:text-[#eb5e28]"
+                className={`text-sm font-semibold transition-colors ${
+                    nearFooter ? "text-white hover:text-[#eb5e28]" : "text-[#403d39] hover:text-[#eb5e28]"
+                  }`}
               >
                 {link.label}
               </Link>
@@ -93,12 +109,16 @@ export default function Navbar() {
         </nav>
 
         <div className="hidden items-center gap-3 lg:flex">
-          <Link
+          <SecondaryButton as='a'
             href="/free-audit"
-            className="text-sm font-bold text-[#252422] transition-colors hover:text-[#eb5e28]"
+            className={`text-sm font-bold transition-colors ${
+                nearFooter
+                  ? "text-white border-white hover:text-[#eb5e28] hover:bg-white/10"
+                  : "text-[#252422] hover:text-[#eb5e28]"
+              }`}
           >
             Free Audit
-          </Link>
+          </SecondaryButton>
           <PrimaryButton as="a" href="/book-a-call">
             Book a Call <ArrowRight className="h-4 w-4" />
           </PrimaryButton>
@@ -106,7 +126,9 @@ export default function Navbar() {
 
         {/* Mobile toggle */}
         <button
-          className="inline-flex items-center justify-center rounded-md p-2 text-[#252422] lg:hidden"
+          className={`inline-flex items-center justify-center rounded-md p-2 lg:hidden transition-colors ${
+              nearFooter ? "text-white" : "text-[#252422]"
+            }`}
           onClick={() => setMobileOpen((v) => !v)}
           aria-label="Toggle menu"
         >

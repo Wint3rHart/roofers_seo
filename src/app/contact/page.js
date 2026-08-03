@@ -18,7 +18,7 @@ export default function ContactPage() {
   return (
     <main className="bg-[#fffcf2]">
       {/* Hero */}
-      <section className="relative overflow-hidden border-b border-[#ccc5b9]/60">
+      {/* <section className="relative overflow-hidden border-b border-[#ccc5b9]/60">
         <motion.div
           aria-hidden
           className="absolute -right-24 top-10 hidden h-[320px] w-[320px] rounded-full opacity-50 lg:block"
@@ -57,26 +57,26 @@ export default function ContactPage() {
             </motion.p>
           </motion.div>
         </div>
-      </section>
+      </section> */}
 
       {/* Form + sidebar */}
       <section className="border-b border-[#ccc5b9]/60 bg-[#fffcf7]">
-        <div className="mx-auto max-w-6xl px-6 py-16 lg:px-6">
+        <div className="mx-auto max-w-6xl px-6 py-4 lg:px-6">
           <div className="mx-auto max-w-2xl text-center">
             <h2 className="font-heading text-3xl font-black italic leading-tight tracking-tight sm:text-4xl lg:text-5xl">
               Send us a message
             </h2>
-            <OrangeBar className="mt-5" />
+            <OrangeBar className="mt-2" />
           </div>
 
           <motion.div
-            className="mx-auto mt-10 max-w-2xl"
+            className="mx-auto mt-5 lg:mt-3 max-w-2xl"
             variants={fadeScale}
             initial="hidden"
             whileInView="show"
             viewport={reduce ? false : viewportOnce}
           >
-            <div className="rounded-2xl border border-[#ccc5b9]/70 bg-white/60 p-8 text-center shadow-sm">
+            <div className="rounded-2xl border border-[#ccc5b9]/70 bg-white/60 p-4 md:py-6 lg:py-8 xl:py-12 text-center shadow-sm">
               <form
                 action="/thank-you?type=contact"
                 method="post"

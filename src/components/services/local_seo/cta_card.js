@@ -22,10 +22,10 @@ export default function CtaCard() {
     >
       <div
         aria-hidden
-        className="absolute inset-0 translate-x-2 translate-y-2 rounded-2xl bg-[#eb5e28]"
+        className="absolute inset-0 translate-x-0 translate-y-1 rounded-2xl bg-[#eb5e28]"
       />
-      <div className="relative rounded-2xl bg-[#252422] p-8 text-center">
-        <h2 className="font-heading text-2xl font-black italic leading-tight text-[#fffcf2]">
+      <div className="relative rounded-2xl bg-[#252422] p-6 text-center">
+        <h2 className="font-heading text-xl font-black italic leading-tight text-[#fffcf2]">
           Consultations Are
           <br />
           Always Free

@@ -70,7 +70,7 @@ const imageFloat = {
 
   return (
     <section className="relative  bg-[#fbf4ea] border-b border-[#ccc5b9]/60">
-      <div className="relative z-[1] mx-auto max-w-7xl px-6 pt-16 pb-12 lg:px-14 lg:pt-10">
+      <div className="relative z-[1] mx-auto max-w-7xl px-6 pt-12 md:pt-14 lg:pt-12 pb-10 md:pb-12 lg:pb-12 lg:px-14">
         <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-12">
           {/* LEFT — copy */}
           <motion.div
@@ -79,15 +79,15 @@ const imageFloat = {
   animate="show"
   className="flex w-full max-w-full min-w-0 flex-col items-start text-left"
 >
-  <motion.div variants={item} className="w-full">
-    <Eyebrow className="text-[8px] lg:text-[11px]">
+  <motion.div variants={item} className="w-full pt-1 md:pt-2 lg:pt-0">
+    <Eyebrow className="text-[8px]  xl:text-[11px]">
       Turns Every Job Into a 5-Star Review
     </Eyebrow>
   </motion.div>
 
   <motion.h1
-    variants={item}
-    className="w-full break-words font-heading text-4xl font-black leading-[1.08] tracking-tight sm:text-5xl lg:text-6xl"
+   variants={item}
+              className="font-heading break-words font-heading text-4xl font-black leading-[1.08] tracking-tight mt-2 md:mt-2 lg:mt-0 lg:text-4xl xl:text-6xl max-w-md sm:max-w-md lg:max-w-7xl"
   >
     <motion.span variants={item} className="text-[#252422]">
       Reputation Management
@@ -98,7 +98,7 @@ const imageFloat = {
   </motion.h1>
 
   <motion.div variants={item} className="w-full">
-  <motion.p className="sub-heading mt-6 text-sm font-semibold leading-tight text-[#403d39] max-w-[85%] sm:max-w-full">
+  <motion.p className="sub-heading mt-5 md:mt-6 lg:mt-6 text-xs xl:text-sm font-semibold leading-relaxed text-[#403d39] max-w-md sm:max-w-md md:max-w-md lg:max-w-[90%] xl:max-w-[90%]">
     A roofing company&rsquo;s online reputation shapes who
     calls and who scrolls past, often before a single
     conversation happens.
@@ -108,10 +108,10 @@ const imageFloat = {
     initial={{ scaleX: 0 }}
     animate={{ scaleX: 1 }}
     transition={{ duration: 0.5, delay: 1.5, ease: [0.22, 0.55, 0.5, 1] }}
-    className="mt-6 block h-[3px] w-20 origin-left bg-[#eb5e28]"
+    className="mt-5 md:mt-6 block h-[3px] w-20 origin-left bg-[#eb5e28]"
   />
 
-  <motion.p className="mt-6 text-sm font-light leading-relaxed text-[#403d39] max-w-[85%] sm:max-w-full">
+  <motion.p className="mt-5 md:mt-6 text-xs xl:text-sm font-light leading-relaxed text-[#403d39] max-w-lg md:max-w-lg lg:max-w-full xl:max-w-full">
     Reputation management for roofing companies means
     building a system around that moment: getting good
     experiences turned into visible reviews, and catching
@@ -120,27 +120,23 @@ const imageFloat = {
     nationwide.
   </motion.p>
 </motion.div>
-
-  <motion.div variants={item} className="mt-8 flex w-full flex-wrap gap-4">
-    <PrimaryButton as="a" href="/contact">
+<motion.div variants={item} className="mt-8 md:mt-9 lg:mt-8 xl:mt-4 flex flex-wrap gap-4">
+              <PrimaryButton as="a" href="/contact">
       Get your 7 days free trial <ArrowRight className="h-4 w-4" />
-    </PrimaryButton>
-    {/* <SecondaryButton as="a" href="/free-audit">
-      Get a Free Audit
-    </SecondaryButton> */}
-  </motion.div>
+              </PrimaryButton>
+             
+            </motion.div>
+
 </motion.div>
         
-{/* RIGHT — hero image */}
-
-                   {/* RIGHT — hero image */}
+{/* RIGHT — hero image (lg and up only) */}
 <motion.div
   variants={imageEntrance}
   initial="hidden"
   animate="show"
-  className="relative mx-auto w-full max-w-2xl lg:max-w-none lg:w-[125%] lg:-ml-16 xl:-ml-32 lg:translate-y-12"
+  className="hidden lg:flex relative mx-auto w-full max-w-2xl lg:max-w-none lg:w-[125%] lg:-ml-16 xl:-ml-32 lg:translate-y-12"
 >
-  <motion.div animate={imageFloat} className="relative w-[100vw] -translate-x-20 sm:-translate-x-0 lg:w-full  flex justify-center">
+  <motion.div animate={imageFloat} className="relative lg:w-full flex justify-center">
     <Image
       src="/WhatsApp Image 2026-08-01 at 7.53.06 AM-Photoroom.png"
       alt="Reputation Management for roofers"

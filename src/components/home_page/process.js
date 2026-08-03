@@ -112,13 +112,29 @@ const Process = () => {
     </div>
   );
 
+  // Simple stacked step used for < lg (below 1024px): number, title,
+  // orange bar, copy — same content, no cards/SVG/connector.
+  const renderSimpleStep = (step) => (
+    <motion.div key={step.n} variants={fadeScale} className="flex flex-col items-start text-left">
+      <span className="font-heading text-2xl sm:text-3xl font-black italic" style={{ color: "#eb5e28" }}>
+        {step.n}
+      </span>
+      <h3 className="mt-1 font-heading text-base sm:text-lg font-black">{step.title}</h3>
+      <span className="mt-2 block h-[3px] w-12 sm:w-16 bg-[#eb5e28]" />
+      <p className="sub-heading mt-3 text-xs sm:text-sm font-light leading-relaxed text-[#403d39]/95">
+        {step.copy}
+      </p>
+    </motion.div>
+  );
+
   return (
     <section className="border-b border-[#ccc5b9]/60 bg-[#fffcf7] text-[#252422]">
       <div className="mx-auto max-w-7xl px-6 py-20 lg:px-6">
         <SectionHeading eyebrow="OUR PROCESS" title="A Simple 6-Step Process That Works" />
 
+        {/* ≥1024px: original card/connector layout, untouched */}
         <motion.div
-          className="mt-16 space-y-0"
+          className="mt-16 hidden space-y-0 lg:block"
           variants={staggerContainer(0.08)}
           initial="hidden"
           whileInView="show"
@@ -163,6 +179,17 @@ const Process = () => {
 
           {/* Row 2: steps 04–06 */}
           {renderRow(PROCESS_STEPS.slice(3, 6))}
+        </motion.div>
+
+        {/* <1024px: simple numbered list — number, title, orange bar, copy */}
+        <motion.div
+          className="mt-12 grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-3 sm:gap-x-6 sm:gap-y-10 lg:hidden"
+          variants={staggerContainer(0.08)}
+          initial="hidden"
+          whileInView="show"
+          viewport={reduce ? false : viewportOnce}
+        >
+          {PROCESS_STEPS.map(renderSimpleStep)}
         </motion.div>
       </div>
     </section>

@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown, ArrowRight } from "lucide-react";
 import { fadeUp, staggerContainer, viewportOnce, useReducedMotion } from "../../ui/motion";
 import { PrimaryButton } from "../../ui/ui_components";
+import Link from "next/link";
 
 /**
  * Main article content for the Local SEO page.
@@ -499,7 +500,7 @@ export default function ContentBody() {
           states — from single-city operations to companies managing
           multiple service areas. Whether a roofing business serves one
           town or an entire region, the strategy is built around its
-          specific service territory, not a generic template applied
+          specific service territory,  <Link className="hover:text-red-500" href={'/'}> not a generic template applied</Link>
           everywhere.
         </P>
       </Section>

@@ -49,10 +49,10 @@ const imageFloat = {
 
 export default function Hero() {
   return (
-    <section className="relative  overflow-hidden  border-[#ccc5b9]/60 bg-[#fffcf2]">
+    <section className="relative pt-10 md:pt-8 lg:pt-0 bg-[#fffcf2]">
       {/* <HeroBackground /> */}
       <motion.div
-        className="absolute right-0 top-0 h-[100%] w-[100%] lg:w-[100%]"
+        className="hidden lg:block absolute right-0 lg:top-8 xl:top-8 h-[100%] w-[100%] lg:w-[90%] xl:w-[100%]"
         variants={imageEntrance}
         initial="hidden"
         animate="show"
@@ -69,20 +69,20 @@ export default function Hero() {
         <div className="absolute inset-0 bg-gradient-to-r from-[#fffcf2] via-[#fffcf2]/0 to-transparent " />
       </motion.div>
 
-      <div className="relative mx-auto max-w-7xl px-6  lg:pt-10 pb-0  ">
+      <div className="relative mx-auto max-w-7xl  px-6 pb-12 md:pb-14 lg:pb-0 lg:pt-8 xl:pt-11  ">
         <motion.div
           variants={container}
           initial="hidden"
           animate="show"
-          className="flex max-w-xl flex-col items-start text-left"
+          className="flex max-w-full md:max-w-xl lg:max-w-[55%] xl:max-w-xl flex-col items-start text-left"
         >
-          <motion.div variants={item}>
-            <Eyebrow className="text-[11px]">ROOFING SEO SPECIALISTS</Eyebrow>
+          <motion.div variants={item} className="pt-2 md:pt-4 lg:pt-0">
+            <Eyebrow className="text-[8px] xl:text-[11px]">ROOFING SEO SPECIALISTS</Eyebrow>
           </motion.div>
 
           <motion.h1
             variants={item}
-            className="font-heading text-4xl lg:text-5xl font-black leading-[1.08] tracking-soft"
+            className=" font-heading break-words font-heading text-3xl font-black leading-[1.08] tracking-tight mt-4 md:mt-5 lg:mt-0 lg:text-4xl xl:text-5xl"
           >
             <motion.span variants={item}>Roofing SEO</motion.span>
             <br />
@@ -99,7 +99,7 @@ export default function Hero() {
           <motion.div variants={item}>
             <motion.p
               // variants={item}
-              className="sub-heading mt-6 max-w-lg text-sm font-light font-semibold leading-tight text-[#403d39]"
+              className="sub-heading mt-5 md:mt-6  text-xs xl:text-sm font-semibold leading-relaxed text-[#403d39] max-w-md md:max-w-md lg:max-w-[65%] xl:max-w-lg"
             >
               Get found in Google Search, Google Maps, and AI Search before
               your competitors and turn more local searches into qualified
@@ -110,17 +110,17 @@ export default function Hero() {
               initial={{ scaleX: 0 }}
               animate={{ scaleX: 1 }}
               transition={{ duration: 0.5, delay: 1.5, ease: [0.22, 0.55, 0.5, 1] }}
-              className="mt-6 block h-[3px] w-20 origin-center bg-[#eb5e28]"
+              className="mt-5 md:mt-6 block h-[3px] w-20 origin-center bg-[#eb5e28]"
             />
 
-            <motion.p className="mt-6 max-w-lg text-sm font-light leading-relaxed text-[#403d39]`">
+            <motion.p className="mt-5 md:mt-6 lg:mt-4 xl:mt-6  text-xs xl:text-sm font-light leading-relaxed text-[#403d39] max-w-md md:max-w-md lg:max-w-[65%] xl:max-w-full">
               Our roofing SEO services combine technical SEO, Google Business
               Profile optimization, reputation management, and
               conversion-focused websites to help roofing companies generate
               more qualified leads and grow their business.
             </motion.p>
           </motion.div>
-          <motion.div variants={item} className="mt-8 flex flex-wrap gap-4">
+          <motion.div variants={item} className="mt-8 md:mt-9 lg:mt-4 xl:mt-8 flex flex-wrap gap-4">
             <PrimaryButton as="a" href="/book-a-call">
               Book a Call <ArrowRight className="h-4 w-4" />
             </PrimaryButton>

@@ -67,7 +67,7 @@ export default function LocalSeoHero() {
   return (
     <section className="relative overflow-hidden bg-[#fbf4ea] border-b border-[#ccc5b9]/60">
       {/* <HeroBackground /> */}
-      <div className="relative z-[1]  mx-auto max-w-7xl px-6 pt-16 pb-12 lg:px-12 lg:pt-6">
+      <div className="relative z-[1]  mx-auto max-w-7xl px-6 pt-12 md:pt-14 lg:pt-6 pb-10 md:pb-12 lg:pb-12 lg:px-12">
         <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-12">
           {/* LEFT — copy */}
           <motion.div
@@ -76,13 +76,13 @@ export default function LocalSeoHero() {
             animate="show"
             className="flex flex-col items-start text-left"
           >
-            <motion.div variants={item}>
-              <Eyebrow className="text-[8px] lg:text-[11px]">LOCAL SEO FOR ROOFERS</Eyebrow>
+            <motion.div variants={item} className="pt-1 md:pt-2 lg:pt-0">
+              <Eyebrow className="text-[8px] xl:text-[11px]">LOCAL SEO FOR ROOFERS</Eyebrow>
             </motion.div>
 
             <motion.h1
               variants={item}
-              className="font-heading text-4xl font-black  leading-[1.08] tracking-tight sm:text-5xl"
+              className="font-heading break-words font-heading text-4xl font-black leading-[1.08] tracking-tight mt-4 md:mt-5 lg:mt-0 lg:text-4xl xl:text-6xl max-w-lg sm:max-w-lg lg:max-w-7xl"
             >
               <motion.span variants={item} style={{ color: "#eb5e28" }}>
                 SEO for Roofers
@@ -94,7 +94,7 @@ export default function LocalSeoHero() {
             </motion.h1>
 
             <motion.div variants={item}>
-              <motion.p className="sub-heading mt-6 text-sm font-light font-semibold leading-tight text-[#403d39]">
+              <motion.p className="sub-heading mt-5 md:mt-6 lg:mt-6 text-xs xl:text-sm font-semibold leading-relaxed text-[#403d39] max-w-md sm:max-w-lg md:max-w-lg lg:max-w-[90%] xl:max-w-[90%]">
                 Homeowners search Google before they call anyone. The
                 roofing company that ranks gets the job — the one that
                 doesn&rsquo;t gets skipped.
@@ -104,17 +104,17 @@ export default function LocalSeoHero() {
                 initial={{ scaleX: 0 }}
                 animate={{ scaleX: 1 }}
                 transition={{ duration: 0.5, delay: 1.5, ease: [0.22, 0.55, 0.5, 1] }}
-                className="mt-6 block h-[3px] w-20 origin-center bg-[#eb5e28]"
+                className="mt-5 md:mt-6 block h-[3px] w-20 origin-center bg-[#eb5e28]"
               />
 
-              <motion.p className="mt-6 text-sm font-light leading-relaxed text-[#403d39]">
+              <motion.p className="mt-5 md:mt-6 text-xs xl:text-sm font-light leading-relaxed text-[#403d39] max-w-sm md:max-w-lg lg:max-w-[90%] xl:max-w-[90%]">
                 Roofer SEO Co. builds SEO for roofers that turns local
                 search into booked jobs, not just traffic, with
                 month-to-month terms and no long-term contracts.
               </motion.p>
             </motion.div>
 
-            <motion.div variants={item} className="mt-8 flex flex-wrap gap-4">
+            <motion.div variants={item} className="mt-8 md:mt-9 lg:mt-8 flex flex-wrap gap-4">
               <PrimaryButton as="a" href="/book-a-call">
                 Book a Call <ArrowRight className="h-4 w-4" />
               </PrimaryButton>
@@ -124,13 +124,13 @@ export default function LocalSeoHero() {
             </motion.div>
           </motion.div>
 
-          {/* RIGHT — hero image */}
+          {/* RIGHT — hero image (lg and up only) */}
      <motion.div
   variants={imageEntrance}
   initial="hidden"
   animate="show"
   /* Bumped desktop width from max-w-md (448px) to lg:max-w-xl (576px) */
-  className="relative mx-auto flex w-full max-w-md lg:max-w-lg items-center justify-center rounded-2xl lg:translate-y-12"
+  className="hidden lg:flex relative mx-auto w-full max-w-md lg:max-w-lg items-center justify-center rounded-2xl lg:translate-y-12 xl:translate-y-15"
 >
   <motion.div animate={imageFloat} className="relative w-full">
     <Image

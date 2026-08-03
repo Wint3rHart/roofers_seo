@@ -69,10 +69,11 @@ function ThankYouContent() {
 
   return (
     <main className="bg-[#fffcf2]">
-      <section className="relative overflow-hidden border-b border-[#ccc5b9]/60">
+      {/* Hero Section forced into a single viewport using min-h-[100dvh] */}
+      <section className="relative flex min-h-[100dvh] flex-col justify-center overflow-hidden border-b border-[#ccc5b9]/60 py-6 sm:py-8 md:py-12 lg:py-16">
         <motion.div
           aria-hidden
-          className="absolute -right-24 top-10 hidden h-[320px] w-[320px] rounded-full opacity-50 lg:block"
+          className="absolute -right-24 top-10 hidden h-[220px] w-[220px] rounded-full opacity-50 sm:h-[260px] sm:w-[260px] lg:block lg:h-[320px] lg:w-[320px]"
           style={{ background: "#ccc5b9" }}
           animate={
             reduce
@@ -81,57 +82,71 @@ function ThankYouContent() {
           }
           transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
         />
-        <div className="relative mx-auto max-w-3xl px-6 py-24 text-center lg:px-6 lg:py-32">
+
+        <div className="relative mx-auto my-auto w-full max-w-3xl px-4 text-center sm:px-6">
           <motion.div
             variants={staggerContainer(0.14)}
             initial="hidden"
             animate="show"
           >
+            {/* Success Icon */}
             <motion.div
               variants={fadeScale}
-              className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full"
+              className="mx-auto mb-3 flex h-10 w-10 items-center justify-center rounded-full sm:mb-4 sm:h-12 sm:w-12 md:mb-5 md:h-14 md:w-14 lg:mb-6 lg:h-14 lg:w-14"
               style={{ background: "#eb5e28" }}
             >
-              <CheckCircle className="h-8 w-8 text-[#fffcf2]" />
+              <CheckCircle className="h-5 w-5 text-[#fffcf2] sm:h-6 sm:w-6 md:h-7 md:w-7 lg:h-7 lg:w-8" />
             </motion.div>
+
+            {/* Eyebrow */}
             <motion.div variants={fadeUp}>
-              <Eyebrow>{variant.eyebrow}</Eyebrow>
+              <Eyebrow className="text-[9px] sm:text-[10px] md:text-xs lg:text-sm xl:text-sm">
+                {variant.eyebrow}
+              </Eyebrow>
             </motion.div>
+
+            {/* Heading */}
             <motion.h1
               variants={fadeUp}
-              className="font-heading text-4xl font-black italic leading-[1.1] tracking-tight sm:text-5xl"
+              className="mt-2 font-heading text-2xl font-black italic leading-[1.1] tracking-tight sm:mt-3 sm:text-3xl md:text-4xl lg:mt-4 lg:text-4xl"
             >
               {variant.heading}
             </motion.h1>
+
+            {/* Divider Line */}
             <motion.div variants={fadeUp}>
-              <OrangeBar className="mt-6" />
+              <OrangeBar className="mt-3 sm:mt-4 md:mt-5 lg:mt-6" />
             </motion.div>
+
+            {/* Body */}
             <motion.p
               variants={fadeUp}
-              className="sub-heading mx-auto mt-6 max-w-xl text-base font-light leading-relaxed text-[#403d39]/90"
+              className="sub-heading mx-auto mt-3 max-w-xs text-xs font-light leading-relaxed text-[#403d39]/90 sm:mt-4 sm:max-w-md sm:text-sm md:mt-5 md:max-w-lg md:text-base lg:text-xs lg:mt-4 lg:max-w-4xl"
             >
               {variant.body}
             </motion.p>
 
+            {/* Delivery / Response Time Pill */}
             <motion.div
               variants={fadeUp}
-              className="mx-auto mt-8 inline-flex items-center gap-2 rounded-full border border-[#ccc5b9] bg-white/60 px-5 py-2.5"
+              className="mx-auto mt-4 inline-flex items-center gap-1.5 rounded-full border border-[#ccc5b9] bg-white/60 px-3 py-1.5 sm:mt-5 sm:gap-2 sm:px-4 sm:py-2 md:mt-6 lg:mt-8 lg:px-5 lg:py-2.5"
             >
               <variant.bullet.icon
-                className="h-4 w-4"
+                className="h-3.5 w-3.5 sm:h-4 sm:w-4"
                 style={{ color: "#eb5e28" }}
               />
-              <span className="sub-heading text-sm font-medium text-[#403d39]">
+              <span className="sub-heading text-[11px] font-medium text-[#403d39] sm:text-xs md:text-sm">
                 {variant.bullet.label}
               </span>
             </motion.div>
 
+            {/* CTA Buttons */}
             <motion.div
               variants={fadeScale}
-              className="mt-10 flex flex-wrap justify-center gap-4"
+              className="mt-5 flex flex-wrap justify-center gap-2.5 sm:mt-6 sm:gap-3 md:mt-8 md:gap-4 lg:mt-10"
             >
               <PrimaryButton as="a" href={variant.primaryHref}>
-                {variant.primaryLabel} <ArrowRight className="h-4 w-4" />
+                {variant.primaryLabel} <ArrowRight className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
               </PrimaryButton>
               <SecondaryButton as="a" href={variant.secondaryHref}>
                 {variant.secondaryLabel}
@@ -141,7 +156,7 @@ function ThankYouContent() {
         </div>
       </section>
 
-      {/* Cross-links */}
+      {/* Cross-links section */}
       <motion.section
         className="border-b border-[#ccc5b9]/60 bg-[#fffcf7]"
         variants={staggerContainer(0.1)}
@@ -149,23 +164,23 @@ function ThankYouContent() {
         whileInView="show"
         viewport={reduce ? false : { once: true, margin: "-80px" }}
       >
-        <div className="mx-auto max-w-5xl px-6 py-16 text-center lg:px-6">
+        <div className="mx-auto max-w-5xl px-4 py-10 text-center sm:px-6 sm:py-12 md:py-14 lg:py-16">
           <motion.p
             variants={fadeUp}
-            className="eyebrow text-xs font-bold uppercase tracking-[0.18em] text-[#eb5e28]"
+            className="eyebrow text-[10px] font-bold uppercase tracking-[0.18em] text-[#eb5e28] sm:text-xs"
           >
             While you’re here
           </motion.p>
           <motion.h2
             variants={fadeUp}
-            className="mt-3 font-heading text-2xl font-black italic tracking-tight sm:text-3xl lg:text-4xl"
+            className="mt-2 font-heading text-xl font-black italic tracking-tight sm:mt-3 sm:text-2xl md:text-3xl lg:text-4xl"
           >
             Explore our roofing services
           </motion.h2>
           <motion.div variants={fadeUp}>
-            <OrangeBar className="mt-5" />
+            <OrangeBar className="mt-3 sm:mt-4 lg:mt-5" />
           </motion.div>
-          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-6 grid gap-3 sm:mt-8 sm:grid-cols-2 sm:gap-4 lg:mt-10 lg:grid-cols-4">
             {SERVICE_LINKS.map((s) => (
               <motion.a
                 key={s.href}
@@ -173,11 +188,11 @@ function ThankYouContent() {
                 variants={fadeScale}
                 whileHover={reduce ? undefined : { y: -6 }}
                 transition={{ duration: 0.25 }}
-                className="group rounded-xl border border-[#ccc5b9]/70 bg-white/50 p-5 text-center transition-all hover:shadow-lg"
+                className="group rounded-xl border border-[#ccc5b9]/70 bg-white/50 p-4 text-center transition-all hover:shadow-lg sm:p-5"
               >
-                <h3 className="font-heading text-base font-bold">{s.label}</h3>
+                <h3 className="font-heading text-sm font-bold sm:text-base">{s.label}</h3>
                 <p
-                  className="mt-2 inline-flex items-center justify-center gap-1 text-xs font-bold transition-transform group-hover:translate-x-1"
+                  className="mt-1.5 inline-flex items-center justify-center gap-1 text-[11px] font-bold transition-transform group-hover:translate-x-1 sm:mt-2 sm:text-xs"
                   style={{ color: "#eb5e28" }}
                 >
                   Learn More <ArrowRight className="h-3 w-3" />

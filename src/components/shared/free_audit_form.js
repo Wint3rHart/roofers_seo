@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useRouter } from "next/navigation";
 import { PrimaryButton } from "../ui/ui_components";
 import {
   fadeUp,
@@ -16,11 +17,19 @@ import {
  */
 export default function FreeAuditForm({ buttonLabel = "Send Me My Free Audit" }) {
   const reduce = useReducedMotion();
+  const router = useRouter();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    router.push("/thank-you?type=free-audit");
+  };
+
+  const fieldClass =
+    "rounded-md border border-[#ccc5b9] bg-[#fffcf2] px-4 py-3 text-sm text-[#252422] placeholder:text-[#403d39]/60 focus:border-[#eb5e28] focus:outline-none";
 
   return (
     <motion.form
-      action="/thank-you?type=free-audit"
-      method="post"
+      onSubmit={handleSubmit}
       className="space-y-4 text-left"
       variants={staggerContainer(0.06)}
       initial="hidden"
@@ -33,22 +42,22 @@ export default function FreeAuditForm({ buttonLabel = "Send Me My Free Audit" })
           name="name"
           required
           placeholder="Name *"
-          className="rounded-md border border-[#ccc5b9] bg-[#fffcf2] px-4 py-3 text-sm placeholder:text-[#403d39]/60 focus:border-[#eb5e28] focus:outline-none"
+          className={fieldClass}
         />
         <input
           type="text"
           name="business_name"
           required
           placeholder="Business Name *"
-          className="rounded-md border border-[#ccc5b9] bg-[#fffcf2] px-4 py-3 text-sm placeholder:text-[#403d39]/60 focus:border-[#eb5e28] focus:outline-none"
+          className={fieldClass}
         />
       </motion.div>
       <motion.input
         variants={fadeUp}
-        type="url"
+        type="text"
         name="website_url"
         placeholder="Website URL"
-        className="w-full rounded-md border border-[#ccc5b9] bg-[#fffcf2] px-4 py-3 text-sm placeholder:text-[#403d39]/60 focus:border-[#eb5e28] focus:outline-none"
+        className={`w-full ${fieldClass}`}
       />
       <motion.input
         variants={fadeUp}
@@ -56,7 +65,7 @@ export default function FreeAuditForm({ buttonLabel = "Send Me My Free Audit" })
         name="city"
         required
         placeholder="City *"
-        className="w-full rounded-md border border-[#ccc5b9] bg-[#fffcf2] px-4 py-3 text-sm placeholder:text-[#403d39]/60 focus:border-[#eb5e28] focus:outline-none"
+        className={`w-full ${fieldClass}`}
       />
       <motion.div variants={fadeUp} className="grid grid-cols-1 gap-3 sm:grid-cols-2">
         <input
@@ -64,13 +73,13 @@ export default function FreeAuditForm({ buttonLabel = "Send Me My Free Audit" })
           name="email"
           required
           placeholder="Email *"
-          className="rounded-md border border-[#ccc5b9] bg-[#fffcf2] px-4 py-3 text-sm placeholder:text-[#403d39]/60 focus:border-[#eb5e28] focus:outline-none"
+          className={fieldClass}
         />
         <input
           type="tel"
           name="phone"
           placeholder="Phone (optional)"
-          className="rounded-md border border-[#ccc5b9] bg-[#fffcf2] px-4 py-3 text-sm placeholder:text-[#403d39]/60 focus:border-[#eb5e28] focus:outline-none"
+          className={fieldClass}
         />
       </motion.div>
       <motion.div variants={fadeScale}>

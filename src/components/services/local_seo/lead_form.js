@@ -11,9 +11,16 @@ import {
 } from "../../ui/motion";
 
 /**
- * Lead form — right sidebar, below the CTA card.
+ * Lead form — right sidebar, below the CTA card. Same fields/markup as
+ * local_seo/lead_form.js, with title, subtitle, form action, and submit
+ * label parametrized so every service page can reuse the same structure.
  */
-export default function LeadForm() {
+export default function LeadForm({
+  title = "Get Your Free Local SEO Audit",
+  subtitle = "Find out where your Google Business Profile and map pack rankings stand today.",
+  action = "/thank-you?type=local-seo-audit",
+  submitLabel = "Get My Free Audit",
+}) {
   const reduce = useReducedMotion();
 
   return (
@@ -25,17 +32,16 @@ export default function LeadForm() {
       className="rounded-2xl border border-[#ccc5b9]/70 bg-[#252422] p-6"
     >
       <h3 className="font-heading text-lg font-black italic leading-tight text-[#fffcf2]   ">
-        Get Your Free Local SEO Audit
+        {title}
       </h3>
-      <p className="sub-heading mt-2 text-xs font-light leading-relaxed text-[#eb5e28]">
-        Find out where your Google Business Profile and map pack rankings
-        stand today.
+      <p className="sub-heading mt-1 text-xs font-light leading-relaxed text-[#fffcf2]">
+        {subtitle}
       </p>
 
       <motion.form
-        action="/thank-you?type=local-seo-audit"
+        action={action}
         method="post"
-        className="mt-5 space-y-3 text-left"
+        className="mt-5 space-y-2 xl:space-y-3 text-left"
         variants={staggerContainer(0.06)}
         initial="hidden"
         whileInView="show"
@@ -82,7 +88,7 @@ export default function LeadForm() {
         </motion.div>
         <motion.div variants={fadeScale}>
           <PrimaryButton as="button" type="submit" className="w-full">
-            Get My Free Audit
+            {submitLabel}
           </PrimaryButton>
         </motion.div>
       </motion.form>

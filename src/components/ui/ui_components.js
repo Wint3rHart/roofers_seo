@@ -19,7 +19,7 @@ function PrimaryButton({ children, className = "", as = "button", href, ...props
       whileHover={reduce ? undefined : { scale: 1.045, y: -3 }}
       whileTap={reduce ? undefined : { scale: 0.96, y: 0 }}
       transition={buttonSpring}
-      className={`group relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-md bg-[#eb5e28] px-6 py-3.5 text-sm font-bold text-[#fffcf2] shadow-[0_6px_16px_-4px_rgba(235,94,40,0.5)] transition-[background-color,box-shadow] duration-300 ease-out hover:bg-[#d94f1c] hover:shadow-[0_16px_34px_-6px_rgba(235,94,40,0.7)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#eb5e28] focus-visible:ring-offset-2 focus-visible:ring-offset-[#fffcf2] ${className}`}
+      className={`group relative inline-flex items-center justify-center gap-2 overflow-hidden rounded-md bg-[#eb5e28] px-6 py-2.5 xl:py-3.5 text-sm font-bold text-[#fffcf2] shadow-[0_6px_16px_-4px_rgba(235,94,40,0.5)] transition-[background-color,box-shadow] duration-300 ease-out hover:bg-[#d94f1c] hover:shadow-[0_16px_34px_-6px_rgba(235,94,40,0.7)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#eb5e28] focus-visible:ring-offset-2 focus-visible:ring-offset-[#fffcf2] ${className}`}
       {...props}
     >
       <span className="relative z-10 inline-flex items-center gap-2">{children}</span>

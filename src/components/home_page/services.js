@@ -55,7 +55,7 @@ export const Services = () => {
 
         {/* Cards grid — 3 per row, last card centered on its own row */}
         <motion.div
-          className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:justify-items-center"
+          className="mt-12 grid grid-cols-2 gap-3 sm:gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:justify-items-center"
           variants={staggerContainer(0.1)}
           initial="hidden"
           whileInView="show"
@@ -67,26 +67,26 @@ export const Services = () => {
               variants={fadeScale}
               whileHover={reduce ? undefined : { y: -6 }}
               transition={{ duration: 0.25 }}
-              className={`flex w-full max-w-xs flex-col rounded-xl border border-[#ccc5b9]/70 bg-white/40 p-6 text-left transition-shadow hover:shadow-lg ${
+              className={`flex w-full max-w-xs flex-col rounded-xl border border-[#ccc5b9]/70 bg-white/40 p-3 sm:p-6 text-left transition-shadow hover:shadow-lg ${
                 i === 3 ? "lg:col-start-2" : ""
               }`}
             >
            <div
-                className="mb-4 flex h-11 w-11 items-center justify-center rounded-lg "
+                className="mb-2 sm:mb-4 flex h-8 w-8 sm:h-11 sm:w-11 items-center justify-center rounded-lg "
                 style={{ borderColor: "#eb5e28" }}
               >
-                <Icon className="h-8 w-8" style={{ color: "#eb5e28" }} strokeWidth={1.65} />
+                <Icon className="h-5 w-5 sm:h-8 sm:w-8" style={{ color: "#eb5e28" }} strokeWidth={1.65} />
               </div>
-              <h3 className="font-heading text-lg font-bold">{title}</h3>
-              <p className="sub-heading mt-2 flex-1 text-sm font-light leading-relaxed text-[#403d39]/85">
+              <h3 className="font-heading text-sm sm:text-lg font-bold">{title}</h3>
+              <p className="sub-heading mt-1 sm:mt-2 flex-1 text-[11px] sm:text-sm font-light leading-relaxed text-[#403d39]/85">
                 {copy}
               </p>
               
                <a href={href}
-                className="mt-4 inline-flex items-center gap-1 text-sm font-bold transition-transform hover:translate-x-1"
+                className="mt-2 sm:mt-4 inline-flex items-center gap-1 text-[11px] sm:text-sm font-bold transition-transform hover:translate-x-1"
                 style={{ color: "#eb5e28" }}
               >
-                Learn More <ArrowRight className="h-3.5 w-3.5" />
+                Learn More <ArrowRight className="h-3 w-3 sm:h-3.5 sm:w-3.5" />
               </a>
             </motion.div>
           ))}
