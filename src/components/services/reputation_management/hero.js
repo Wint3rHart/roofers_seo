@@ -130,18 +130,19 @@ const imageFloat = {
 </motion.div>
         
 {/* RIGHT — hero image (lg and up only) */}
-<motion.div
+    <motion.div
   variants={imageEntrance}
   initial="hidden"
   animate="show"
-  className="hidden lg:flex relative mx-auto w-full max-w-2xl lg:max-w-none lg:w-[125%] lg:-ml-16 xl:-ml-32 lg:translate-y-12"
+  /* Bumped desktop width from max-w-md (448px) to lg:max-w-xl (576px) */
+className="hidden lg:flex relative mx-auto w-full max-w-xs lg:max-w-sm xl:max-w-md items-center justify-center rounded-2xl lg:translate-y-12 xl:translate-y-15"
 >
-  <motion.div animate={imageFloat} className="relative lg:w-full flex justify-center">
+  <motion.div animate={imageFloat} className="relative w-full">
     <Image
-      src="/WhatsApp Image 2026-08-01 at 7.53.06 AM-Photoroom.png"
-      alt="Reputation Management for roofers"
+      src="/fixed.png"
+      alt="Local SEO for roofers"
       width={1200}
-      height={900}
+      height={1400}
       priority
       className="w-full h-auto object-contain drop-shadow-xl"
     />

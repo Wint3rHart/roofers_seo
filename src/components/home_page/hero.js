@@ -30,7 +30,6 @@ const imageEntrance = {
   hidden: { opacity: 0, scale: 1.04 },
   show: {
     opacity: 1,
-  
     scale: 1,
     transition: { duration: 1, delay: 0.2, ease: [0.22, 0.55, 0.5, 1] },
   },
@@ -51,23 +50,32 @@ export default function Hero() {
   return (
     <section className="relative pt-6 md:pt-4 lg:pt-0 bg-[#fffcf2] pb-4 md:pb-0 lg:pb-8">
       {/* <HeroBackground /> */}
-      <motion.div
-        className="hidden lg:block absolute  lg:top-4 xl:top-4 h-[100%] w-[100%] lg:w-[100%] xl:w-[100%]"
-        variants={imageEntrance}
-        initial="hidden"
-        animate="show"
-      >
-        <motion.div className="relative h-full w-full" animate={imageFloat}>
-          <Image
-            src="/roofer homepage.jpeg"
-            alt="Aerial view of a roof with local service radius pin"
-            fill
-            priority
-            className="object-contain object-top-right"
-          />
+
+      {/*
+        Wrapper is now pinned to the SAME max-w-7xl container as the text
+        column (mx-auto inset-x-0) instead of the raw viewport, so on very
+        wide screens it stops growing past the content column and stays
+        anchored near the copy instead of drifting off to the right edge.
+      */}
+      <div className="hidden lg:block absolute inset-0 mx-auto max-w-7xl">
+        <motion.div
+          className="absolute right-0 top-4 xl:top-4 h-full w-full max-w-[900px] xl:max-w-[1000px]"
+          variants={imageEntrance}
+          initial="hidden"
+          animate="show"
+        >
+          <motion.div className="relative h-full w-full" animate={imageFloat}>
+            <Image
+              src="/roofer homepage.jpeg"
+              alt="Aerial view of a roof with local service radius pin"
+              fill
+              priority
+              className="object-contain object-top-right"
+            />
+          </motion.div>
+          <div className="absolute inset-0 bg-gradient-to-r from-[#fffcf2] via-[#fffcf2]/0 to-transparent " />
         </motion.div>
-        <div className="absolute inset-0 bg-gradient-to-r from-[#fffcf2] via-[#fffcf2]/0 to-transparent " />
-      </motion.div>
+      </div>
 
       <div className="relative mx-auto max-w-7xl  px-6 pb-12 md:pb-14 lg:pb-0 lg:pt-8 xl:pt-11  ">
         <motion.div
