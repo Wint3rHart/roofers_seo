@@ -100,7 +100,7 @@ function ThankYouContent() {
 
             {/* Eyebrow */}
             <motion.div variants={fadeUp}>
-              <Eyebrow className="text-[9px] sm:text-[10px] md:text-xs lg:text-sm xl:text-sm">
+              <Eyebrow className="text-[8px] xl:text-[11px]">
                 {variant.eyebrow}
               </Eyebrow>
             </motion.div>

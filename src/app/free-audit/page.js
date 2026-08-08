@@ -44,7 +44,7 @@ export default function FreeAuditPage() {
             animate="show"
           >
             <motion.div variants={fadeUp}>
-              <Eyebrow>FREE AUDIT</Eyebrow>
+              <Eyebrow className="text-[8px] xl:text-[11px]">FREE AUDIT</Eyebrow>
             </motion.div>
             <motion.h1
               variants={fadeUp}

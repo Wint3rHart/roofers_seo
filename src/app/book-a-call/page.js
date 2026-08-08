@@ -44,7 +44,7 @@ export default function BookACallPage() {
             animate="show"
           >
             <motion.div variants={fadeUp}>
-              <Eyebrow>BOOK A CALL</Eyebrow>
+              <Eyebrow className="text-[8px] xl:text-[11px]" >BOOK A CALL</Eyebrow>
             </motion.div>
             <motion.h1
               variants={fadeUp}
