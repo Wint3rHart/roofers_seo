@@ -18,7 +18,7 @@ const CATEGORIES = [
   "Google Business Profile",
   "Reviews",
   "AI Search",
-  "Case Studies",
+
 ];
 
 export default function BlogPage() {
