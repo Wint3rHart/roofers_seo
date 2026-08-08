@@ -15,25 +15,25 @@ import {
 const APPROACH_LADDER = [
   {
     icon: Star,
-    label: "01 — Reviews First",
+    label: "01 - Reviews First",
     copy:
       "Homeowners check stars before they check a website. Fixing the reputation first means every visitor after that converts better — so reviews come before rankings.",
   },
   {
     icon: MapPin,
-    label: "02 — Local SEO Second",
+    label: "02 - Local SEO Second",
     copy:
       "Once the reputation is climbing, the next move is making sure those reviews show up where homeowners are actually searching — the Google Map Pack and local search.",
   },
   {
     icon: Globe,
-    label: "03 — Website Third",
+    label: "03 - Website Third",
     copy:
       "Ranking higher only helps if the site visitors land on actually converts them. A fast, mobile-friendly site is the foundation everything else builds on.",
   },
   {
     icon: Sparkles,
-    label: "04 — AI Visibility Fourth",
+    label: "04 - AI Visibility Fourth",
     copy:
       "Once reviews, local SEO, and the website are solid, the last layer is making sure your business shows up inside AI-generated answers — the new frontier of search.",
   },
@@ -64,7 +64,7 @@ export default function AboutPage() {
             animate="show"
           >
             <motion.div variants={fadeUp}>
-              <Eyebrow>WHO WE ARE</Eyebrow>
+              <Eyebrow className="text-[8px] xl:text-[11px]">WHO WE ARE</Eyebrow>
             </motion.div>
             <motion.h1
               variants={fadeUp}

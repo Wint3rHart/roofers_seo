@@ -47,7 +47,7 @@ export default function SectionHeading({
 }) {
   return (
     <div className={`mx-auto max-w-2xl text-center ${className}`}>
-      {eyebrow && <Eyebrow>{eyebrow}</Eyebrow>}
+      {eyebrow && <Eyebrow className="text-[8px] xl:text-[11px]">{eyebrow}</Eyebrow>}
       <h2
         className={`font-heading text-3xl font-black  leading-tight tracking-tight sm:text-4xl lg:text-5xl ${
           dark ? "text-[#fffcf2]" : "text-[#252422]"

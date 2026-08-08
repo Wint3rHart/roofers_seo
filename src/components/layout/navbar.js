@@ -18,8 +18,9 @@ const NAV_LINKS = [
     ],
   },
   { label: "About Us", href: "/about" },
-  { label: "Blog", href: "/blog" },
   { label: "Contact", href: "/contact" },
+  { label: "Blog", href: "/blog" },
+  
 ];
 
 export default function Navbar() {
@@ -163,7 +164,7 @@ export default function Navbar() {
                   href={link.href}
                   className="block rounded-md px-3 py-2.5 text-sm font-semibold text-[#403d39] hover:bg-[#fffcf7] hover:text-[#eb5e28]"
                   onClick={() => setMobileOpen(false)}
-                >Link
+                >
                   {link.label}
                 </Link>
               )

@@ -137,7 +137,7 @@ export default function PrivacyPolicyPage() {
             animate="show"
           >
             <motion.div variants={fadeUp}>
-              <Eyebrow>LEGAL</Eyebrow>
+              <Eyebrow className="text-[8px] xl:text-[11px]">LEGAL</Eyebrow>
             </motion.div>
             <motion.h1
               variants={fadeUp}

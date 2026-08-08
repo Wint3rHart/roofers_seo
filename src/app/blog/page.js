@@ -47,7 +47,7 @@ export default function BlogPage() {
             animate="show"
           >
             <motion.div variants={fadeUp}>
-              <Eyebrow>THE BLOG</Eyebrow>
+              <Eyebrow className="text-[8px] xl:text-[11px]">THE BLOG</Eyebrow>
             </motion.div>
             <motion.h1
               variants={fadeUp}
