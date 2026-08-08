@@ -49,10 +49,10 @@ const imageFloat = {
 
 export default function Hero() {
   return (
-    <section className="relative pt-10 md:pt-8 lg:pt-0 bg-[#fffcf2]">
+    <section className="relative pt-6 md:pt-4 lg:pt-0 bg-[#fffcf2] pb-4 md:pb-0 lg:pb-8">
       {/* <HeroBackground /> */}
       <motion.div
-        className="hidden lg:block absolute right-0 lg:top-8 xl:top-8 h-[100%] w-[100%] lg:w-[90%] xl:w-[100%]"
+        className="hidden lg:block absolute  lg:top-4 xl:top-4 h-[100%] w-[100%] lg:w-[100%] xl:w-[100%]"
         variants={imageEntrance}
         initial="hidden"
         animate="show"
@@ -99,7 +99,7 @@ export default function Hero() {
           <motion.div variants={item}>
             <motion.p
               // variants={item}
-              className="sub-heading mt-5 md:mt-6  text-xs xl:text-sm font-semibold leading-relaxed text-[#403d39] max-w-md md:max-w-md lg:max-w-[65%] xl:max-w-lg"
+              className="sub-heading mt-5 md:mt-4  text-xs xl:text-sm font-semibold leading-relaxed text-[#403d39] max-w-md md:max-w-md lg:max-w-[65%] xl:max-w-lg"
             >
               Get found in Google Search, Google Maps, and AI Search before
               your competitors and turn more local searches into qualified
@@ -113,7 +113,7 @@ export default function Hero() {
               className="mt-5 md:mt-6 block h-[3px] w-20 origin-center bg-[#eb5e28]"
             />
 
-            <motion.p className="mt-5 md:mt-6 lg:mt-4 xl:mt-6  text-xs xl:text-sm font-light leading-relaxed text-[#403d39] max-w-md md:max-w-md lg:max-w-[65%] xl:max-w-full">
+            <motion.p className="mt-5 md:mt-6 lg:mt-4 xl:mt-4  text-xs xl:text-sm font-light leading-relaxed text-[#403d39] max-w-md md:max-w-md lg:max-w-[65%] xl:max-w-full">
               Our roofing SEO services combine technical SEO, Google Business
               Profile optimization, reputation management, and
               conversion-focused websites to help roofing companies generate

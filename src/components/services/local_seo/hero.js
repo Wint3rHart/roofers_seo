@@ -67,7 +67,7 @@ export default function LocalSeoHero() {
   return (
     <section className="relative overflow-hidden bg-[#fbf4ea] border-b border-[#ccc5b9]/60">
       {/* <HeroBackground /> */}
-      <div className="relative z-[1]  mx-auto max-w-7xl px-6 pt-12 md:pt-14 lg:pt-6 pb-10 md:pb-12 lg:pb-12 lg:px-12">
+      <div className="relative z-[1]  mx-auto max-w-7xl px-6 pt-12 md:pt-14 lg:pt-6 pb-12 md:pb-12 lg:pb-12 xl:pb-8 lg:px-12">
         <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-12">
           {/* LEFT — copy */}
           <motion.div

@@ -70,7 +70,7 @@ const imageFloat = {
 
   return (
     <section className="relative  bg-[#fbf4ea] border-b border-[#ccc5b9]/60">
-      <div className="relative z-[1] mx-auto max-w-7xl px-6 pt-12 md:pt-14 lg:pt-12 pb-10 md:pb-12 lg:pb-12 lg:px-14">
+      <div className="relative z-[1] mx-auto max-w-7xl px-6 pt-12 md:pt-14 lg:pb-8 xl:pt-10 pb-12 md:pb-8 lg:pb-10 xl:pb-8 lg:px-14">
         <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-12">
           {/* LEFT — copy */}
           <motion.div
