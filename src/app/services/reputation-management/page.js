@@ -7,9 +7,9 @@ import { getService } from "@/data/services";
 import { notFound } from "next/navigation";
 
 export const metadata = {
-  title: "Reputation Management — Roofer SEO Co.",
+  title: " Reputation Management for Roofers | Roofer SEO Co",
   description:
-    "Get more 5-star Google reviews on autopilot, route negative feedback privately, and turn happy customers into your strongest ranking signal.",
+    "Automated review requests, dispute protection, and AI-powered replies for roofing companies. Turn every completed job into a 5-star review. Get a free proposal.",
 };
 
 export default function ReputationManagementPage() {

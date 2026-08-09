@@ -139,7 +139,7 @@ className="hidden lg:flex relative mx-auto w-full max-w-xs lg:max-w-sm xl:max-w-
 >
   <motion.div animate={imageFloat} className="relative w-full">
     <Image
-      src="/fixed.png"
+      src="/fixed.webp"
       alt="Local SEO for roofers"
       width={1200}
       height={1400}

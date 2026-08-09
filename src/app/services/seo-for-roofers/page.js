@@ -3,9 +3,9 @@ import LocalSeoContentLayout from "@/components/services/local_seo/content_layou
 import FinalCTA from "@/components/shared/final_cta";
 
 export const metadata = {
-  title: "SEO For Roofers.",
+  title: "SEO for Roofers | No Contracts, Roofing-Specific Strategy",
   description:
-    "Show up in the Google Map Pack when homeowners search 'roofer near me.' Google Business Profile optimization and local search strategy built around the neighborhoods you actually serve.",
+    "SEO for roofers that books jobs, not just rankings. Roofing-specific strategy, month-to-month terms, and a 90-day guarantee in smaller markets.",
 };
 
 export default function LocalSeoPage() {

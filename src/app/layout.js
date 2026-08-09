@@ -23,9 +23,9 @@ const dmSans = DM_Sans({
 });
 
 export const metadata = {
-  title: "Roofer SEO Co. — Roofing SEO & Reputation Specialists",
+  title: "Roofer SEO Co. Roofing SEO & Reputation Specialists",
   description:
-    "We help roofing contractors build a five-star reputation, rank higher in local search, and turn more homeowners into booked calls — with a system built only for roofers.",
+    "We help roofing contractors build a five-star reputation, rank higher in local search, and turn more homeowners into booked calls,with a system built only for roofers.",
 };
 
 export default function RootLayout({ children }) {

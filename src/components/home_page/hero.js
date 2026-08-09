@@ -66,7 +66,7 @@ export default function Hero() {
         >
           <motion.div className="relative h-full w-full" animate={imageFloat}>
             <Image
-              src="/roofer homepage.jpeg"
+              src="/roofer homepage.webp"
               alt="Aerial view of a roof with local service radius pin"
               fill
               priority

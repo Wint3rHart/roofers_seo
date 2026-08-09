@@ -134,7 +134,7 @@ export default function LocalSeoHero() {
 >
   <motion.div animate={imageFloat} className="relative w-full">
     <Image
-      src="/Bob with nail gun@1x.png"
+      src="/Bob with nail gun@1x.webp"
       alt="Local SEO for roofers"
       width={1200}
       height={1600}
