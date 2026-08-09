@@ -13,15 +13,15 @@ import { CTA } from "../home_page/final_cta";
 const SERVICE_LINKS = [
   { label: "Reputation Management", href: "/services/reputation-management" },
   { label: "Local SEO", href: "/services/local-seo" },
-  { label: "Web Design", href: "/services/web-design" },
-  { label: "AI Search Visibility", href: "/services/ai-search-visibility" },
+  { label: "Web Design", href: "/services/#" },
+  { label: "AI Search Visibility", href: "/services/#" },
 ];
 
 const COMPANY_LINKS = [
   { label: "About Us", href: "/about" },
-  { label: "Blog", href: "/blog" },
-  { label: "Contact", href: "/contact" },
-  { label: "Book a Call", href: "/book-a-call" },
+  { label: "Blog", href: "/#" },
+  { label: "Contact", href: "/#" },
+  { label: "Book a Call", href: "/#" },
 ];
 
 const FacebookIcon = (props) => (

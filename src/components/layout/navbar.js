@@ -11,15 +11,15 @@ const NAV_LINKS = [
     label: " Services",
     children: [
       { label: "Reputation Management", href: "/services/reputation-management" },
-      { label: "AI Search Visibility", href: "/services/ai-search-visibility" },
+      { label: "AI Search Visibility", href: "/services/#" },
       { label: "SEO For Roofers", href: "/services/seo-for-roofers" },
-      { label: "Web Design", href: "/services/web-design" },
+      { label: "Web Design", href: "/services/#" },
       
     ],
   },
   { label: "About Us", href: "/about" },
-  { label: "Contact", href: "/contact" },
-  { label: "Blog", href: "/blog" },
+  { label: "Contact", href: "/#" },
+  { label: "Blog", href: "/#" },
   
 ];
 
