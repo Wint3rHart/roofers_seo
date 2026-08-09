@@ -96,7 +96,7 @@ export default function Footer() {
             </h4>
             <ul className="mt-3 lg:mt-4 space-y-1.5 lg:space-y-2 text-[10px] sm:text-xs lg:text-sm">
               {SERVICE_LINKS.map((l) => (
-                <li key={l.href}>
+                <li key={l.label}>
                   <a
                     href={l.href}
                     className="text-[#ccc5b9] transition-colors hover:text-[#eb5e28]"
@@ -114,7 +114,7 @@ export default function Footer() {
             </h4>
             <ul className="mt-3 lg:mt-4 space-y-1.5 lg:space-y-2 text-[10px] sm:text-xs lg:text-sm">
               {COMPANY_LINKS.map((l) => (
-                <li key={l.href}>
+                <li key={l.label}>
                   <a
                     href={l.href}
                     className="text-[#ccc5b9] transition-colors hover:text-[#eb5e28]"

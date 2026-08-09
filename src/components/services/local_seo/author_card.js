@@ -10,7 +10,7 @@ import { fadeUp, viewportOnce, useReducedMotion } from "../../ui/motion";
  */
 export default function AuthorCard({
   name = "Omer Ejaz",
-  avatar = "/local-seo/author.jpg",
+  avatar = "/local-seo/author.jpeg",
   dateEdited = "July 20, 2026",
   readTime = "9 Minutes",
 }) {

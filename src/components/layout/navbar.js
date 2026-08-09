@@ -84,7 +84,7 @@ export default function Navbar() {
                     <div className="w-72 overflow-hidden rounded-lg border border-[#ccc5b9] bg-[#fffcf2] shadow-xl">
                       {link.children.map((child) => (
                         <Link
-                          key={child.href}
+                          key={child.label}
                           href={child.href}
                           className="block border-b border-[#ccc5b9]/40 px-5 py-3.5 text-sm font-medium text-[#403d39] transition-colors last:border-b-0 hover:bg-[#fffcf7] hover:text-[#eb5e28]"
                         >
@@ -97,7 +97,7 @@ export default function Navbar() {
               </div>
             ) : (
               <Link
-                key={link.href}
+                key={link.label}
                 href={link.href}
                 className={`text-sm font-semibold transition-colors ${
                     nearFooter ? "text-white hover:text-[#eb5e28]" : "text-[#403d39] hover:text-[#eb5e28]"
@@ -149,7 +149,7 @@ export default function Navbar() {
                   </p>
                   {link.children.map((child) => (
                     <Link
-                      key={child.href}
+                      key={child.label}
                       href={child.href}
                       className="block rounded-md px-3 py-2.5 text-sm font-medium text-[#403d39] hover:bg-[#fffcf7] hover:text-[#eb5e28]"
                       onClick={() => setMobileOpen(false)}
@@ -160,7 +160,7 @@ export default function Navbar() {
                 </div>
               ) : (
                 <Link
-                  key={link.href}
+                  key={link.label}
                   href={link.href}
                   className="block rounded-md px-3 py-2.5 text-sm font-semibold text-[#403d39] hover:bg-[#fffcf7] hover:text-[#eb5e28]"
                   onClick={() => setMobileOpen(false)}
