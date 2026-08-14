@@ -28,7 +28,7 @@ function Logo({ dark = false }) {
       {/* Icon — stacked above the text */}
       <Image
         src="/Logo Header.svg"
-        alt=""
+        alt="roofer Seo co ."
         width={48}
         height={28}
         priority
