@@ -29,7 +29,7 @@ export const metadata = {
   metadataBase: new URL(SITE_URL),
   title: "Roofer SEO Co. Roofing SEO & Reputation Specialists",
   description:
-    "We help roofing contractors build a five-star reputation, rank higher in local search, and turn more homeowners into booked calls,with a system built only for roofers.",
+   "We help roofers dominate local search, build a 5-star reputation, and turn homeowners into booked calls — with a system made only for roofing pros.",
   openGraph: {
     title: "Roofer SEO Co. Roofing SEO & Reputation Specialists",
     description:
