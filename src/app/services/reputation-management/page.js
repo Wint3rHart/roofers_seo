@@ -5,11 +5,28 @@ import ContentBody, {
 } from "@/components/services/reputation_management/content_body";
 import { getService } from "@/data/services";
 import { notFound } from "next/navigation";
+import JsonLdScript from "@/components/shared/json_ld_script";
+import { serviceSchema, faqSchema, breadcrumbSchema } from "@/data/json_ld";
+import { SITE_URL } from "@/data/site_config";
 
 export const metadata = {
   title: " Reputation Management for Roofers | Roofer SEO Co",
   description:
     "Automated review requests, dispute protection, and AI-powered replies for roofing companies. Turn every completed job into a 5-star review. Get a free proposal.",
+  openGraph: {
+    title: "Reputation Management for Roofers | Roofer SEO Co",
+    description:
+      "Automated review requests, dispute protection, and AI-powered replies for roofing companies. Turn every completed job into a 5-star review.",
+    url: `${SITE_URL}/services/reputation-management`,
+    images: [{ url: "/og-image.svg", width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Reputation Management for Roofers | Roofer SEO Co",
+    description:
+      "Automated review requests, dispute protection, and AI-powered replies for roofing companies.",
+    images: ["/og-image.svg"],
+  },
 };
 
 export default function ReputationManagementPage() {
@@ -18,6 +35,13 @@ export default function ReputationManagementPage() {
 
   return (
     <main className="bg-[#fffcf2]">
+      <JsonLdScript
+        schema={[
+          serviceSchema(data),
+          breadcrumbSchema(data),
+          faqSchema(data.faqs),
+        ]}
+      />
       <ReputationManagementHero />
       <ServiceContentLayout
         tocItems={TOC_ITEMS}
